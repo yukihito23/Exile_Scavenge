@@ -1,13 +1,14 @@
-private["_fruits","_maxfruit","_chance","_fruitsfound","_fruit","_pos"];
+private["_fruitsConfig","_fruits","_maxfruit","_chance","_fruitsfound","_fruit","_pos"];
 //--------------------------------------------------------------------------//
-_fruits = ["items_pack_pear", "items_pack_banana"];
-_chance = 50;			//	Chance to find
-_maxfruit = 4;		//	Max apple per drop
+_fruitsConfig = missionConfigFile >> "CfgExileScavange";					// Fruit config reference
+_fruits = getArray (_fruitsConfig >> "Fruit" >> "items");					// Items array config config
+_chance = getNumber (_fruitsConfig >> "Fruit" >> "chance");					//	Chance to find config
+_maxfruit = getNumber (_fruitsConfig >> "Fruit" >> "maxitems");				//	Max items per drop config
 //--------------------------------------------------------------------------//
 	_pos = getPosATL player;
 	if (ExileClientPlayerIsInCombat) exitWith {["ErrorTitleOnly", ["Its not safe to pick fruit."]] call ExileClient_gui_toaster_addTemplateToast;};
 	if (player call ExileClient_util_world_isInTraderZone) exitWith {["ErrorTitleOnly", ["No stealing the Trader's fruit!"]] call ExileClient_gui_toaster_addTemplateToast;};
-	if !(player getVariable "canloot") exitWith {["ErrorTitleOnly", ["You cannot look for apples just yet."]] call ExileClient_gui_toaster_addTemplateToast;};
+	if !(player getVariable "canloot") exitWith {["ErrorTitleOnly", ["You cannot look for fruit just yet."]] call ExileClient_gui_toaster_addTemplateToast;};
 	if !(alive player) exitWith {};
 	player setVariable [ "canloot",false];
 	player playMove "AinvPknlMstpSnonWnonDnon_medic_1";

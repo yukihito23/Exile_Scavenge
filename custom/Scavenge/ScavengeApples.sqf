@@ -1,8 +1,9 @@
-private["_apples","_chance","_maxapples","_applesfound","_apple","_pos"];
+private["_applesConfig","_apples","_chance","_maxapples","_applesfound","_apple","_pos"];
 //--------------------------------------------------------------------------//
-_apples = ["items_pack_apple_red", "items_pack_apple"];
-_chance = 50;			//	Chance to find
-_maxapples = 5;		//	Max apple per drop
+_applesConfig = missionConfigFile >> "CfgExileScavange";					// Apples config reference
+_apples = getArray (_applesConfig >> "Apples" >> "items");					// Items array config
+_chance = getNumber (_applesConfig >> "Apples" >> "chance");				//	Chance to find config
+_maxapples = getNumber (_applesConfig >> "Apples" >> "maxitems");			//	Max items per drop config
 //--------------------------------------------------------------------------//
 	_pos = getPosATL player;
 	if (ExileClientPlayerIsInCombat) exitWith {["ErrorTitleOnly", ["Its not safe to pick apples."]] call ExileClient_gui_toaster_addTemplateToast;};

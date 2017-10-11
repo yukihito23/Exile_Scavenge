@@ -1,0 +1,3 @@
+// Add me on the end of your missions description.ext
+#include "CfgExileScavange.cpp"
+#include "CfgExileHoldActions.cpp"

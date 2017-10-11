@@ -1,25 +1,9 @@
-private["_loot","_maxloot","_chance","_lootfound","_randomloot","_pos"];
+private["_wrecksConfig","_loot","_maxloot","_chance","_lootfound","_randomloot","_pos"];
 //--------------------------------------------------------------------------//
-_loot = [
-// Rifles
-	"CUP_arifle_AK74","CUP_arifle_AK107","CUP_arifle_AKS74","CUP_arifle_AKS74U","CUP_arifle_AKM","CUP_arifle_AKS",
-	"CUP_30Rnd_545x39_AK_M","CUP_30Rnd_545x39_AK_M","CUP_30Rnd_545x39_AK_M","CUP_30Rnd_545x39_AK_M","CUP_30Rnd_545x39_AK_M","CUP_30Rnd_545x39_AK_M",
-	"CUP_muzzle_PBS4","CUP_optic_PSO_1","CUP_optic_Kobra",
-// Smgs
-	"CUP_smg_bizon","CUP_smg_EVO","CUP_smg_MP5SD6","CUP_smg_MP5A5",
-	"CUP_30Rnd_9x19_EVO","CUP_30Rnd_9x19_UZI","CUP_30Rnd_9x19_MP5",
-	"CUP_muzzle_Bizon",	
-// Pistols	
-	"CUP_hgun_Colt1911","CUP_hgun_Compact","CUP_hgun_glock17_flashlight_snds","CUP_hgun_M9","CUP_hgun_Makarov","CUP_hgun_PB6P9","CUP_hgun_MicroUzi",
-	"CUP_8Rnd_9x18_Makarov_M","CUP_8Rnd_9x18_MakarovSD_M",	"CUP_15Rnd_9x19_M9","CUP_18Rnd_9x19_Phantom","CUP_6Rnd_45ACP_M","CUP_17Rnd_9x19_glock17","CUP_7Rnd_45ACP_1911",
-	"CUP_muzzle_snds_M9","CUP_muzzle_snds_MicroUzi",
-// Extras
-	"Exile_Item_InstaDoc","Exile_Item_Bandage",
-	"Exile_Item_DuctTape","Exile_Item_ExtensionCord"
-/*		addItemCargoGlobal only works with items, weapons and magazines.		*/	
-];
-_chance = 50;			//	Chance to find
-_maxloot = 3;			//	Max items per drop
+_wrecksConfig = missionConfigFile >> "CfgExileScavange";					// Wrecks config reference
+_loot = getArray (_wrecksConfig >> "Wrecks" >> "items");					// Items array config
+_chance = getNumber (_wrecksConfig >> "Wrecks" >> "chance");				//	Chance to find config
+_maxloot = getNumber (_wrecksConfig >> "Wrecks" >> "maxitems");				//	Max items per drop config
 //--------------------------------------------------------------------------//
 	_pos = getPosATL player;
 	if (ExileClientPlayerIsInCombat) exitWith {["ErrorTitleOnly", ["Its not safe to scavenge."]] call ExileClient_gui_toaster_addTemplateToast;};
