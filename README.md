@@ -15,4 +15,8 @@ Not allowed to do these actions while in combat or in a trader.</br>
       ExileClient_object_player_initialize = "Custom\Scavenge\ExileClient_object_player_initialize.sqf";	
       4. Edit each file to suit your server. (ScavengeApples.sqf, ScavengeWrecks.sqf, ScavengeFruit.sqf)
 
+</br></br></br>
 
+
+Credits to Kurewe for the orginal script.
+http://www.exilemod.com/profile/18022-kurewe/
