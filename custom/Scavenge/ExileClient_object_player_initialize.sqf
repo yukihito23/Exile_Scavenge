@@ -8,7 +8,7 @@
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. 
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
- private["_newPlayerObject", "_oldPlayerObject"];
+private["_newPlayerObject", "_oldPlayerObject"];
 _newPlayerObject = _this;
 _oldPlayerObject = player;
 player reveal [_newPlayerObject, 4];
@@ -20,8 +20,9 @@ if (_oldPlayerObject isKindOf "Exile_Unit_GhostPlayer") then
 player setVariable ["ExileXM8IsOnline", (profileNamespace getVariable ["ExileEnable8GNetwork", false]), true];
 
 ExileClient_gui_holdActionAdd = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_gui_holdActionAdd.sqf";
-ExileClient_player_system_scavenge = compileFinal preprocessFileLineNumbers "custom\Scavenge\ScavengeObjects.sqf";
-[] call compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_Loot_Scavenge.sqf";
+ExileClient_player_system_scavenge_event = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_player_system_scavenge_event.sqf";
+ExileClient_player_system_scavenge_actions = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_player_system_scavenge_actions.sqf";
+[] call ExileClient_player_system_scavenge_actions;
 
 enableSentences false;
 enableRadio false;
