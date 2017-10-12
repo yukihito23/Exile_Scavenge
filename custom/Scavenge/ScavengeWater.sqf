@@ -1,9 +1,9 @@
 private["_watersConfig","_water","_chance","_maxwater","_waterfound","_waters","_pos","_canAdd"];
 //--------------------------------------------------------------------------//
 _watersConfig = missionConfigFile >> "CfgExileScavange";					// Water config reference
-_waters = getArray (_waterConfig >> "Waters" >> "items");					// Items array config
-_chance = getNumber (_waterConfig >> "Waters" >> "chance");				//	Chance to find config
-_maxwater = getNumber (_waterConfig >> "Waters" >> "maxitems");			//	Max items per drop config
+_waters = getArray (_watersConfig >> "Waters" >> "items");					// Items array config
+_chance = getNumber (_watersConfig >> "Waters" >> "chance");				//	Chance to find config
+_maxwater = getNumber (_watersConfig >> "Waters" >> "maxitems");			//	Max items per drop config
 //--------------------------------------------------------------------------//
 	_pos = getPosATL player;
 	if (ExileClientPlayerIsInCombat) exitWith {["ErrorTitleOnly", ["Its not safe to pump water."]] call ExileClient_gui_toaster_addTemplateToast;};
@@ -12,6 +12,27 @@ _maxwater = getNumber (_waterConfig >> "Waters" >> "maxitems");			//	Max items p
 	if !("Exile_Item_PlasticBottleEmpty" in (magazines player)) exitWith {["ErrorTitleOnly", ["You don't have any empty waterbottles."]] call ExileClient_gui_toaster_addTemplateToast;};
 	if !(alive player) exitWith {};
 	player setVariable [ "canloot",false];
+	
+	// If players list of already scavenged objects is empty then add the current cursorobject to the list.
+	_playerObjectInfo = player getVariable ["ScavangedObjects",[]];
+	if (_playerObjectInfo isEqualTo []) then
+	{
+		private _playerScavengedObjects = [];
+		private _currentObject = cursorObject;
+		_playerScavengedObjects pushBack _currentObject;
+		player setVariable ["ScavangedObjects", _playerScavengedObjects, true];
+	}
+	else
+	// If players list of already scavenged objects is not empty then grab the array and add the curent cursorobject to the list.
+	{
+		private _playerScavengedObjects = [];
+		private _objectsList = player getVariable ["ScavangedObjects",[]];
+		_playerScavengedObjects pushBack _objectsList;
+		private _currentObject = cursorObject;
+		_playerScavengedObjects pushBack _currentObject;
+		player setVariable ["ScavangedObjects", _playerScavengedObjects, true];
+	};
+	
 	player playMove "AinvPknlMstpSnonWnonDnon_medic_1";
 	uiSleep 6;
 

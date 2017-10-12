@@ -1,7 +1,10 @@
 /**
- * CfgExileScavange
+ * CfgExileHoldActions
  *
- * Author: Steve aka Slautesh
+ * Author: Steve aka Salutesh
+ *
+ * Description:
+ * These configurations are used for the within the scavange system to configure the different scavange classes.
  */
 
 class CfgExileScavange
@@ -27,7 +30,7 @@ class CfgExileScavange
 		};
 	};
 	
-	class Fruit
+	class Fruits
 	{
 		chance = 50;
 		maxitems = 5;
@@ -155,7 +158,6 @@ class CfgExileScavange
 			"Exile_Item_Bandage",
 			"Exile_Item_DuctTape",
 			"Exile_Item_ExtensionCord"
-			/*	addItemCargoGlobal only works with items, weapons and magazines.*/
 		};
 	};
 	
