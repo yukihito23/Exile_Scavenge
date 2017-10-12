@@ -16,8 +16,8 @@ Water_Source = getArray (_configReference >> "Waters" >> "models");
 Pumpkin_Patch = getArray (_configReference >> "Pumpkins" >> "models");
 Wood_Stock = getArray (_configReference >> "Woodlogs" >> "models");
 
-player setVariable["canloot",true];
-player setVariable ["ScavangedObjects", [], true];
+player setVariable["CanScavenge",true];
+player setVariable ["ScavangedObjects", []];
 
 // Wreck holdaction
 [	
@@ -25,7 +25,7 @@ player setVariable ["ScavangedObjects", [], true];
 	"Scavenge Wreck",
 	"Exile_HA_Icon_Wreck",
 	"Exile_HA_Icon_Wreck",
-	"getModelInfo cursorObject select 0 in Loot_Wrecks && player distance cursorObject < 5 && !(cursorObject in (player getVariable ['ScavangedObjects',[]]))",
+	"((getModelInfo cursorObject) select 0) in Loot_Wrecks && {player distance cursorObject < 5} && {!(cursorObject in (player getVariable ['ScavangedObjects',[]]))}",
 	"_caller distance _target < 5",
 	{},
 	{
@@ -34,7 +34,7 @@ player setVariable ["ScavangedObjects", [], true];
 		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
 	},
 	{
-		[] call ExileClient_object_scavenge_wrecks;
+		["Wrecks"] call ExileClient_player_system_scavenge;
 	},
 	{},
 	[],
@@ -58,7 +58,7 @@ player setVariable ["ScavangedObjects", [], true];
 		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
 	},
 	{
-		[] call ExileClient_object_scavenge_apples;
+		["Apples"] call ExileClient_player_system_scavenge;
 	},
 	{},
 	[],
@@ -82,7 +82,7 @@ player setVariable ["ScavangedObjects", [], true];
 		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
 	},
 	{
-		[] call ExileClient_object_scavenge_fruit;
+		["Fruits"] call ExileClient_player_system_scavenge;
 	},
 	{},
 	[],
@@ -106,7 +106,7 @@ player setVariable ["ScavangedObjects", [], true];
 		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
 	},
 	{
-		[] call ExileClient_object_scavenge_pumpkins;
+		["Pumpkins"] call ExileClient_player_system_scavenge;
 	},
 	{},
 	[],
@@ -130,7 +130,7 @@ player setVariable ["ScavangedObjects", [], true];
 		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
 	},
 	{
-		[] call ExileClient_object_scavenge_water;
+		["Waters"] call ExileClient_player_system_scavenge;
 	},
 	{},
 	[],
@@ -154,7 +154,7 @@ player setVariable ["ScavangedObjects", [], true];
 		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
 	},
 	{
-		[] call ExileClient_object_scavenge_woodlogs;
+		["Woodlogs"] call ExileClient_player_system_scavenge;
 	},
 	{},
 	[],

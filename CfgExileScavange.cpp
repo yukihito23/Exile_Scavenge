@@ -15,6 +15,8 @@ class CfgExileScavange
 	{
 		chance = 50;
 		maxitems = 5;
+		icon = "Exile_HA_Icon_Apple";
+		text = "Scavenge for Apples";
 		
 		models[] = 
 		{
@@ -34,6 +36,8 @@ class CfgExileScavange
 	{
 		chance = 50;
 		maxitems = 5;
+		icon = "Exile_HA_Icon_Fruit";
+		text = "Scavenge for Fruit";
 		
 		models[] = 
 		{
@@ -66,6 +70,8 @@ class CfgExileScavange
 	{
 		chance = 50;
 		maxitems = 5;
+		icon = "Exile_HA_Icon_Wreck";
+		text = "Scavenge Wreck";
 		
 		models[] = 
 		{
@@ -165,6 +171,8 @@ class CfgExileScavange
 	{
 		chance = 70;
 		maxitems = 1;
+		icon = "Exile_HA_Icon_Water";
+		text = "Scavenge for Water";
 		
 		models[] =
 		{
@@ -185,6 +193,8 @@ class CfgExileScavange
 	{
 		chance = 50;
 		maxitems = 3;
+		icon = "Exile_HA_Icon_Woodlogs";
+		text = "Scavenge Woodlogs";
 		
 		models[] =
 		{
@@ -203,6 +213,8 @@ class CfgExileScavange
 	{
 		chance = 50;
 		maxitems = 1;
+		icon = "Exile_HA_Icon_Pumpkin";
+		text = "Harvest Pumpkin";
 		
 		models[] =
 		{

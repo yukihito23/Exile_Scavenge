@@ -51,4 +51,5 @@ http://www.exilemod.com/profile/18022-kurewe/
 
 Credits to Cho for a rewrite and port for the exile mod.
 Credits to yukihito23 for additons and expansions of the system.
+Credits to NiiRoZz for plenty amount of help, expansions and optimizations of the system.
 Credits to Salutesh for additons and expansions of the system.

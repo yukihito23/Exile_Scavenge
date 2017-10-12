@@ -20,13 +20,8 @@ if (_oldPlayerObject isKindOf "Exile_Unit_GhostPlayer") then
 player setVariable ["ExileXM8IsOnline", (profileNamespace getVariable ["ExileEnable8GNetwork", false]), true];
 
 ExileClient_gui_holdActionAdd = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_gui_holdActionAdd.sqf";
-ExileClient_object_scavenge_wrecks = compileFinal preprocessFileLineNumbers "custom\Scavenge\ScavengeWrecks.sqf";
-ExileClient_object_scavenge_woodlogs = compileFinal preprocessFileLineNumbers "custom\Scavenge\ScavengeWoodlogs.sqf";
-ExileClient_object_scavenge_water = compileFinal preprocessFileLineNumbers "custom\Scavenge\ScavengeWater.sqf";
-ExileClient_object_scavenge_pumpkins = compileFinal preprocessFileLineNumbers "custom\Scavenge\ScavengePumpkin.sqf";
-ExileClient_object_scavenge_fruit = compileFinal preprocessFileLineNumbers "custom\Scavenge\ScavengeFruit.sqf";
-ExileClient_object_scavenge_apples = compileFinal preprocessFileLineNumbers "custom\Scavenge\ScavengeApples.sqf";
-#include "ExileClient_Loot_Scavenge.sqf"
+ExileClient_player_system_scavenge = compileFinal preprocessFileLineNumbers "custom\Scavenge\ScavengeObjects.sqf";
+[] call compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_Loot_Scavenge.sqf";
 
 enableSentences false;
 enableRadio false;
