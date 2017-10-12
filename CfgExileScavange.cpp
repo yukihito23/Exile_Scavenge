@@ -159,7 +159,7 @@ class CfgExileScavange
 		};
 	};
 	
-	class Water
+	class Waters
 	{
 		chance = 70;
 		maxitems = 1;

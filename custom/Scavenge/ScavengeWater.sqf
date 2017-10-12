@@ -1,9 +1,9 @@
-private["_waterConfig","_water","_chance","_maxwater","_waterfound","_waters","_pos","_canAdd"];
+private["_watersConfig","_water","_chance","_maxwater","_waterfound","_waters","_pos","_canAdd"];
 //--------------------------------------------------------------------------//
-_waterConfig = missionConfigFile >> "CfgExileScavange";					// Water config reference
-_water = getArray (_waterConfig >> "Water" >> "items");					// Items array config
-_chance = getNumber (_waterConfig >> "Water" >> "chance");				//	Chance to find config
-_maxwater = getNumber (_waterConfig >> "Water" >> "maxitems");			//	Max items per drop config
+_watersConfig = missionConfigFile >> "CfgExileScavange";					// Water config reference
+_waters = getArray (_waterConfig >> "Waters" >> "items");					// Items array config
+_chance = getNumber (_waterConfig >> "Waters" >> "chance");				//	Chance to find config
+_maxwater = getNumber (_waterConfig >> "Waters" >> "maxitems");			//	Max items per drop config
 //--------------------------------------------------------------------------//
 	_pos = getPosATL player;
 	if (ExileClientPlayerIsInCombat) exitWith {["ErrorTitleOnly", ["Its not safe to pump water."]] call ExileClient_gui_toaster_addTemplateToast;};
