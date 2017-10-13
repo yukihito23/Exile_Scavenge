@@ -1,6 +1,6 @@
 /**
  * ExileClient_player_system_scavenge_event
- * 
+ *
  */
 params [
   ["_configName", "", [""]]
