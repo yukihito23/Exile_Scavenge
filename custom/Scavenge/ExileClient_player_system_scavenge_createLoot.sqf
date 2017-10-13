@@ -16,7 +16,7 @@ private _maxloot = getNumber (_configReference >> _configName >> "maxitems");
 _objectsList pushBack _currentObject;
 player setVariable ["ScavangedObjects", _objectsList];
 
-		player playMove "AinvPknlMstpSnonWnonDnon_medic_1";
+player playMove "AinvPknlMstpSnonWnonDnon_medic_1";
 uiSleep 6;
 
 if (random 100 > _chance) then 
@@ -33,7 +33,7 @@ if (random 100 > _chance) then
 		_lootHolder addItemCargoGlobal [(selectRandom _loot), 1];
 	};
 
-			uiSleep 3;
+	uiSleep 3;
 	player setVariable ["CanScavange",true];
 } 
 else 

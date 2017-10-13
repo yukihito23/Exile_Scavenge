@@ -1,3 +1,4 @@
 // Add me on the end of your missions description.ext
+#include "CfgScavengeRecipes.cpp"
 #include "CfgExileScavange.cpp"
 #include "CfgExileHoldActions.cpp"

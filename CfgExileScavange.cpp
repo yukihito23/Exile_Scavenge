@@ -30,10 +30,6 @@ class CfgExileScavange
 			"items_pack_apple_red", 
 			"items_pack_apple"
 		};
-		class conditions
-		{
-			items[] = {};
-		};
 	};
 	
 	class Fruits
@@ -67,10 +63,6 @@ class CfgExileScavange
 		{
 			"items_pack_pear", 
 			"items_pack_banana"
-		};
-		class conditions
-		{
-			items[] = {};
 		};
 	};
 	
@@ -173,10 +165,6 @@ class CfgExileScavange
 			"Exile_Item_DuctTape",
 			"Exile_Item_ExtensionCord"
 		};
-		class conditions
-		{
-			items[] = {};
-		};
 	};
 	
 	class Waters
@@ -226,10 +214,6 @@ class CfgExileScavange
 		{
 			"Exile_Item_WoodLog"
 		};
-		class conditions
-		{
-			items[] = {};
-		};
 	};
 	
 	// Extended_Items_Exile
@@ -249,10 +233,6 @@ class CfgExileScavange
 		items[] =
 		{
 			"Exitem_pumpkin"
-		};
-		class conditions
-		{
-			items[] = {};
 		};
 	};
 };
