@@ -3,195 +3,144 @@
  * 
  */
 private _configReference = missionConfigFile >> "CfgExileScavange";
-Loot_Wrecks = getArray (_configReference >> "Wrecks" >> "models");
-Apple_Trees = getArray (_configReference >> "Apples" >> "models");
-Fruit_Trees = getArray (_configReference >> "Fruits" >> "models");
-Water_Source = getArray (_configReference >> "Waters" >> "models");
-Pumpkin_Patch = getArray (_configReference >> "Pumpkins" >> "models");
-Wood_Stock = getArray (_configReference >> "Woodlogs" >> "models");
-
 player setVariable["CanScavenge",true];
 player setVariable ["ScavangedObjects", []];
 
-switch (true) do 
-{
-	case ((getModelInfo cursorObject select 0) in Pumpkin_Patch):
+
+[
+	player,
+	getText (_configReference >> "Pumpkins" >> "text"),
+	getText (_configReference >> "Pumpkins" >> "icon"),
+	getText (_configReference >> "Pumpkins" >> "icon"),
+	"((getModelInfo cursorObject) select 0) in Pumpkin_Patch && {player distance cursorObject < 5} && {!(cursorObject in (player getVariable ['ScavangedObjects',[]]))}",
+	"_caller distance _target < 5",
+	{},
 	{
-		private _configReference = missionConfigFile >> "CfgExileScavange";
-		private _text = getText (_configReference >> "Pumpkins" >> "text");
-		private _actionIcon = getText (_configReference >> "Pumpkins" >> "icon");
-		private _progressIcon = getText (_configReference >> "Pumpkins" >> "icon");
-		[
-			player,
-			_text,
-			_actionIcon,
-			_progressIcon,
-			"{((getModelInfo cursorObject) select 0) in _x} count [Loot_Wrecks,Apple_Trees,Fruit_Trees,Pumpkin_Patch,Water_Source,Wood_Stock] > 0",
-			"_caller distance _target < 5",
-			{},
-			{
-				private _progressTick = _this select 4;
-				if (_progressTick % 2 == 0) exitwith {};
-				playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
-			},
-			{
-				["Pumpkins"] call ExileClient_player_system_scavenge_event;
-			},
-			{},
-			[],
-			0.5,
-			0,
-			false
-		] call ExileClient_gui_holdActionAdd;
-	};
+		private _progressTick = _this select 4;
+		if (_progressTick % 2 == 0) exitwith {};
+		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
+	},
+	{
+		["Pumpkins"] call ExileClient_player_system_scavenge_event;
+	},
+	{},
+	[],
+	0.5,
+	0,
+	false
+] call ExileClient_gui_holdActionAdd;
+
+[	
+	player,
+	getText (_configReference >> "Wrecks" >> "text"),
+	getText (_configReference >> "Wrecks" >> "icon"),
+	getText (_configReference >> "Wrecks" >> "icon"),
+	"((getModelInfo cursorObject) select 0) in Loot_Wrecks && {player distance cursorObject < 5} && {!(cursorObject in (player getVariable ['ScavangedObjects',[]]))}",
+	"_caller distance _target < 5",
+	{},
+	{
+		private _progressTick = _this select 4;
+		if (_progressTick % 2 == 0) exitwith {};
+		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
+	},
+	{
+		["Wrecks"] call ExileClient_player_system_scavenge_event;
+	},
+	{},
+	[],
+	0.5,
+	0,
+	false
+] call ExileClient_gui_holdActionAdd;
+
+[	
+	player,
+	getText (_configReference >> "Apples" >> "text"),
+	getText (_configReference >> "Apples" >> "icon"),
+	getText (_configReference >> "Apples" >> "icon"),
+	"((getModelInfo cursorObject) select 0) in Apple_Trees && {player distance cursorObject < 5} && {!(cursorObject in (player getVariable ['ScavangedObjects',[]]))}",
+	"_caller distance _target < 5",
+	{},
+	{
+		private _progressTick = _this select 4;
+		if (_progressTick % 2 == 0) exitwith {};
+		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
+	},
+	{
+		["Apples"] call ExileClient_player_system_scavenge_event;
+	},
+	{},
+	[],
+	0.5,
+	0,
+	false
+] call ExileClient_gui_holdActionAdd;
 	
-	case ((getModelInfo cursorObject select 0) in Loot_Wrecks): 
+[	
+	player,
+	getText (_configReference >> "Fruits" >> "text"),
+	getText (_configReference >> "Fruits" >> "icon"),
+	getText (_configReference >> "Fruits" >> "icon"),
+	"((getModelInfo cursorObject) select 0) in Fruit_Trees && {player distance cursorObject < 5} && {!(cursorObject in (player getVariable ['ScavangedObjects',[]]))}",
+	"_caller distance _target < 5",
+	{},
 	{
-		private _configReference = missionConfigFile >> "CfgExileScavange";
-		private _text = getText (_configReference >> "Wrecks" >> "text");
-		private _actionIcon = getText (_configReference >> "Wrecks" >> "icon");
-		private _progressIcon = getText (_configReference >> "Wrecks" >> "icon");
-		[	
-			player,
-			_text,
-			_actionIcon,
-			_progressIcon,
-			"{((getModelInfo cursorObject) select 0) in _x} count [Loot_Wrecks,Apple_Trees,Fruit_Trees,Pumpkin_Patch,Water_Source,Wood_Stock] > 0",
-			"_caller distance _target < 5",
-			{},
-			{
-				private _progressTick = _this select 4;
-				if (_progressTick % 2 == 0) exitwith {};
-				playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
-			},
-			{
-				["Wrecks"] call ExileClient_player_system_scavenge_event;
-			},
-			{},
-			[],
-			0.5,
-			0,
-			false
-		] call ExileClient_gui_holdActionAdd;
-	};
-	
-	case ((getModelInfo cursorObject select 0) in Apple_Trees): 
+		private _progressTick = _this select 4;
+		if (_progressTick % 2 == 0) exitwith {};
+		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
+	},
 	{
-		private _configReference = missionConfigFile >> "CfgExileScavange";
-		private _text = getText (_configReference >> "Apples" >> "text");
-		private _actionIcon = getText (_configReference >> "Apples" >> "icon");
-		private _progressIcon = getText (_configReference >> "Apples" >> "icon");
-		[	
-			player,
-			_text,
-			_actionIcon,
-			_progressIcon,
-			"{((getModelInfo cursorObject) select 0) in _x} count [Loot_Wrecks,Apple_Trees,Fruit_Trees,Pumpkin_Patch,Water_Source,Wood_Stock] > 0",
-			"_caller distance _target < 5",
-			{},
-			{
-				private _progressTick = _this select 4;
-				if (_progressTick % 2 == 0) exitwith {};
-				playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
-			},
-			{
-				["Apples"] call ExileClient_player_system_scavenge_event;
-			},
-			{},
-			[],
-			0.5,
-			0,
-			false
-		] call ExileClient_gui_holdActionAdd;
-	};
-	
-	case ((getModelInfo cursorObject select 0) in Fruit_Trees): 
+		["Fruits"] call ExileClient_player_system_scavenge_event;
+	},
+	{},
+	[],
+	0.5,
+	0,
+	false
+] call ExileClient_gui_holdActionAdd;
+
+[	
+	player,
+	getText (_configReference >> "Waters" >> "text"),
+	getText (_configReference >> "Waters" >> "icon"),
+	getText (_configReference >> "Waters" >> "icon"),
+	"((getModelInfo cursorObject) select 0) in Water_Source && {player distance cursorObject < 5} && {!(cursorObject in (player getVariable ['ScavangedObjects',[]]))}",
+	"_caller distance _target < 5",
+	{},
 	{
-		private _configReference = missionConfigFile >> "CfgExileScavange";
-		private _text = getText (_configReference >> "Fruits" >> "text");
-		private _actionIcon = getText (_configReference >> "Fruits" >> "icon");
-		private _progressIcon = getText (_configReference >> "Fruits" >> "icon");
-		[	
-			player,
-			_text,
-			_actionIcon,
-			_progressIcon,
-			"{((getModelInfo cursorObject) select 0) in _x} count [Loot_Wrecks,Apple_Trees,Fruit_Trees,Pumpkin_Patch,Water_Source,Wood_Stock] > 0",
-			"_caller distance _target < 5",
-			{},
-			{
-				private _progressTick = _this select 4;
-				if (_progressTick % 2 == 0) exitwith {};
-				playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
-			},
-			{
-				["Fruits"] call ExileClient_player_system_scavenge_event;
-			},
-			{},
-			[],
-			0.5,
-			0,
-			false
-		] call ExileClient_gui_holdActionAdd;
-	};
-	
-	case ((getModelInfo cursorObject select 0) in Water_Source): 
+		private _progressTick = _this select 4;
+		if (_progressTick % 2 == 0) exitwith {};
+		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
+	},
 	{
-		private _configReference = missionConfigFile >> "CfgExileScavange";
-		private _text = getText (_configReference >> "Waters" >> "text");
-		private _actionIcon = getText (_configReference >> "Waters" >> "icon");
-		private _progressIcon = getText (_configReference >> "Waters" >> "icon");
-		[	
-			player,
-			_text,
-			_actionIcon,
-			_progressIcon,
-			"{((getModelInfo cursorObject) select 0) in _x} count [Loot_Wrecks,Apple_Trees,Fruit_Trees,Pumpkin_Patch,Water_Source,Wood_Stock] > 0",
-			"_caller distance _target < 5",
-			{},
-			{
-				private _progressTick = _this select 4;
-				if (_progressTick % 2 == 0) exitwith {};
-				playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
-			},
-			{
-				["Waters"] call ExileClient_player_system_scavenge_event;
-			},
-			{},
-			[],
-			0.5,
-			0,
-			false
-		] call ExileClient_gui_holdActionAdd;
-	};
-	
-	case ((getModelInfo cursorObject select 0) in Wood_Stock): 
+		["Waters"] call ExileClient_player_system_scavenge_event;
+	},
+	{},
+	[],
+	0.5,
+	0,
+	false
+] call ExileClient_gui_holdActionAdd;
+
+[	
+	player,
+	getText (_configReference >> "Woodlogs" >> "text"),
+	getText (_configReference >> "Woodlogs" >> "icon"),
+	getText (_configReference >> "Woodlogs" >> "icon"),
+	"((getModelInfo cursorObject) select 0) in Wood_Stock && {player distance cursorObject < 5} && {!(cursorObject in (player getVariable ['ScavangedObjects',[]]))}",
+	"_caller distance _target < 5",
+	{},
 	{
-		private _configReference = missionConfigFile >> "CfgExileScavange";
-		private _text = getText (_configReference >> "Woodlogs" >> "text");
-		private _actionIcon = getText (_configReference >> "Woodlogs" >> "icon");
-		private _progressIcon = getText (_configReference >> "Woodlogs" >> "icon");
-		[	
-			player,
-			_text,
-			_actionIcon,
-			_progressIcon,
-			"{((getModelInfo cursorObject) select 0) in _x} count [Loot_Wrecks,Apple_Trees,Fruit_Trees,Pumpkin_Patch,Water_Source,Wood_Stock] > 0",
-			"_caller distance _target < 5",
-			{},
-			{
-				private _progressTick = _this select 4;
-				if (_progressTick % 2 == 0) exitwith {};
-				playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
-			},
-			{
-				["Woodlogs"] call ExileClient_player_system_scavenge_event;
-			},
-			{},
-			[],
-			0.5,
-			0,
-			false
-		] call ExileClient_gui_holdActionAdd;
-	};
-};
+		private _progressTick = _this select 4;
+		if (_progressTick % 2 == 0) exitwith {};
+		playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
+	},
+	{
+		["Woodlogs"] call ExileClient_player_system_scavenge_event;
+	},
+	{},
+	[],
+	0.5,
+	0,
+	false
+] call ExileClient_gui_holdActionAdd;
