@@ -8,14 +8,18 @@ player setVariable ["ScavangedObjects", []];
 
 private _classes = (missionConfigFile >> "CfgExileScavange") call BIS_fnc_getCfgSubClasses;
 {
+	private _className = _x;
 	private _configReference = missionConfigFile >> "CfgExileScavange";
-	private _chance = getNumber (_configReference >> _x >> "chance");
-	private _maxItems = getNumber (_configReference >> _x >> "maxitems");
-	private _textInfo = getText (_configReference >> _x >> "text");
-	private _actioniconInfo = getText (_configReference >> _x >> "icon");
-	private _idleiconInfo = getText (_configReference >> _x >> "icon");
-	private _modelInfo = getArray (_configReference >> _x >> "models");
-	private _itemInfo = getArray (_configReference >> _x >> "items");
+	private _chance = getNumber (_configReference >> _className >> "chance");
+	private _maxItems = getNumber (_configReference >> _className >> "maxitems");
+	private _textInfo = getText (_configReference >> _className >> "text");
+	private _actioniconInfo = getText (_configReference >> _className >> "icon");
+	private _idleiconInfo = getText (_configReference >> _className >> "icon");
+	private _modelInfo = getArray (_configReference >> _className >> "models");
+	private _itemInfo = getArray (_configReference >> _className >> "items");
+	private _conditionsReference = missionConfigFile >> "CfgExileScavange" >> _className >> "conditions";
+	private _itemConditions = getArray (_conditionsReference >> "items");
+	
 	
 	private _chanceVarName = format ["ExileScavangeMaxItems%1", _x];
 	missionNamespace setVariable [_chanceVarName, _chance, true];
@@ -45,6 +49,10 @@ private _classes = (missionConfigFile >> "CfgExileScavange") call BIS_fnc_getCfg
 	missionNamespace setVariable [_itemsVarName, _itemInfo, true];
 	publicVariable _itemsVarName;
 	
+	private _conditionitemsVarName = format ["ExileScavangeConditiontems%1", _x];
+	missionNamespace setVariable [_conditionitemsVarName, _itemConditions, true];
+	publicVariable _conditionitemsVarName;
+	
 	private _condition = format ["((getModelInfo cursorObject) select 0) in %1 && {player distance cursorObject < 5} && {!(cursorObject in (player getVariable ['ScavangedObjects',[]]))}", _modelInfo];
 	
 	[
@@ -61,11 +69,11 @@ private _classes = (missionConfigFile >> "CfgExileScavange") call BIS_fnc_getCfg
 			playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
 		},
 		{
-			_class = (_this select 3)  select 0;
-			[_class] call ExileClient_player_system_scavenge_event;
+			_className = (_this select 3) select 0;
+			[_className] call ExileClient_player_system_scavenge_event;
 		},
 		{},
-		[_x],
+		[_className],
 		0.5,
 		0,
 		false

@@ -23,6 +23,7 @@ player setVariable ["ExileXM8IsOnline", (profileNamespace getVariable ["ExileEna
 ExileClient_gui_holdActionAdd = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_gui_holdActionAdd.sqf";
 ExileClient_player_system_scavenge_init = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_player_system_scavenge_init.sqf";
 ExileClient_player_system_scavenge_event = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_player_system_scavenge_event.sqf";
+ExileClient_player_system_scavenge_createLoot = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_player_system_scavenge_createLoot.sqf";
 [] call ExileClient_player_system_scavenge_init;
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------
 

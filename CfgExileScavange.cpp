@@ -4,7 +4,7 @@
  * Author: Steve aka Salutesh
  *
  * Description:
- * These configurations are used for the within the scavange system to configure the different scavange classes.
+ * These configurations are used within the scavange system to configure the different scavange classes.
  */
 
 class CfgExileScavange
@@ -29,6 +29,10 @@ class CfgExileScavange
 		{
 			"items_pack_apple_red", 
 			"items_pack_apple"
+		};
+		class conditions
+		{
+			items[] = {};
 		};
 	};
 	
@@ -63,6 +67,10 @@ class CfgExileScavange
 		{
 			"items_pack_pear", 
 			"items_pack_banana"
+		};
+		class conditions
+		{
+			items[] = {};
 		};
 	};
 	
@@ -165,6 +173,10 @@ class CfgExileScavange
 			"Exile_Item_DuctTape",
 			"Exile_Item_ExtensionCord"
 		};
+		class conditions
+		{
+			items[] = {};
+		};
 	};
 	
 	class Waters
@@ -187,6 +199,15 @@ class CfgExileScavange
 		{
 			"Exile_Item_PlasticBottleDirtyWater"
 		};
+		class conditions
+		{
+			items[] = 
+			{
+				"Exile_Item_PlasticBottleEmpty",
+				"Exile_Item_WaterCanisterEmpty",
+				"Exitem_canteen",
+			};
+		};
 	};
 	
 	class Woodlogs
@@ -204,6 +225,10 @@ class CfgExileScavange
 		items[] =
 		{
 			"Exile_Item_WoodLog"
+		};
+		class conditions
+		{
+			items[] = {};
 		};
 	};
 	
@@ -224,6 +249,10 @@ class CfgExileScavange
 		items[] =
 		{
 			"Exitem_pumpkin"
+		};
+		class conditions
+		{
+			items[] = {};
 		};
 	};
 };
