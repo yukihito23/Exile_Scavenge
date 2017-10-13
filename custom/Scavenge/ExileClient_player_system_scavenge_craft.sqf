@@ -3,14 +3,12 @@
  *
  */
 
-private["_recipeClassName", "_quantityToCraft", "_quantityCrafted", "_metSideConditions", "_recipeConfig", "_returnedItems", "_interactionModelGroupClassName", "_components", "_tools", "_equippedMagazines", "_addedItems", "_concreteMixer", "_toolItemClassName", "_equippedToolQuantity", "_interactionModelGroupModels", "_foundObject", "_i", "_hasAllComponents", "_componentQuantity", "_componentItemClassName", "_equippedComponentQuantity", "_returnedItemQuantity", "_returnedItemClassName", "_feedbackMessage", "_returnedItemName"];
-_recipeClassName = _this select 0;
+private _recipeClassName = _this select 0;
 _quantityToCraft = _this select 1;
 _quantityCrafted = 0;
 _metSideConditions = true;
 _canCraftItem = true;
 _recipeConfig = missionConfigFile >> "CfgScavengeRecipes" >> _recipeClassName;
-_scavengeConfig = missionConfigFile >> "CfgExileScavange";
 _returnedItems = getArray(_recipeConfig >> "returnedItems");
 _interactionModelGroupClassName = getText(_recipeConfig >> "requiredInteractionModelGroup");
 _components = getArray(_recipeConfig >> "components");
@@ -72,11 +70,6 @@ if( _interactionModelGroupClassName != "" ) then
 
 if (_metSideConditions) then
 {
-	private _currentObject = cursorObject;
-	private _objectsList = player getVariable ["ScavangedObjects",[]];
-	_objectsList pushBack _currentObject;
-	player setVariable ["ScavangedObjects", _objectsList];
-	
 	for "_i" from 1 to _quantityToCraft do 
 	{
 		_hasAllComponents = true;

@@ -37,3 +37,4 @@ player setVariable ["ScavangedObjects", []];
         false
     ] call ExileClient_gui_holdActionAdd;
 } forEach ("true" configClasses (missionConfigFile >> "CfgExileScavange"));
+true

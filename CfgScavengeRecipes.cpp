@@ -32,30 +32,6 @@ class CfgScavengeRecipes
 			{1, "Exile_Item_PlasticBottleEmpty"}
 		};
 	};
-	class ScavengeFillEmptyPlasticBottleWithFreshWater: Exile_ScavengeCraftingRecipe
-	{
-		requiredInteractionModelGroup = "Waters";
-		returnedItems[] =
-		{
-			{1, "Exile_Item_PlasticBottleFreshWater"}
-		};
-		components[] = 
-		{
-			{1, "Exile_Item_PlasticBottleEmpty"}
-		};
-	};
-	class ScavengeFillEmptyPlasticBottleWithSaltWater: Exile_ScavengeCraftingRecipe
-	{
-		requiresOcean = 1;
-		returnedItems[] = 
-		{
-			{1, "Exile_Item_PlasticBottleSaltWater"}
-		};
-		components[] = 
-		{
-			{1, "Exile_Item_PlasticBottleEmpty"}
-		};
-	};
 	class ScavengeFillEmptyWaterCanisterWithDirtyWater: Exile_ScavengeCraftingRecipe
 	{
 		requiredInteractionModelGroup = "Waters";

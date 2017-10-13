@@ -47,3 +47,4 @@ if !(isNull _clutter) then
 	waitUntil {uiSleep 1;player distance2D _clutter > 50};
 	deleteVehicle _clutter;
 };
+true
