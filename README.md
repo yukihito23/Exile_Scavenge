@@ -5,9 +5,17 @@ Please note that this is a project in its development stage and there might be s
 Feel free to give feedback and suggestions to this work.
 
 # Information:
-This will allow players to search wrecks for weapons, ammo, and a few other items. </br>
-Allow players to pick fruit from trees and bushes, and pick apples from apple trees.</br>
-Not allowed to do these actions while in combat or in a trader.
+Basicly this system will allow players to interact with terrain objects.</br>
+If the object has a entry in a scavenge class within the configurations the player can loot this object</br>
+and has a chance to get a item from that depending on the class.</br>
+
+> # So far the player can:
+>
+> - Pickup fruits and apples from trees.
+> - Search throu wrecks.
+> - Get woodstocks from trees.
+>
+More information coming soon!
 
 
 # Requirements:

@@ -1,24 +1,24 @@
 /**
- * ExileClient_player_system_scavenge_craft
+ * ExileClient_system_scavenge_action_craftItem
  *
  */
 
 private _recipeClassName = _this select 0;
-_quantityToCraft = _this select 1;
-_quantityCrafted = 0;
-_metSideConditions = true;
-_canCraftItem = true;
-_recipeConfig = missionConfigFile >> "CfgScavengeRecipes" >> _recipeClassName;
-_returnedItems = getArray(_recipeConfig >> "returnedItems");
-_interactionModelGroupClassName = getText(_recipeConfig >> "requiredInteractionModelGroup");
-_components = getArray(_recipeConfig >> "components");
-_tools = getArray(_recipeConfig >> "tools");
-_equippedMagazines = magazines player;
-_addedItems = [];
-_concreteMixer = objNull;
+private _quantityToCraft = _this select 1;
+private _quantityCrafted = 0;
+private _metSideConditions = true;
+private _canCraftItem = true;
+private _recipeConfig = missionConfigFile >> "CfgScavengeRecipes" >> _recipeClassName;
+private _returnedItems = getArray(_recipeConfig >> "returnedItems");
+private _interactionModelGroupClassName = getText(_recipeConfig >> "requiredInteractionModelGroup");
+private _components = getArray(_recipeConfig >> "components");
+private _tools = getArray(_recipeConfig >> "tools");
+private _equippedMagazines = magazines player;
+private _addedItems = [];
+private _concreteMixer = objNull;
 {
-	_toolItemClassName = _x;
-	_equippedToolQuantity = { _x == _toolItemClassName } count _equippedMagazines;
+	private _toolItemClassName = _x;
+	private _equippedToolQuantity = { _x == _toolItemClassName } count _equippedMagazines;
 	if (_equippedToolQuantity == 0 ) then
 	{
 		_metSideConditions = false;
@@ -49,8 +49,8 @@ if ( getNumber(_recipeConfig >> "requiresConcreteMixer") == 1 ) then
 };
 if( _interactionModelGroupClassName != "" ) then
 {
-	_interactionModelGroupModels = getArray(missionConfigFile >> "CfgExileScavange" >> _interactionModelGroupClassName >> "models");
-	_foundObject = false;
+	private _interactionModelGroupModels = getArray(missionConfigFile >> "CfgExileScavange" >> _interactionModelGroupClassName >> "models");
+	private _foundObject = false;
 	if ([ASLtoAGL (getPosASL player), 10, _interactionModelGroupModels] call ExileClient_util_model_isNearby) then
 	{
 		_foundObject = true;	
@@ -72,11 +72,11 @@ if (_metSideConditions) then
 {
 	for "_i" from 1 to _quantityToCraft do 
 	{
-		_hasAllComponents = true;
+		private _hasAllComponents = true;
 		{
-			_componentQuantity = _x select 0;
-			_componentItemClassName = _x select 1;
-			_equippedComponentQuantity = { _x == _componentItemClassName } count _equippedMagazines;
+			private _componentQuantity = _x select 0;
+			private _componentItemClassName = _x select 1;
+			private _equippedComponentQuantity = { _x == _componentItemClassName } count _equippedMagazines;
 			if (_equippedComponentQuantity < _componentQuantity ) then
 			{
 				_hasAllComponents = false;
@@ -104,8 +104,8 @@ if (_metSideConditions) then
 					}
 					forEach _components;
 					{
-						_returnedItemQuantity = _x select 0;
-						_returnedItemClassName = _x select 1;
+						private _returnedItemQuantity = _x select 0;
+						private _returnedItemClassName = _x select 1;
 						_addedItems = [_addedItems, _returnedItemClassName, _returnedItemQuantity] call BIS_fnc_addToPairs;
 						for "_i" from 1 to _returnedItemQuantity do 
 						{
@@ -123,11 +123,11 @@ if (_quantityCrafted > -1) then
 {
 	if (_quantityCrafted > 0) then
 	{
-		_feedbackMessage = "";
+		private _feedbackMessage = "";
 		{
 			_returnedItemClassName = _x select 0;
 			_returnedItemQuantity = _x select 1;
-			_returnedItemName = getText(configFile >> "CfgMagazines" >> _returnedItemClassName >> "displayName");
+			private _returnedItemName = getText(configFile >> "CfgMagazines" >> _returnedItemClassName >> "displayName");
 			if (_feedbackMessage != "") then 
 			{
 				_feedbackMessage = _feedbackMessage + "<br/>";

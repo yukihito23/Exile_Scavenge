@@ -1,5 +1,5 @@
 /**
- * ExileClient_player_system_scavenge_event
+ * ExileClient_system_scavenge_action_conditionEvents
  *
  */
 params [
@@ -34,15 +34,15 @@ switch (_className) do
 {
 	case "Apples":
 	{
-		["Apples"] call ExileClient_player_system_scavenge_createLoot;
+		["Apples"] call ExileClient_system_scavenge_createLoot;
 	};
 	case "Fruits":
 	{
-	    ["Fruits"] call ExileClient_player_system_scavenge_createLoot;
+	    ["Fruits"] call ExileClient_system_scavenge_createLoot;
 	};
 	case "Pumpkins":
 	{
-		["Pumpkins"] call ExileClient_player_system_scavenge_createLoot;
+		["Pumpkins"] call ExileClient_system_scavenge_createLoot;
 	};
 	case "Waters":
 	{
@@ -51,33 +51,25 @@ switch (_className) do
 		private _canCraftItem = true;
 		private _preConditions = true;
 		private _components = [];
-		private _componentItems = [];
 		private _componentsArray = [];
 		private _recipeClassName = "";
-		private _scavengeConfig = missionConfigFile >> "CfgExileScavange";
-		private _requiredItems = getArray (_scavengeConfig >> "Waters" >> "conditions" >> "items");
+		private _requiredItems = getArray (missionConfigFile >> "CfgExileScavange" >> "Waters" >> "conditions" >> "items");
 		private _recipes = (missionConfigFile >> "CfgScavengeRecipes") call BIS_fnc_getCfgSubClasses;
+		private _waterRecipes = ["ScavengeFillEmptyPlasticBottleWithDirtyWater", "ScavengeFillEmptyWaterCanisterWithDirtyWater"];
+		private _itemComponets = ScavengeItemComponents;
 		
+		if ({_x in _itemComponets} count _equippedMagazines > 0) then 
 		{
-			private _recipeConfig = missionConfigFile >> "CfgScavengeRecipes" >> _x;
-			_components = getArray(_recipeConfig >> "components");
-			{
-				_componentItems = ((_components select _x) select 1);
-				_componentsArray pushBack _componentItems;
-			} forEach _components;
-			
-			if ({_x in _componentsArray} count _equippedMagazines > 0) then 
-			{
-				_recipeClassName = _x;
-				_preConditions = true;
-			}
-			else
-			{
-				_preConditions = false;
+			_recipes select 
+			{ 
+				if (_x in _waterRecipes) then 
+				{ 
+					_recipeClassName = _x;
+					_preConditions = true;
+				}; 
 			};
-		} forEach _recipes;
-		
-		if !({_x in _componentsArray} count _equippedMagazines > 0) then 
+		}
+		else
 		{
 			["ErrorTitleOnly", ["You dont have any empty bottle or canister in your inventory."]] call ExileClient_gui_toaster_addTemplateToast;
 			_preConditions = false;
@@ -87,13 +79,13 @@ switch (_className) do
 		{
 			if ( {_x in _requiredItems} count _equippedMagazines > 0 ) then 
 			{
-				_conditionCeck = [_requiredItems, _recipeClassName] call ExileClient_player_system_scavenge_checkItemConditions;
+				_conditionCeck = [_requiredItems, _recipeClassName] call ExileClient_system_scavenge_checkItemConditions;
 				_canCraftItem = _conditionCeck select 0;
 				_recipeClassName = _conditionCeck select 1;
 			};
 			if( _canCraftItem ) then 
 			{
-				[_recipeClassName, 1] call ExileClient_player_system_scavenge_craft;
+				[_recipeClassName, 1] call ExileClient_system_scavenge_action_craftItem;
 			}
 			else 
 			{
@@ -103,11 +95,11 @@ switch (_className) do
 	};
 	case "Wrecks":
 	{
-	    ["Wrecks"] call ExileClient_player_system_scavenge_createLoot;
+	    ["Wrecks"] call ExileClient_system_scavenge_createLoot;
 	};
 	case "Woodlogs":
 	{
-	    ["Woodlogs"] call ExileClient_player_system_scavenge_createLoot;
+	    ["Woodlogs"] call ExileClient_system_scavenge_createLoot;
 	};
 	default
 	{

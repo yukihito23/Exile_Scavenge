@@ -1,5 +1,5 @@
 /**
- * ExileClient_player_system_scavenge_init
+ * ExileClient_object_player_scavenge_AddAction
  * 
  */
 
@@ -28,7 +28,7 @@ player setVariable ["ScavangedObjects", []];
             playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
         },
         {
-            [((_this select 3) select 0)] call ExileClient_player_system_scavenge_event;
+            [((_this select 3) select 0)] call ExileClient_system_scavenge_action_conditionEvents;
         },
         {},
         [configName _x],
@@ -37,4 +37,3 @@ player setVariable ["ScavangedObjects", []];
         false
     ] call ExileClient_gui_holdActionAdd;
 } forEach ("true" configClasses (missionConfigFile >> "CfgExileScavange"));
-true

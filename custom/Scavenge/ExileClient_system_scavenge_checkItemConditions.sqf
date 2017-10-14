@@ -1,11 +1,11 @@
 /**
  * ExileClient_player_system_scavenge_checkItemConditions
- * 
+ *
  */
-params 
+params
 [
-	["_requiredItem", "", [""]],
-	["_recipeClassName", "", [""]]
+	["_requiredItems", "", [""]],
+	["_recipeClassName", "", ""]
 ];
 
 private _equippedMagazines = magazines player;
@@ -16,7 +16,7 @@ private _canCraftItem = true;
 private _possibleCraftQuantity = 99999;
 private _returnedItems = getArray(_recipeConfig >> "returnedItems");
 private _tools = getArray(_recipeConfig >> "tools");
-if ({_x in _requiredItems} count _equippedMagazines > 0) then 
+if ({_x in _requiredItems} count _equippedMagazines > 0) then
 {
 	{
 		private _componentQuantity = _x select 0;
@@ -28,7 +28,7 @@ if ({_x in _requiredItems} count _equippedMagazines > 0) then
 			_canCraftItem = false;
 		}
 		else
-		{ 
+		{
 			_canCraftItem = true;
 		};
 	} forEach _components;

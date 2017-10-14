@@ -1,5 +1,5 @@
 /**
- * ExileClient_player_system_scavenge_createLoot
+ * ExileClient_system_scavenge_createLoot
  *
  */
 params [
