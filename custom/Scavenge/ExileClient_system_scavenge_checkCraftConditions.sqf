@@ -78,8 +78,4 @@ if !([_components, _returnedItems] call ExileClient_util_inventory_canExchangeIt
 if ( _canCraftItem ) then 
 {
 	[_configName, _recipe, _possibleCraftQuantity] call ExileClient_object_player_playScavengeEvent;
-}
-else
-{
-	["ErrorTitleOnly", ["Your can not scavange this just yet!"]] call ExileClient_gui_toaster_addTemplateToast;
 };

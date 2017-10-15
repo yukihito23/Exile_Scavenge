@@ -137,11 +137,6 @@ if (_quantityCrafted > -1) then
 		forEach _addedItems;
 		["SuccessTitleAndText", ["Scavenge completed!", _feedbackMessage]] call ExileClient_gui_toaster_addTemplateToast;
 		player setVariable ["CanScavange",true];
-	}
-	else 
-	{
-		["ErrorTitleAndText", ["Failed to scavenge!", "You do not have enough inventory space left!"]] call ExileClient_gui_toaster_addTemplateToast;
-		player setVariable ["CanScavange",true];
 	};
 };
 true

@@ -6,12 +6,30 @@
  * Description:
  * These configurations are used within the scavange system to configure the different scavange classes.
  */
+ 
+ class Exile_ScavengeClass
+{
+		chance = 100;						// Chance of getting a item from a scavange.
+		maxitems = 0;						// Max items to get from a single scavange.
+		icon = "";							// Action icon ClassName (Configure your own classes within the provided CfgExileHoldActions.cpp)
+		text = "My Scavenge Interaction";	// Action text that gets displayed with the icon.
+		models[] = {};						// Interaction models (has to be a p3d) that will work with this scavange class.
+		items[] = {};						// Items that the player with get from this scavange class.
+		
+		// In case of a scavange class that needs a item/model/object/surface this part gets in action.
+		// So far this is used for the water class that requires a empty bottle/canister in the players inventory to "fill" it with water.
+		class conditions
+		{
+			items[] = {};					// Item conditions (the player needs this item in his inventory or he cant scavanged sucsessful from this source).
+		};
+};
 
 class CfgExileScavange
 {
+	
 	// LordRampantHumps Items Pack 
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
-	class Apples
+	class Apples: Exile_ScavengeClass
 	{
 		chance = 50;
 		maxitems = 5;
@@ -32,7 +50,7 @@ class CfgExileScavange
 		};
 	};
 	
-	class Fruits
+	class Fruits: Exile_ScavengeClass
 	{
 		chance = 50;
 		maxitems = 5;
@@ -66,10 +84,10 @@ class CfgExileScavange
 		};
 	};
 	
-	class Wrecks
+	class Wrecks: Exile_ScavengeClass
 	{
 		chance = 50;
-		maxitems = 5;
+		maxitems = 2;
 		icon = "Exile_HA_Icon_Wreck";
 		text = "Scavenge Wreck";
 		
@@ -117,60 +135,16 @@ class CfgExileScavange
 		
 		items[] =
 		{
-			// Rifles
-			"CUP_arifle_AK74",
-			"CUP_arifle_AK107",
-			"CUP_arifle_AKS74",
-			"CUP_arifle_AKS74U",
-			"CUP_arifle_AKM",
-			"CUP_arifle_AKS",
-			"CUP_30Rnd_545x39_AK_M",
-			"CUP_30Rnd_545x39_AK_M",
-			"CUP_30Rnd_545x39_AK_M",
-			"CUP_30Rnd_545x39_AK_M",
-			"CUP_30Rnd_545x39_AK_M",
-			"CUP_30Rnd_545x39_AK_M",
-			"CUP_muzzle_PBS4",
-			"CUP_optic_PSO_1",
-			"CUP_optic_Kobra",
-			// Smgs
-			"CUP_smg_bizon",
-			"CUP_smg_EVO",
-			"CUP_smg_MP5SD6",
-			"CUP_smg_MP5A5",
-			"CUP_30Rnd_9x19_EVO",
-			"CUP_30Rnd_9x19_UZI",
-			"CUP_30Rnd_9x19_MP5",
-			"CUP_muzzle_Bizon",	
-			// Pistols	
-			"CUP_hgun_Colt1911",
-			"CUP_hgun_Compact",
-			"CUP_hgun_glock17_flashlight_snds",
-			"CUP_hgun_M9",
-			"CUP_hgun_Makarov",
-			"CUP_hgun_PB6P9",
-			"CUP_hgun_MicroUzi",
-			"CUP_8Rnd_9x18_Makarov_M",
-			"CUP_8Rnd_9x18_MakarovSD_M",
-			"CUP_15Rnd_9x19_M9",
-			"CUP_18Rnd_9x19_Phantom",
-			"CUP_6Rnd_45ACP_M",
-			"CUP_17Rnd_9x19_glock17",
-			"CUP_7Rnd_45ACP_1911",
-			"CUP_muzzle_snds_M9",
-			"CUP_muzzle_snds_MicroUzi",
 			// Extras
 			"Exile_Item_InstaDoc",
 			"Exile_Item_Bandage",
-			"Exile_Item_DuctTape",
-			"Exile_Item_ExtensionCord"
+			"Exile_Item_DuctTape"
 		};
 	};
 	
-	class Waters
+	class Waters: Exile_ScavengeClass
 	{
 		chance = 70;
-		maxitems = 1;
 		icon = "Exile_HA_Icon_Water";
 		text = "Scavenge for Water";
 		
@@ -182,23 +156,18 @@ class CfgExileScavange
 			"watertank_f.p3d",
 			"toilet_b_02.p3d"
 		};
-		
-		items[] =
-		{
-			"Exile_Item_PlasticBottleDirtyWater"
-		};
 		class conditions
 		{
 			items[] = 
 			{
 				"Exile_Item_PlasticBottleEmpty",
 				"Exile_Item_WaterCanisterEmpty",
-				"Exitem_canteen",
+				"Exitem_canteen"
 			};
 		};
 	};
 	
-	class Woodlogs
+	class Woodlogs: Exile_ScavengeClass
 	{
 		chance = 50;
 		maxitems = 3;
@@ -218,7 +187,7 @@ class CfgExileScavange
 	
 	// Extended_Items_Exile
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
-	class Pumpkins
+	class Pumpkins: Exile_ScavengeClass
 	{
 		chance = 50;
 		maxitems = 1;

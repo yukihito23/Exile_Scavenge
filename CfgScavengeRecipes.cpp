@@ -44,15 +44,16 @@ class CfgScavengeRecipes
 			{1, "Exile_Item_WaterCanisterEmpty"}
 		};
 	};
-	class ScavengeFillFuelCanister: Exile_ScavengeCraftingRecipe
+	class ScavengeFillEmptyWaterCanteenWithDirtyWater: Exile_ScavengeCraftingRecipe
 	{
-		returnedItems[] = 
+		requiredInteractionModelGroup = "Waters";
+		returnedItems[] =
 		{
-			{1, "Exile_Item_FuelCanisterFull"}
+			{1, "Exitem_canteen_dirty"}
 		};
 		components[] = 
 		{
-			{1, "Exile_Item_FuelCanisterEmpty"}
+			{1, "Exitem_canteen"}
 		};
 	};
 };

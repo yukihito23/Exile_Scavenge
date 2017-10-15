@@ -15,8 +15,8 @@ private _configReference = missionConfigFile >> "CfgExileScavange";
 private _chance = getNumber (_configReference >> _configName >> "chance");
 private _currentObject = cursorObject;
 
-_objectsList pushBack _currentObject;
-player setVariable ["ScavangedObjects", _objectsList];
+//_objectsList pushBack _currentObject;
+//player setVariable ["ScavangedObjects", _objectsList];
 
 player playMove "AinvPknlMstpSnonWnonDnon_medic_1";
 uiSleep 6;
