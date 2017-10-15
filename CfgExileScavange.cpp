@@ -117,20 +117,20 @@ class CfgExileScavange
 			"wreck_skodovka_f.p3d",
 			"skodovka_wrecked.p3d",
 			"lada_wrecked.p3d",
-			"ural_wrecked.p3d",
+			"ural_wrecked.p3d",						// Bugs out the holdaction sometimes?!
 			"brdm2_wrecked.p3d",
 			"jeept.p3d",
 			// Cups & Arma
-			"datsun01t.p3d",
+			"datsun01t.p3d",						// Bugs out the holdaction sometimes?!		
 			"datsun02t.p3d",
 			"bmp2_wrecked.p3d",
 			"wreck_heli_attack_02_f.p3d",
-			"wreck_heli_attack_01_f.p3d",
+			"wreck_heli_attack_01_f.p3d"
 			// Some Redux (Dont Seem to work)
-			"chz_kamaz_korpus2.p3d",
-			"chz_avtobus2.p3d",
-			"chz_kamaz_fura.p3d",
-			"chz_kamaz_pricep.p3d"
+			//"chz_kamaz_korpus2.p3d",
+			//"chz_avtobus2.p3d",
+			//"chz_kamaz_fura.p3d",
+			//"chz_kamaz_pricep.p3d"
 		};
 		
 		items[] =
