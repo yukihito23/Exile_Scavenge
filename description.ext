@@ -1,4 +1,7 @@
-// Add me on the end of your missions description.ext
+// Add this on the end of your missions description.ext
 #include "CfgScavengeRecipes.cpp"
 #include "CfgExileScavange.cpp"
 #include "CfgExileHoldActions.cpp"
+
+// Just add this if you dont have already a RscTitles class within your mission!
+#include "CfgDialogs.cpp"

@@ -34,7 +34,7 @@ New Exile Items.
 
 > ## Installation:
 > 
-> 1.	Drop the custom folder the holdactions folder the CfgExileScavange.cpp and CfgExileHoldActions.cpp into the root of your mission directory.
+> 1.	Drop the custom, the holdactions and the dialogs folder + the CfgExileScavange.cpp, CfgExileHoldActions.cpp files into the root of your       >       mission directory.
 > 2.	Merge the content of the provided description.ext with your Exile missions description.ext.
 >
 > So it looks like this for example:
@@ -42,7 +42,27 @@ New Exile Items.
 >	  #include "CfgExileScavange.cpp"
 >	  #include "CfgExileHoldActions.cpp"
 >
-> 3.	Open your mission config.cpp find the class CfgExileCustomCode and add this into the class:
+> 3.   Merge the content of the provided CfgDialogs.cpp with your missions RscTitles class.
+>
+> So it looks like this for example:
+>
+>	  class RscTitles
+>	  {	
+>	       class Default
+>	       {
+>	           idd = -1;
+>	           fadein = 0;
+>	           fadeout = 0;
+>	           duration = 0;
+>	       };
+>	       // Scavenge system
+>	       #include "dialogs\ExileScavengeUI.hpp"
+>	   };
+>
+>      If you dont have any RscTitles class within your mission then just include the provided CfgDialogs.cpp in your missions description.ext. 
+>
+>
+> 4.	Open your mission config.cpp find the class CfgExileCustomCode and add this into the class:
 >
 > So it looks like this for example:
 >
@@ -50,7 +70,7 @@ New Exile Items.
 >     ExileClient_object_player_initialize = "Custom\Scavenge\ExileClient_object_player_initialize.sqf";	
 >
 >
-> 4.	Edit the CfgExileScavange.cpp to suit your server.
+> 5.	Edit the CfgExileScavange.cpp to suit your server.
 >
 
 # Thanks and Credits:
