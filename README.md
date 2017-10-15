@@ -14,6 +14,7 @@ and has a chance to get a item from that depending on the class.</br>
 > - Pickup fruits and apples from trees.
 > - Search throu wrecks.
 > - Get woodstocks from trees.
+> - Get water from different sources if he has a empty bottle/container to fill.
 >
 More information coming soon!
 
