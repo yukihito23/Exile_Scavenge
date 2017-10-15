@@ -37,6 +37,11 @@ switch (_className) do
 	{
 		["Apples"] call ExileClient_system_scavenge_createLoot;
 	};
+	case "Cinderblogs":
+	{
+		private _configName = "Cinderblogs";
+		private _craftConditionsCheck = [_configName] call ExileClient_system_scavenge_checkCraftConditions;
+	};
 	case "Fruits":
 	{
 	    ["Fruits"] call ExileClient_system_scavenge_createLoot;
@@ -47,9 +52,8 @@ switch (_className) do
 	};
 	case "Waters":
 	{
-		private _equippedMagazines = magazines player;
 		private _configName = "Waters";
-		private _craftConditionsCheck = [_equippedMagazines, _configName] call ExileClient_system_scavenge_checkCraftConditions;
+		private _craftConditionsCheck = [_configName] call ExileClient_system_scavenge_checkCraftConditions;
 	};
 	case "Wrecks":
 	{

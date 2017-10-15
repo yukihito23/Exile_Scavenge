@@ -12,7 +12,7 @@ class Exile_ScavengeCraftingRecipe
 	returnedItems[] = {};
 	components[] = {}; // Required components
 	tools[] = {}; // Required tools (matches, gas cooker etc.)
-	requiredInteractionModelGroup = "";
+	weapons[] = {}; // Required weapons (Sledge Hammer)
 	requiresOcean = 0; // isSurfaceWater test
 	requiresFire = 0; // inflamed object nearby
 	requiresConcreteMixer = 0; // Check if concrete mixer is nearby
@@ -22,7 +22,6 @@ class CfgScavengeRecipes
 {
 	class ScavengeFillEmptyPlasticBottleWithDirtyWater: Exile_ScavengeCraftingRecipe
 	{
-		requiredInteractionModelGroup = "Waters";
 		returnedItems[] =
 		{
 			{1, "Exile_Item_PlasticBottleDirtyWater"}
@@ -34,7 +33,6 @@ class CfgScavengeRecipes
 	};
 	class ScavengeFillEmptyWaterCanisterWithDirtyWater: Exile_ScavengeCraftingRecipe
 	{
-		requiredInteractionModelGroup = "Waters";
 		returnedItems[] =
 		{
 			{1, "Exile_Item_WaterCanisterDirtyWater"}
@@ -46,7 +44,6 @@ class CfgScavengeRecipes
 	};
 	class ScavengeFillEmptyWaterCanteenWithDirtyWater: Exile_ScavengeCraftingRecipe
 	{
-		requiredInteractionModelGroup = "Waters";
 		returnedItems[] =
 		{
 			{1, "Exitem_canteen_dirty"}
@@ -54,6 +51,17 @@ class CfgScavengeRecipes
 		components[] = 
 		{
 			{1, "Exitem_canteen"}
+		};
+	};
+	class ScavengeDestroyCinderblog: Exile_ScavengeCraftingRecipe
+	{
+		returnedItems[] =
+		{
+			{1, "Exitem_cinderblock"}
+		};
+		weapons[] =
+		{
+			"Exile_Melee_SledgeHammer"
 		};
 	};
 };
