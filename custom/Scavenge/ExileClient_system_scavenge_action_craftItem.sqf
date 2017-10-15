@@ -3,8 +3,8 @@
  *
  */
 
-private _recipeClassName = _this select 0;
-private _quantityToCraft = _this select 1;
+_recipeClassName = _this select 0;
+_quantityToCraft = _this select 1;
 private _quantityCrafted = 0;
 private _metSideConditions = true;
 private _canCraftItem = true;

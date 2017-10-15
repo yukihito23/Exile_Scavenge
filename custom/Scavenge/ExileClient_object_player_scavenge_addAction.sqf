@@ -12,7 +12,7 @@ player setVariable ["ScavangedObjects", []];
     private _idleiconInfo = getText (_x >> "icon");
     private _modelInfo = getArray (_x >> "models");
     private _itemInfo = getArray (_x >> "items");
-    private _condition = format ["((getModelInfo cursorObject) select 0) in %1 && {player distance cursorObject < 5} && {!(cursorObject in (player getVariable ['ScavangedObjects',[]]))}", _modelInfo];
+    private _condition = format ["((getModelInfo cursorObject) select 0) in %1 && {player distance cursorObject < 5} && !(cursorObject in (player getVariable ['ScavangedObjects',[]]))", _modelInfo];
 
     [
         player,
