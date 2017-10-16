@@ -9,8 +9,8 @@ ExileClient_system_scavenge_checkCraftConditions = compileFinal preprocessFileLi
 ExileClient_system_scavenge_action_craftItem = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_system_scavenge_action_craftItem.sqf";
 ExileClient_system_scavenge_action_conditionEvents = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_system_scavenge_action_conditionEvents.sqf";
 ExileClient_system_scavenge_createLoot = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_system_scavenge_createLoot.sqf";
-ExileClient_object_player_scavenge_addAction = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_object_player_scavenge_addAction.sqf";
 ExileClient_object_player_playScavengeEvent = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_object_player_playScavengeEvent.sqf";
+ExileClient_object_player_scavenge_addAction = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_object_player_scavenge_addAction.sqf";
 
 player setVariable ["CanScavenge", true];
 player setVariable ["ScavangedObjects", []];
@@ -33,14 +33,12 @@ if ( count (player getVariable ["ScavangedObjects", []]) > 5 ) then
 	// while the condition is true (enemy is alive, task is not complete, etc)
 	while {ScavangeActionMonitoring} do 
 	{
-
-		sleep 1;
+		sleep 0.5;
 		if (isNil {player getVariable "ExileScavangeActionIDs"} && player getVariable "CanScavenge") then 
 		{
 			[] call ExileClient_object_player_scavenge_AddAction;
 		};
-
-		sleep 1;
+		sleep 0.5;
 		if (count (player getVariable "ExileScavangeActionIDs") > 0 && !(player getVariable "CanScavenge")) then 
 		{
 			{

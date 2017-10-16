@@ -9,6 +9,9 @@
  
  class Exile_ScavengeClass
 {
+		type = "ScavengeClass";				// This is the definition of the scavenge class, there are currently 2 classes (ScavengeClass = Player dont need any requirements,
+											// he can just loot the object | CraftingClass = Player needs a special item/tool/weapon to get a item back from the source).
+											
 		chance = 100;						// Chance of getting a item from a scavange.
 		maxitems = 0;						// Max items to get from a single scavange.
 		icon = "";							// Action icon ClassName (Configure your own classes within the provided CfgExileHoldActions.cpp)
@@ -21,6 +24,7 @@
 		class conditions
 		{
 			items[] = {};					// Item conditions (the player needs this item in his inventory or he cant scavanged sucsessful from this source).
+			weapons[] = {};					// Weapon conditions (the player needs this weapon in his inventory/body or he cant scavanged sucsessful from this source).
 		};
 };
 
@@ -31,6 +35,7 @@ class CfgExileScavenge
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
 	class Apples: Exile_ScavengeClass
 	{
+		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Apple";
@@ -50,6 +55,7 @@ class CfgExileScavenge
 	
 	class Fruits: Exile_ScavengeClass
 	{
+		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Fruit";
@@ -82,6 +88,7 @@ class CfgExileScavenge
 	
 	class Trash: Exile_ScavengeClass
 	{
+		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 2;
 		icon = "Default";
@@ -108,6 +115,7 @@ class CfgExileScavenge
 	/*
 	class Cinderblogs: Exile_ScavengeClass
 	{
+		type = "CraftingClass";
 		chance = 50;
 		maxitems = 2;
 		icon = "Default";
@@ -131,6 +139,7 @@ class CfgExileScavenge
 	*/
 	class Wrecks: Exile_ScavengeClass
 	{
+		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Wreck";
@@ -189,10 +198,10 @@ class CfgExileScavenge
 	
 	class Waters: Exile_ScavengeClass
 	{
+		type = "CraftingClass";
 		chance = 70;
 		icon = "Exile_HA_Icon_Water";
 		text = "Scavenge for Water";
-		
 		models[] =
 		{
 			"pumpa.p3d",
@@ -220,6 +229,7 @@ class CfgExileScavenge
 	
 	class Woodlogs: Exile_ScavengeClass
 	{
+		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 3;
 		icon = "Exile_HA_Icon_Woodlogs";
@@ -238,6 +248,7 @@ class CfgExileScavenge
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
 	class Pumpkins: Exile_ScavengeClass
 	{
+		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 1;
 		icon = "Exile_HA_Icon_Pumpkin";
