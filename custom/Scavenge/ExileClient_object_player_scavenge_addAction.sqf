@@ -42,6 +42,6 @@ private _holdActionIDs = [];
 	] call ExileClient_gui_holdActionAdd;
 	
 	_holdActionIDs pushBack _holdActionID;
-} forEach ("true" configClasses (missionConfigFile >> "CfgExileScavange"));
+} forEach ("true" configClasses (missionConfigFile >> "CfgExileScavenge"));
 
 player setVariable ["ExileScavangeActionIDs", _holdActionIDs];

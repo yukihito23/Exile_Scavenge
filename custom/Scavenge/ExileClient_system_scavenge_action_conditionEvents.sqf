@@ -27,7 +27,7 @@ private _objectsList = player getVariable ["ScavangedObjects",[]];
 
 if (_currentObject in _objectsList) exitWith {};
 
-private _config = missionConfigFile >> "CfgExileScavange" >> _className;
+private _config = missionConfigFile >> "CfgExileScavenge" >> _className;
 
 if !(isClass _config) exitWith {};
 

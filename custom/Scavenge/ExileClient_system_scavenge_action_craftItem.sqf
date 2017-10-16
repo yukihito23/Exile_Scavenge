@@ -51,7 +51,7 @@ if ( getNumber(_recipeConfig >> "requiresConcreteMixer") == 1 ) then
 };
 if( _interactionModelGroupClassName != "" ) then
 {
-	private _interactionModelGroupModels = getArray(missionConfigFile >> "CfgExileScavange" >> _interactionModelGroupClassName >> "models");
+	private _interactionModelGroupModels = getArray(missionConfigFile >> "CfgExileScavenge" >> _interactionModelGroupClassName >> "models");
 	private _foundObject = false;
 	if ([ASLtoAGL (getPosASL player), 10, _interactionModelGroupModels] call ExileClient_util_model_isNearby) then
 	{
