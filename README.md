@@ -9,7 +9,7 @@ Basicly this system will allow players to interact with terrain/map objects.</br
 If the object has a entry in a scavenge class within the configurations the player can loot this object</br>
 and has a chance to get a item from that depending on the class.</br>
 
-> # So far the player can:
+> ### So far the player can:
 >
 > - Pickup fruits and apples from trees.
 > - Search throu wrecks.
@@ -20,21 +20,21 @@ and has a chance to get a item from that depending on the class.</br>
 
 This framework is simply customizable and you can add new interaction classes easily just by adding the required information to the configfiles.
 
-> # CfgExileHoldActions.cpp
+> ### CfgExileHoldActions.cpp
 > 
 > This file contains the information for each holdaction icon.
 > If you want to create your own icon you can add a new class to this file
 > and add the required information to get your icon working with the scavange system.
 > You can find more information and examples in the file.
 
-> # CfgExileScavenge.cpp
+> ### CfgExileScavenge.cpp
 > 
 > This file contains the information for each scavange class.
 > If you want to create your own interaction to terrain/map objects you can do that by
 > adding a new class for your interaction and fill it with the required information.
 > You can find more information and examples in the file.
 
-> # CfgScavengeRecipes.cpp
+> ### CfgScavengeRecipes.cpp
 > 
 > This file comes in action if you create a crafting scavange class that will require a item/weapon/tool
 > to get a item back from the source.
@@ -42,7 +42,7 @@ This framework is simply customizable and you can add new interaction classes ea
 > In short words this file contains crafting recipes that will be used for crafting scavange classes.
 > You can find more information and examples in the file.
 
-# Requirements:
+## Requirements:
 Exile Mod 1.0.3: http://www.exilemod.com/downloads/
 
 Base Exile Mod.
@@ -97,7 +97,7 @@ New Exile Items.
 > 5.	Edit the CfgExileScavange.cpp to suit your server.
 >
 
-# Thanks and Credits:
+## Thanks and Credits:
 Credits to Kurewe for the orginal script.
 http://www.exilemod.com/profile/18022-kurewe/
 
