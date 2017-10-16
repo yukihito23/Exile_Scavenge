@@ -1,5 +1,5 @@
 /**
- * CfgExileHoldActions
+ * CfgExileScavenge
  *
  * Author: Steve aka Salutesh
  *
@@ -122,33 +122,6 @@ class CfgExileScavenge
 			"Exile_Item_PlasticBottleEmpty"
 		};
 	};
-	class Cinderblogs: Exile_ScavengeClass
-	{
-		animations[] =
-		{
-			"AinvPknlMstpSnonWnonDnon_medic_1"
-		};
-		type = "CraftingClass";
-		chance = 50;
-		maxitems = 2;
-		icon = "Default";
-		text = "Get Cinderblogs";
-		models[] =
-		{
-			"cinderblocks_f.p3d"
-		};
-		recipes[] =
-		{
-			"ScavengeDestroyCinderblog"
-		};
-		class conditions
-		{
-			weapons[] =
-			{
-				"Exile_Melee_SledgeHammer"
-			};
-		};
-	};
 	class Wrecks: Exile_ScavengeClass
 	{
 		animations[] =
@@ -265,6 +238,7 @@ class CfgExileScavenge
 			"Exile_Item_WoodLog"
 		};
 	};
+	/*
 	// Extended_Items_Exile
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
 	class Pumpkins: Exile_ScavengeClass
@@ -287,4 +261,32 @@ class CfgExileScavenge
 			"Exitem_pumpkin"
 		};
 	};
+	class Cinderblogs: Exile_ScavengeClass
+	{
+		animations[] =
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "CraftingClass";
+		chance = 50;
+		maxitems = 2;
+		icon = "Default";
+		text = "Get Cinderblogs";
+		models[] =
+		{
+			"cinderblocks_f.p3d"
+		};
+		recipes[] =
+		{
+			"ScavengeDestroyCinderblog"
+		};
+		class conditions
+		{
+			weapons[] =
+			{
+				"Exile_Melee_SledgeHammer"
+			};
+		};
+	};
+	*/
 };

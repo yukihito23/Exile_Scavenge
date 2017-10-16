@@ -11,12 +11,12 @@ and has a chance to get a item from that depending on the class.</br>
 
 > ### So far the player can:
 >
-> - Pickup fruits and apples from trees.
 > - Search throu wrecks.
 > - Get woodstocks from trees.
 > - Get water from different sources if he has a empty bottle/container to fill.
 > - Search throu trash-bins/piles.
-> - Get cinderblogs from different sources if he has a sledge hammer on his body.
+> - Get cinderblogs from different sources if he has a sledge hammer on his body. (Requires Exile Extended Items Mod)
+> - Pickup fruits and apples from trees (Requires LordRampantHumps Items Pack Mod).
 
 This framework is simply customizable and you can add new interaction classes easily just by adding the required information to the configfiles.
 
@@ -44,16 +44,16 @@ This framework is simply customizable and you can add new interaction classes ea
 
 ## Requirements:
 Exile Mod 1.0.3: http://www.exilemod.com/downloads/
-
 Base Exile Mod.
 
+## Optionals:
 LordRampantHumps Items Pack : https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
-
 New Exile cusumables.
 
 Exile Extended Items: https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
-
 New Exile Items.
+
+Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some actions that use these mod items if you use these Mods!
 
 
 > ## Installation:
@@ -98,13 +98,8 @@ New Exile Items.
 >
 
 ## Thanks and Credits:
-Credits to Kurewe for the orginal script.
-http://www.exilemod.com/profile/18022-kurewe/
-
+Credits to Larrow for the base script: https://forums.bistudio.com/forums/topic/184456-looting-trash-piles-bins/?do=findComment&comment=2942397
 Credits to Cho for a rewrite and port for the exile mod.
-
 Credits to yukihito23 for additons and expansions of the system.
-
 Credits to NiiRoZz for plenty amount of help, expansions and optimizations of the system.
-
-Credits to Salutesh for additons and expansions of the system.
+Credits to Salutesh for a complete rewrite and buildup of the framework and system.
