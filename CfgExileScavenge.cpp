@@ -24,7 +24,7 @@
 		};
 };
 
-class CfgExileScavange
+class CfgExileScavenge
 {
 	
 	// LordRampantHumps Items Pack 
