@@ -10,7 +10,7 @@
 ];
 
 private _clutter = objNull;
-private _configReference = missionConfigFile >> "CfgExileScavange";
+private _configReference = missionConfigFile >> "CfgExileScavenge";
 private _chance = getNumber (_configReference >> _configName >> "chance");
 private _currentObject = cursorObject;
 private _animationToPlay = "AinvPknlMstpSnonWnonDnon_medic_1";

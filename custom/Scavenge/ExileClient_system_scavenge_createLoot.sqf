@@ -7,7 +7,7 @@ params [
 ];
 
 private _clutter = objNull;
-private _configReference = missionConfigFile >> "CfgExileScavange";
+private _configReference = missionConfigFile >> "CfgExileScavenge";
 private _loot = getArray (_configReference >>_configName >> "items");
 private _chance = getNumber (_configReference >> _configName >> "chance");
 private _maxloot = getNumber (_configReference >> _configName >> "maxitems");
