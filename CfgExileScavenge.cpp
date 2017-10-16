@@ -6,40 +6,38 @@
  * Description:
  * These configurations are used within the scavange system to configure the different scavange classes.
  */
- 
+
  class Exile_ScavengeClass
-{		
-		animations[] = 						// List auf animations the player unit plays in the scavenge action.
-		{
-			"AinvPknlMstpSnonWnonDnon_medic_1"
-		};
-		type = "ScavengeClass";				// This is the definition of the scavenge class, there are currently 2 classes (ScavengeClass = Player dont need any requirements,
-											// he can just loot the object | CraftingClass = Player needs a special item/tool/weapon to get a item back from the source).
-											
-		chance = 100;						// Chance of getting a item from a scavange.
-		maxitems = 0;						// Max items to get from a single scavange.
-		icon = "";							// Action icon ClassName (Configure your own classes within the provided CfgExileHoldActions.cpp)
-		text = "My Scavenge Interaction";	// Action text that gets displayed with the icon.
-		models[] = {};						// Interaction models (has to be a p3d) that will work with this scavange class.
-		recipes[] = {};						// Recipes that are used in this class.
-		items[] = {};						// Items that the player with get from this scavange class.
-		// In case of a scavange class that needs a item/model/object/surface this part gets in action.
-		// So far this is used for the water class that requires a empty bottle/canister in the players inventory to "fill" it with water.
-		class conditions
-		{
-			items[] = {};					// Item conditions (the player needs this item in his inventory or he cant scavanged sucsessful from this source).
-			weapons[] = {};					// Weapon conditions (the player needs this weapon in his inventory/body or he cant scavanged sucsessful from this source).
-		};
+{
+	animations[] = 						// List auf animations the player unit can play in the scavenge action. Only one animation in this list will be executed.
+	{
+		"AinvPknlMstpSnonWnonDnon_medic_1"
+	};
+	type = "ScavengeClass";				// This is the definition of the scavenge class, there are currently 2 classes (ScavengeClass = Player dont need any requirements,
+										// he can just loot the object | CraftingClass = Player needs a special item/tool/weapon to get a item back from the source).
+	chance = 100;						// Chance of getting a item from a scavange.
+	maxitems = 0;						// Max items to get from a single scavange.
+	icon = "";							// Action icon ClassName (Configure your own classes within the provided CfgExileHoldActions.cpp)
+	text = "My Scavenge Interaction";	// Action text that gets displayed with the icon.
+	models[] = {};						// Interaction models (has to be a p3d) that will work with this scavange class.
+	recipes[] = {};						// Recipes that are used in this class.
+	items[] = {};						// Items that the player with get from this scavange class.
+	// In case of a scavange class that needs a item/model/object/surface this part gets in action.
+	// So far this is used for the water class that requires a empty bottle/canister in the players inventory to "fill" it with water.
+	class conditions
+	{
+		items[] = {};					// Item conditions (the player needs this item in his inventory or he cant scavanged sucsessful from this source).
+		weapons[] = {};				// Weapon conditions (the player needs this weapon in his inventory/body or he cant scavanged sucsessful from this source).
+	};
 };
 
 class CfgExileScavenge
 {
-	
-	// LordRampantHumps Items Pack 
+	// LordRampantHumps Items Pack
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
 	class Apples: Exile_ScavengeClass
 	{
-		animations[] = 
+		animations[] =
 		{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
@@ -48,7 +46,7 @@ class CfgExileScavenge
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Apple";
 		text = "Scavenge for Apples";
-		models[] = 
+		models[] =
 		{
 			"t_malus1s.p3d",
 			"jablon.p3d",
@@ -56,14 +54,13 @@ class CfgExileScavenge
 		};
 		items[] =
 		{
-			"items_pack_apple_red", 
+			"items_pack_apple_red",
 			"items_pack_apple"
 		};
 	};
-	
 	class Fruits: Exile_ScavengeClass
 	{
-		animations[] = 
+		animations[] =
 		{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
@@ -72,7 +69,7 @@ class CfgExileScavenge
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Fruit";
 		text = "Scavenge for Fruit";
-		models[] = 
+		models[] =
 		{
 			// Random small trees and bushes
 			"b_corylus.p3d",
@@ -93,14 +90,13 @@ class CfgExileScavenge
 		};
 		items[] =
 		{
-			"items_pack_pear", 
+			"items_pack_pear",
 			"items_pack_banana"
 		};
 	};
-	
 	class Trash: Exile_ScavengeClass
 	{
-		animations[] = 
+		animations[] =
 		{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
@@ -109,7 +105,7 @@ class CfgExileScavenge
 		maxitems = 2;
 		icon = "Default";
 		text = "Search through garbage";
-		models[] = 
+		models[] =
 		{
 			// Trashpiles
 			"garbagewashingmachine_f.p3d",
@@ -118,7 +114,7 @@ class CfgExileScavenge
 			// Trashbins
 			"kontejner.p3d"
 		};
-		items[] = 
+		items[] =
 		{
 			"Exile_Item_CanOpener",
 			"Exile_Item_Can_Empty",
@@ -126,12 +122,9 @@ class CfgExileScavenge
 			"Exile_Item_PlasticBottleEmpty"
 		};
 	};
-	/*
-		Not Working so far
-	/*
 	class Cinderblogs: Exile_ScavengeClass
 	{
-		animations[] = 
+		animations[] =
 		{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
@@ -140,26 +133,25 @@ class CfgExileScavenge
 		maxitems = 2;
 		icon = "Default";
 		text = "Get Cinderblogs";
-		models[] = 
+		models[] =
 		{
 			"cinderblocks_f.p3d"
 		};
-		recipes[] = 
+		recipes[] =
 		{
 			"ScavengeDestroyCinderblog"
 		};
 		class conditions
 		{
-			weapons[] = 
+			weapons[] =
 			{
 				"Exile_Melee_SledgeHammer"
 			};
 		};
 	};
-	*/
 	class Wrecks: Exile_ScavengeClass
 	{
-		animations[] = 
+		animations[] =
 		{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
@@ -168,7 +160,7 @@ class CfgExileScavenge
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Wreck";
 		text = "Scavenge Wreck";
-		models[] = 
+		models[] =
 		{
 			"wreck_brdm2_f.p3d",
 			"wreck_van_f.p3d",
@@ -210,7 +202,7 @@ class CfgExileScavenge
 			//"chz_kamaz_fura.p3d",
 			//"chz_kamaz_pricep.p3d"
 		};
-		
+
 		items[] =
 		{
 			// Extras
@@ -219,10 +211,9 @@ class CfgExileScavenge
 			"Exile_Item_DuctTape"
 		};
 	};
-	
 	class Waters: Exile_ScavengeClass
 	{
-		animations[] = 
+		animations[] =
 		{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
@@ -238,7 +229,7 @@ class CfgExileScavenge
 			"watertank_f.p3d",
 			"toilet_b_02.p3d"
 		};
-		recipes[] = 
+		recipes[] =
 		{
 			"ScavengeFillEmptyPlasticBottleWithDirtyWater",
 			"ScavengeFillEmptyWaterCanisterWithDirtyWater",
@@ -246,7 +237,7 @@ class CfgExileScavenge
 		};
 		class conditions
 		{
-			items[] = 
+			items[] =
 			{
 				"Exile_Item_PlasticBottleEmpty",
 				"Exile_Item_WaterCanisterEmpty",
@@ -254,10 +245,9 @@ class CfgExileScavenge
 			};
 		};
 	};
-	
 	class Woodlogs: Exile_ScavengeClass
 	{
-		animations[] = 
+		animations[] =
 		{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
@@ -275,12 +265,11 @@ class CfgExileScavenge
 			"Exile_Item_WoodLog"
 		};
 	};
-	
 	// Extended_Items_Exile
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
 	class Pumpkins: Exile_ScavengeClass
 	{
-		animations[] = 
+		animations[] =
 		{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
