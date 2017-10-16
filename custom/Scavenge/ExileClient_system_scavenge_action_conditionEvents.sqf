@@ -31,7 +31,6 @@ if (getText(_config >> "type") == "CraftingClass" ) then
 {
 	[_className] call ExileClient_system_scavenge_checkCraftConditions;
 };
-
 if (getText(_config >> "type") == "ScavengeClass" ) then
 {
 	[_className] call ExileClient_system_scavenge_createLoot;

@@ -11,6 +11,7 @@ private _availableRecipes = (missionConfigFile >> "CfgScavengeRecipes") call Bis
 	private _recipeClassName = _x;
 	private _components = getArray(_recipeConfig >> "components");
 	private _tools = getArray(_recipeConfig >> "tools");
+	private _weapons = getArray(_recipeConfig >> "weapons");
 	{
 		if( _x select 1 == _forItemClassName ) exitWith
 		{
@@ -23,5 +24,11 @@ private _availableRecipes = (missionConfigFile >> "CfgScavengeRecipes") call Bis
 			_foundItems pushBack _recipeClassName;
 		};
 	} forEach _tools;
+	{
+		if( _x == _forItemClassName ) exitWith
+		{
+			_foundItems pushBack _recipeClassName;
+		};
+	} forEach _weapons;
 } forEach _availableRecipes;
 _foundItems

@@ -4,7 +4,7 @@
  */
 params [["_configName", "", [""]]];
 
-//private _clutter = objNull;
+private _lootHolder = objNull;
 private _configReference = missionConfigFile >> "CfgExileScavenge";
 private _loot = getArray (_configReference >>_configName >> "items");
 private _chance = getNumber (_configReference >> _configName >> "chance");
@@ -73,8 +73,6 @@ if ( _playerScavengeEvent ) then
 
 		_player setVariable ["ScavangedObjects", _objectsList];
 		private _posPlayer = getPosATL _player;
-		//_clutter = createVehicle ["Land_ClutterCutter_medium_F", [0,0,0], [], 0, "CAN_COLLIDE"];
-		//_clutter setPosATL _posPlayer;
 		private _lootHolder = createVehicle ["GroundWeaponHolder", [0,0,0], [], 0, "CAN_COLLIDE"];
 		_lootHolder setPosATL _posPlayer;
 		["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
@@ -95,10 +93,12 @@ if ( _playerScavengeEvent ) then
 	};
 };
 
-/*
-if !(isNull _clutter) then
+if !(isNull _lootHolder) then
 {
-	waitUntil {uiSleep 1;player distance2D _clutter > 50};
-	deleteVehicle _clutter;
+	waitUntil
+	{
+		uiSleep 1;
+		player distance2D _lootHolder > 150
+	};
+	deleteVehicle _lootHolder;
 };
-*/

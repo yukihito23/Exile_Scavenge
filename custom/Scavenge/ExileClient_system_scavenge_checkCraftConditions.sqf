@@ -4,12 +4,13 @@
  */
 params ["_configName"];
 
-private _equippedMagazines = magazines player;
-private _equippedWeapons = weapons player;
+_equippedMagazines = magazines player;
+_equippedWeapons = weapons player;
 private _canCraftItem = true;
 private _matchingRecipes = [];
 private _recipe = "";
 private _recipeConfig = "";
+private _itemClassName = "";
 private _components = [];
 private _tools = [];
 private _weapons = [];
@@ -88,8 +89,8 @@ player setVariable ["CanScavenge", false];
 	if ( !isNil {getArray(_recipeConfig >> "components")} ) then
 	{
 		{
-				private _componentQuantity = _x select 0;
-				private _componentItemClassName = _x select 1;
+				_componentQuantity = _x select 0;
+				_componentItemClassName = _x select 1;
 				_equippedComponentQuantity = { _x == _componentItemClassName } count _equippedMagazines;
 				_possibleCraftQuantity = _possibleCraftQuantity min (floor (_equippedComponentQuantity / _componentQuantity));
 
@@ -141,6 +142,7 @@ player setVariable ["CanScavenge", false];
 			};
 		} forEach _weapons;
 	};
+
 } forEach _matchingRecipes;
 
 // If player has not a single component item in his invetory he can not craft any items when the class need a item.
