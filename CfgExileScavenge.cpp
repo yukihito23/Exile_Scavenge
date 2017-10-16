@@ -33,67 +33,6 @@
 
 class CfgExileScavenge
 {
-	// LordRampantHumps Items Pack
-	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
-	class Apples: Exile_ScavengeClass
-	{
-		animations[] =
-		{
-			"AinvPknlMstpSnonWnonDnon_medic_1"
-		};
-		type = "ScavengeClass";
-		chance = 50;
-		maxitems = 2;
-		icon = "Exile_HA_Icon_Apple";
-		text = "Scavenge for Apples";
-		models[] =
-		{
-			"t_malus1s.p3d",
-			"jablon.p3d",
-			"t_malus1s_summer.p3d"
-		};
-		items[] =
-		{
-			"items_pack_apple_red",
-			"items_pack_apple"
-		};
-	};
-	class Fruits: Exile_ScavengeClass
-	{
-		animations[] =
-		{
-			"AinvPknlMstpSnonWnonDnon_medic_1"
-		};
-		type = "ScavengeClass";
-		chance = 50;
-		maxitems = 2;
-		icon = "Exile_HA_Icon_Fruit";
-		text = "Scavenge for Fruit";
-		models[] =
-		{
-			// Random small trees and bushes
-			"b_corylus.p3d",
-			"b_canina2s.p3d",
-			"b_amygdalusn1s_ep1.p3d",
-			"jerabina.p3d",
-			"b_elderberry2s_pmc.p3d",
-			// Banana trees
-			"banana_3.p3d",
-			"banana_2.p3d",
-			"banana_1.p3d",
-			"banana_4.p3d",
-			// Chernarus Redux
-			"c_blueberry_summer.p3d",
-			"c_blueberry.p3d",
-			"b_hrusen2.p3d",
-			"t_betula2w.p3d"
-		};
-		items[] =
-		{
-			"items_pack_pear",
-			"items_pack_banana"
-		};
-	};
 	class Trash: Exile_ScavengeClass
 	{
 		animations[] =
@@ -286,6 +225,67 @@ class CfgExileScavenge
 			{
 				"Exile_Melee_SledgeHammer"
 			};
+		};
+	};
+	// LordRampantHumps Items Pack
+	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
+	class Apples: Exile_ScavengeClass
+	{
+		animations[] =
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "ScavengeClass";
+		chance = 50;
+		maxitems = 2;
+		icon = "Exile_HA_Icon_Apple";
+		text = "Scavenge for Apples";
+		models[] =
+		{
+			"t_malus1s.p3d",
+			"jablon.p3d",
+			"t_malus1s_summer.p3d"
+		};
+		items[] =
+		{
+			"items_pack_apple_red",
+			"items_pack_apple"
+		};
+	};
+	class Fruits: Exile_ScavengeClass
+	{
+		animations[] =
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "ScavengeClass";
+		chance = 50;
+		maxitems = 2;
+		icon = "Exile_HA_Icon_Fruit";
+		text = "Scavenge for Fruit";
+		models[] =
+		{
+			// Random small trees and bushes
+			"b_corylus.p3d",
+			"b_canina2s.p3d",
+			"b_amygdalusn1s_ep1.p3d",
+			"jerabina.p3d",
+			"b_elderberry2s_pmc.p3d",
+			// Banana trees
+			"banana_3.p3d",
+			"banana_2.p3d",
+			"banana_1.p3d",
+			"banana_4.p3d",
+			// Chernarus Redux
+			"c_blueberry_summer.p3d",
+			"c_blueberry.p3d",
+			"b_hrusen2.p3d",
+			"t_betula2w.p3d"
+		};
+		items[] =
+		{
+			"items_pack_pear",
+			"items_pack_banana"
 		};
 	};
 	*/
