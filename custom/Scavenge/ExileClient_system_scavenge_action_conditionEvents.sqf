@@ -16,7 +16,7 @@ if (player call ExileClient_util_world_isInTraderZone) exitWith
 {
 	["ErrorTitleOnly", ["You cannot scavenge inside a trader."]] call ExileClient_gui_toaster_addTemplateToast;
 };
-if !(player getVariable "CanScavange") exitWith 
+if !(player getVariable "CanScavenge") exitWith 
 {
 	["ErrorTitleOnly", ["You cannot search just yet."]] call ExileClient_gui_toaster_addTemplateToast;
 };

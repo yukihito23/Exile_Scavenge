@@ -14,8 +14,8 @@
 		icon = "";							// Action icon ClassName (Configure your own classes within the provided CfgExileHoldActions.cpp)
 		text = "My Scavenge Interaction";	// Action text that gets displayed with the icon.
 		models[] = {};						// Interaction models (has to be a p3d) that will work with this scavange class.
+		recipes[] = {};						// Recipes that are used in this class.
 		items[] = {};						// Items that the player with get from this scavange class.
-		
 		// In case of a scavange class that needs a item/model/object/surface this part gets in action.
 		// So far this is used for the water class that requires a empty bottle/canister in the players inventory to "fill" it with water.
 		class conditions
@@ -32,17 +32,15 @@ class CfgExileScavange
 	class Apples: Exile_ScavengeClass
 	{
 		chance = 50;
-		maxitems = 5;
+		maxitems = 2;
 		icon = "Exile_HA_Icon_Apple";
 		text = "Scavenge for Apples";
-		
 		models[] = 
 		{
 			"t_malus1s.p3d",
 			"jablon.p3d",
 			"t_malus1s_summer.p3d"
 		};
-		
 		items[] =
 		{
 			"items_pack_apple_red", 
@@ -53,10 +51,9 @@ class CfgExileScavange
 	class Fruits: Exile_ScavengeClass
 	{
 		chance = 50;
-		maxitems = 5;
+		maxitems = 2;
 		icon = "Exile_HA_Icon_Fruit";
 		text = "Scavenge for Fruit";
-		
 		models[] = 
 		{
 			// Random small trees and bushes
@@ -76,7 +73,6 @@ class CfgExileScavange
 			"b_hrusen2.p3d",
 			"t_betula2w.p3d"
 		};
-		
 		items[] =
 		{
 			"items_pack_pear", 
@@ -84,13 +80,61 @@ class CfgExileScavange
 		};
 	};
 	
+	class Trash: Exile_ScavengeClass
+	{
+		chance = 50;
+		maxitems = 2;
+		icon = "Default";
+		text = "Search through garbage";
+		models[] = 
+		{
+			// Trashpiles
+			"garbagewashingmachine_f.p3d",
+			"garbagepallet_f.p3d",
+			"garbagebags_f.p3d",
+			// Trashbins
+			"kontejner.p3d"
+		};
+		items[] = 
+		{
+			"Exile_Item_CanOpener",
+			"Exile_Item_Can_Empty",
+			"Exile_Item_WaterCanisterEmpty",
+			"Exile_Item_PlasticBottleEmpty"
+		};
+	};
+	/*
+		Not Working so far
+	/*
+	class Cinderblogs: Exile_ScavengeClass
+	{
+		chance = 50;
+		maxitems = 2;
+		icon = "Default";
+		text = "Get Cinderblogs";
+		models[] = 
+		{
+			"cinderblocks_f.p3d"
+		};
+		recipes[] = 
+		{
+			"ScavengeDestroyCinderblog"
+		};
+		class conditions
+		{
+			weapons[] = 
+			{
+				"Exile_Melee_SledgeHammer"
+			};
+		};
+	};
+	*/
 	class Wrecks: Exile_ScavengeClass
 	{
 		chance = 50;
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Wreck";
 		text = "Scavenge Wreck";
-		
 		models[] = 
 		{
 			"wreck_brdm2_f.p3d",
@@ -117,11 +161,12 @@ class CfgExileScavange
 			"wreck_skodovka_f.p3d",
 			"skodovka_wrecked.p3d",
 			"lada_wrecked.p3d",
-			"ural_wrecked.p3d",						// Bugs out the holdaction sometimes?!
+			"ural_wrecked.p3d",
 			"brdm2_wrecked.p3d",
 			"jeept.p3d",
+			"mi8_crashed.p3d",
 			// Cups & Arma
-			"datsun01t.p3d",						// Bugs out the holdaction sometimes?!		
+			"datsun01t.p3d",
 			"datsun02t.p3d",
 			"bmp2_wrecked.p3d",
 			"wreck_heli_attack_02_f.p3d",
@@ -156,6 +201,12 @@ class CfgExileScavange
 			"watertank_f.p3d",
 			"toilet_b_02.p3d"
 		};
+		recipes[] = 
+		{
+			"ScavengeFillEmptyPlasticBottleWithDirtyWater",
+			"ScavengeFillEmptyWaterCanisterWithDirtyWater",
+			"ScavengeFillEmptyWaterCanteenWithDirtyWater"
+		};
 		class conditions
 		{
 			items[] = 
@@ -173,12 +224,10 @@ class CfgExileScavange
 		maxitems = 3;
 		icon = "Exile_HA_Icon_Woodlogs";
 		text = "Scavenge Woodlogs";
-		
 		models[] =
 		{
 			"drevo_hromada.p3d"
 		};
-		
 		items[] =
 		{
 			"Exile_Item_WoodLog"
@@ -193,12 +242,10 @@ class CfgExileScavange
 		maxitems = 1;
 		icon = "Exile_HA_Icon_Pumpkin";
 		text = "Harvest Pumpkin";
-		
 		models[] =
 		{
 			"bodlak_group.p3d"
 		};
-		
 		items[] =
 		{
 			"Exitem_pumpkin"

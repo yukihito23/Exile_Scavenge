@@ -10,13 +10,13 @@
 ];
 
 private _clutter = objNull;
-player setVariable ["CanScavange",false];
 private _configReference = missionConfigFile >> "CfgExileScavange";
 private _chance = getNumber (_configReference >> _configName >> "chance");
 private _currentObject = cursorObject;
 private _animationToPlay = "AinvPknlMstpSnonWnonDnon_medic_1";
 private _player = player;
 private _playerHasLooted = true;
+player setVariable ["CanScavenge", false];
 
 ( ["ExileScavengeUI"] call BIS_fnc_rscLayer ) cutRsc [ "ExileScavengeUI", "PLAIN", 1, false ];
 								
@@ -62,7 +62,7 @@ if (scriptDone _playerInSearchArea) then
 {
 	["ErrorTitleOnly", ["Scavange interrupted!"]] call ExileClient_gui_toaster_addTemplateToast;
 	_playerHasLooted = false;
-	_player setVariable ["CanScavange", true];
+	player setVariable ["CanScavenge", true];
 };
 terminate _playerInSearchArea;
 
@@ -75,11 +75,11 @@ if ( _playerHasLooted ) then
 		["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
 		uiSleep 2;
 		[_recipe, _possibleCraftQuantity] call ExileClient_system_scavenge_action_craftItem;
-		player setVariable ["CanScavange",true];
+		player setVariable ["CanScavenge", true];
 	} 
 	else 
 	{
 		["ErrorTitleOnly", ["Could not find anything."]] call ExileClient_gui_toaster_addTemplateToast;
-		player setVariable ["CanScavange",true];
+		player setVariable ["CanScavenge", true];
 	};
 };

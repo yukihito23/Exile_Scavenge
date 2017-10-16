@@ -16,6 +16,8 @@ private _tools = getArray(_recipeConfig >> "tools");
 private _equippedMagazines = magazines player;
 private _addedItems = [];
 private _concreteMixer = objNull;
+player setVariable ["CanScavenge", false];
+
 {
 	private _toolItemClassName = _x;
 	private _equippedToolQuantity = { _x == _toolItemClassName } count _equippedMagazines;
@@ -136,7 +138,7 @@ if (_quantityCrafted > -1) then
 		}
 		forEach _addedItems;
 		["SuccessTitleAndText", ["Scavenge completed!", _feedbackMessage]] call ExileClient_gui_toaster_addTemplateToast;
-		player setVariable ["CanScavange",true];
+		player setVariable ["CanScavenge", true];
 	};
 };
 true

@@ -11,4 +11,45 @@ ExileClient_system_scavenge_action_conditionEvents = compileFinal preprocessFile
 ExileClient_system_scavenge_createLoot = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_system_scavenge_createLoot.sqf";
 ExileClient_object_player_scavenge_addAction = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_object_player_scavenge_addAction.sqf";
 ExileClient_object_player_playScavengeEvent = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_object_player_playScavengeEvent.sqf";
-[] call ExileClient_object_player_scavenge_AddAction;
+
+player setVariable ["CanScavenge", true];
+player setVariable ["ScavangedObjects", []];
+player setVariable ["ExileScavangeActionIDs", Nil];
+
+// Reset for players ScavangedObjects variable if amount of entrys hits 5.
+// This basicly makes every object scavegeable for the player again.
+if ( count (player getVariable ["ScavangedObjects", []]) > 5 ) then
+{
+	player setVariable ["ScavangedObjects", []];
+};
+
+// Action Monitor
+// This removes the actions from the player if players CanScavenge boolean is false
+// adds them back if the boolean is true.
+[] spawn 
+{
+	ScavangeActionMonitoring = true;
+	sleep 1;
+	// while the condition is true (enemy is alive, task is not complete, etc)
+	while {ScavangeActionMonitoring} do 
+	{
+
+		sleep 1;
+		if (isNil {player getVariable "ExileScavangeActionIDs"} && player getVariable "CanScavenge") then 
+		{
+			[] call ExileClient_object_player_scavenge_AddAction;
+		};
+
+		sleep 1;
+		if (count (player getVariable "ExileScavangeActionIDs") > 0 && !(player getVariable "CanScavenge")) then 
+		{
+			{
+				_id = _x;
+				_target = player;
+				[_target,_id] call BIS_fnc_holdActionRemove;
+			} forEach (player getVariable "ExileScavangeActionIDs");
+			private _null = Nil;
+			player setVariable ["ExileScavangeActionIDs", Nil];
+		};
+	};
+};

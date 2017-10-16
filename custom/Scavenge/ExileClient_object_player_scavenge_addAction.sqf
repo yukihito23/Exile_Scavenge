@@ -3,8 +3,8 @@
  * 
  */
 
-player setVariable["CanScavenge",true];
-player setVariable ["ScavangedObjects", []];
+private _holdActionID =  0;
+private _holdActionIDs = [];
 
 {
 	private _textInfo = getText (_x >> "text");
@@ -12,9 +12,11 @@ player setVariable ["ScavangedObjects", []];
 	private _idleiconInfo = getText (_x >> "icon");
 	private _modelInfo = getArray (_x >> "models");
 	private _itemInfo = getArray (_x >> "items");
-	private _condition = format ["((getModelInfo cursorObject) select 0) in %1 && {player distance cursorObject < 5} && !(cursorObject in (player getVariable ['ScavangedObjects',[]])) && (player getVariable ['CanScavange',true])", _modelInfo];
+	private _condition = format ["(((getModelInfo cursorObject) select 0) in %1 && {player distance cursorObject < 5} && !(cursorObject in (player getVariable ['ScavangedObjects',[]])) && (player getVariable ['CanScavenge', true]))", _modelInfo];
+	//private _condition = format ["((getModelInfo cursorObject) select 0) in %1 && {player distance cursorObject < 5} && !(cursorObject in (player getVariable ['ScavangedObjects',[]]))", _modelInfo];
 	private _configClassName = configName _x;
 	
+	_holdActionID = 
 	[
 		player,
 		_textInfo,
@@ -29,7 +31,8 @@ player setVariable ["ScavangedObjects", []];
 			playsound3d [((getarray (configfile >> "CfgSounds" >> "Orange_Action_Wheel" >> "sound")) param [0,""]) + ".wss",player,false,getposasl player,1,0.9 + 0.2 * _progressTick / 24];
 		},
 		{
-			[((_this select 3) select 0)] call ExileClient_system_scavenge_action_conditionEvents;
+			_configClassName = (_this select 3) select 0;
+			[_configClassName] call ExileClient_system_scavenge_action_conditionEvents;
 		},
 		{},
 		[_configClassName],
@@ -37,10 +40,8 @@ player setVariable ["ScavangedObjects", []];
 		0,
 		false
 	] call ExileClient_gui_holdActionAdd;
-	} forEach ("true" configClasses (missionConfigFile >> "CfgExileScavange"));
 	
-// Reset for players ScavangedObjects variable if amount of entrys hits 10.
-if ( count (player getVariable ["ScavangedObjects", []]) > 10 ) then
-{
-	player setVariable ["ScavangedObjects", []];
-};
+	_holdActionIDs pushBack _holdActionID;
+} forEach ("true" configClasses (missionConfigFile >> "CfgExileScavange"));
+
+player setVariable ["ExileScavangeActionIDs", _holdActionIDs];

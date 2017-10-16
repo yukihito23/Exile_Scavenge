@@ -23,6 +23,7 @@ private _requiredItems = getArray (_scavengeConfig >> _configName >> "conditions
 private _requiredTools = getArray (_scavengeConfig >> _configName >> "conditions" >> "tools");
 private _requiredWeapons = getArray (_scavengeConfig >> _configName >> "conditions" >> "weapons");
 private _classRecipes = getArray (_scavengeConfig >> _configName >> "recipes");
+player setVariable ["CanScavenge", false];
 
 {
 	_recipe = _x;
@@ -151,10 +152,12 @@ if ( _equippedComponentQuantity == 0 && _configName in ["Waters"]) then
 		case "Waters":
 		{
 			["ErrorTitleOnly", ["You don't have any EMPTY bottle or canister in your inventory to fill it with water."]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
 		};
 		default
 		{
 			["ErrorTitleOnly", ["You dont have the required items to get something from this source!"]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
 		};
 	};
 };
@@ -168,6 +171,7 @@ if ( _equippedToolQuantity == 0 && _configName in []) then
 		default
 		{
 			["ErrorTitleOnly", ["You dont have the required tools to get something from this source!"]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
 		};
 	};
 };
@@ -181,10 +185,12 @@ if ( _equippedWeaponQuantity == 0 && _configName in ["Cinderblogs"]) then
 		case "Cinderblogs":
 		{
 			["ErrorTitleOnly", ["You dont have a Sledge Hammer with you!"]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
 		};
 		default
 		{
 			["ErrorTitleOnly", ["You dont have the required weapon to get something from this source!"]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
 		};
 	};
 };
@@ -194,6 +200,7 @@ if !([_components, _returnedItems] call ExileClient_util_inventory_canExchangeIt
 {
 	["ErrorTitleOnly", ["Your inventory is full."]] call ExileClient_gui_toaster_addTemplateToast;
 	_canCraftItem = false;
+	player setVariable ["CanScavenge", true];
 };
 
 // If player can craft item then fire the scavenge event.
