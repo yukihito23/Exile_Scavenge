@@ -8,7 +8,11 @@
  */
  
  class Exile_ScavengeClass
-{
+{		
+		animations[] = 						// List auf animations the player unit plays in the scavenge action.
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
 		type = "ScavengeClass";				// This is the definition of the scavenge class, there are currently 2 classes (ScavengeClass = Player dont need any requirements,
 											// he can just loot the object | CraftingClass = Player needs a special item/tool/weapon to get a item back from the source).
 											
@@ -35,6 +39,10 @@ class CfgExileScavenge
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
 	class Apples: Exile_ScavengeClass
 	{
+		animations[] = 
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
 		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 2;
@@ -55,6 +63,10 @@ class CfgExileScavenge
 	
 	class Fruits: Exile_ScavengeClass
 	{
+		animations[] = 
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
 		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 2;
@@ -88,6 +100,10 @@ class CfgExileScavenge
 	
 	class Trash: Exile_ScavengeClass
 	{
+		animations[] = 
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
 		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 2;
@@ -115,6 +131,10 @@ class CfgExileScavenge
 	/*
 	class Cinderblogs: Exile_ScavengeClass
 	{
+		animations[] = 
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
 		type = "CraftingClass";
 		chance = 50;
 		maxitems = 2;
@@ -139,6 +159,10 @@ class CfgExileScavenge
 	*/
 	class Wrecks: Exile_ScavengeClass
 	{
+		animations[] = 
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
 		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 2;
@@ -198,6 +222,10 @@ class CfgExileScavenge
 	
 	class Waters: Exile_ScavengeClass
 	{
+		animations[] = 
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
 		type = "CraftingClass";
 		chance = 70;
 		icon = "Exile_HA_Icon_Water";
@@ -229,6 +257,10 @@ class CfgExileScavenge
 	
 	class Woodlogs: Exile_ScavengeClass
 	{
+		animations[] = 
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
 		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 3;
@@ -248,6 +280,10 @@ class CfgExileScavenge
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
 	class Pumpkins: Exile_ScavengeClass
 	{
+		animations[] = 
+		{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
 		type = "ScavengeClass";
 		chance = 50;
 		maxitems = 1;

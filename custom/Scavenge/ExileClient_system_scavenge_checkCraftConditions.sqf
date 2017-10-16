@@ -2,8 +2,8 @@
  * ExileClient_system_scavenge_checkCraftConditions
  *
  */
- 
-private _configName = _this select 0;
+params ["_configName"];
+
 private _equippedMagazines = magazines player;
 private _equippedWeapons = weapons player;
 private _canCraftItem = true;
@@ -28,14 +28,14 @@ player setVariable ["CanScavenge", false];
 {
 	_recipe = _x;
 	_recipeConfig = missionConfigFile >> "CfgScavengeRecipes" >> _recipe;
-	
-	// Compare all player inventory items with our scavange components list 
+
+	// Compare all player inventory items with our scavange components list
 	// and if there is a match get the recipes classnames that useing these items.
 	if ( !isNil {getArray(_recipeConfig >> "components")} ) then
 	{
 		{
 			_itemClassName = _x;
-			if ( _itemClassName in _requiredItems ) then 
+			if ( _itemClassName in _requiredItems ) then
 			{
 				// This function takes a item className and checks if this item is part of a scavange recipe.
 				// If true then it returs a list of all recipes classnames that are useing these items.
@@ -44,13 +44,13 @@ player setVariable ["CanScavenge", false];
 		} forEach _equippedMagazines;
 	};
 
-	// Compare all player inventory items with our scavange tools list 
+	// Compare all player inventory items with our scavange tools list
 	// and if there is a match get the recipes classnames that useing these items.
 	if ( !isNil {getArray(_recipeConfig >> "tools")} ) then
 	{
 		{
 			_itemClassName = _x;
-			if ( _itemClassName in _requiredTools ) then 
+			if ( _itemClassName in _requiredTools ) then
 			{
 				// This function takes a tool className and checks if this item is part of a scavange recipe.
 				// If true then it returs a list of all recipes classnames that are useing these items.
@@ -58,14 +58,14 @@ player setVariable ["CanScavenge", false];
 			};
 		} forEach _equippedMagazines;
 	};
-	
-	// Compare all player inventory items with our scavange tools list 
+
+	// Compare all player inventory items with our scavange tools list
 	// and if there is a match get the recipes classnames that useing these items.
 	if ( !isNil {getArray(_recipeConfig >> "weapons")} ) then
 	{
 		{
 			_itemClassName = _x;
-			if ( _itemClassName in _requiredWeapons ) then 
+			if ( _itemClassName in _requiredWeapons ) then
 			{
 				// This function takes a tool className and checks if this item is part of a scavange recipe.
 				// If true then it returs a list of all recipes classnames that are useing these items.
@@ -76,14 +76,14 @@ player setVariable ["CanScavenge", false];
 } forEach _classRecipes;
 
 // This checks if the player has the needed items for each _matchingRecipes and checks how may of these items he can craft.
-{	
+{
 	_recipe = _x;
 	_recipeConfig = missionConfigFile >> "CfgScavengeRecipes" >> _recipe;
 	_components = getArray(_recipeConfig >> "components");
 	_tools = getArray(_recipeConfig >> "tools");
 	_weapons = getArray(_recipeConfig >> "weapons");
 	_returnedItems = getArray(_recipeConfig >> "returnedItems");
-	
+
 	// If scavange class needs a item to get a item check if player has the needet item.
 	if ( !isNil {getArray(_recipeConfig >> "components")} ) then
 	{
@@ -92,12 +92,12 @@ player setVariable ["CanScavenge", false];
 				private _componentItemClassName = _x select 1;
 				_equippedComponentQuantity = { _x == _componentItemClassName } count _equippedMagazines;
 				_possibleCraftQuantity = _possibleCraftQuantity min (floor (_equippedComponentQuantity / _componentQuantity));
-				
+
 				// Check if play has all component items for the recipe in inventory.
 				// If true then he can craft item, false he can not craft.
 				if ( _equippedComponentQuantity < _componentQuantity ) then
 				{
-					_canCraftItem = false;				
+					_canCraftItem = false;
 				}
 				else
 				{
@@ -105,7 +105,7 @@ player setVariable ["CanScavenge", false];
 				};
 		} forEach _components;
 	};
-	
+
 	// If scavange class needs a tool to get a item check if player has the needet tools.
 	if ( !isNil {getArray(_recipeConfig >> "tools")} ) then
 	{
@@ -123,7 +123,7 @@ player setVariable ["CanScavenge", false];
 			};
 		} forEach _tools;
 	};
-	
+
 	// If scavange class needs a kind of weapon to get a item check if player has the needet weapon.
 	if ( !isNil {getArray(_recipeConfig >> "weapons")} ) then
 	{
@@ -142,12 +142,12 @@ player setVariable ["CanScavenge", false];
 		} forEach _weapons;
 	};
 } forEach _matchingRecipes;
-	
+
 // If player has not a single component item in his invetory he can not craft any items when the class need a item.
 if ( _equippedComponentQuantity == 0 && _configName in ["Waters"]) then
 {
 	_canCraftItem = false;
-	switch (_configName) do 
+	switch (_configName) do
 	{
 		case "Waters":
 		{
@@ -166,7 +166,7 @@ if ( _equippedComponentQuantity == 0 && _configName in ["Waters"]) then
 if ( _equippedToolQuantity == 0 && _configName in []) then
 {
 	_canCraftItem = false;
-	switch (_configName) do 
+	switch (_configName) do
 	{
 		default
 		{
@@ -180,7 +180,7 @@ if ( _equippedToolQuantity == 0 && _configName in []) then
 if ( _equippedWeaponQuantity == 0 && _configName in ["Cinderblogs"]) then
 {
 	_canCraftItem = false;
-	switch (_configName) do 
+	switch (_configName) do
 	{
 		case "Cinderblogs":
 		{
@@ -195,7 +195,7 @@ if ( _equippedWeaponQuantity == 0 && _configName in ["Cinderblogs"]) then
 	};
 };
 
-// If player has no space in his inventory for the item then he can not craft. 
+// If player has no space in his inventory for the item then he can not craft.
 if !([_components, _returnedItems] call ExileClient_util_inventory_canExchangeItems) then
 {
 	["ErrorTitleOnly", ["Your inventory is full."]] call ExileClient_gui_toaster_addTemplateToast;
@@ -204,7 +204,7 @@ if !([_components, _returnedItems] call ExileClient_util_inventory_canExchangeIt
 };
 
 // If player can craft item then fire the scavenge event.
-if ( _canCraftItem ) then 
+if ( _canCraftItem ) then
 {
 	[_configName, _recipe, _possibleCraftQuantity] call ExileClient_object_player_playScavengeEvent;
 };

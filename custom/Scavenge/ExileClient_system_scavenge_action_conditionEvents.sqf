@@ -2,21 +2,18 @@
  * ExileClient_system_scavenge_action_conditionEvents
  *
  */
-params 
-[
-  ["_className", "", [""]]
-];
+params [["_className", "", [""]]];
 
 if (_className isEqualTo "") exitWith {};
-if (ExileClientPlayerIsInCombat) exitWith 
+if (ExileClientPlayerIsInCombat) exitWith
 {
 	["ErrorTitleOnly", ["Its not safe to scavenge."]] call ExileClient_gui_toaster_addTemplateToast;
 };
-if (player call ExileClient_util_world_isInTraderZone) exitWith 
+if (player call ExileClient_util_world_isInTraderZone) exitWith
 {
 	["ErrorTitleOnly", ["You cannot scavenge inside a trader."]] call ExileClient_gui_toaster_addTemplateToast;
 };
-if !(player getVariable "CanScavenge") exitWith 
+if !(player getVariable "CanScavenge") exitWith
 {
 	["ErrorTitleOnly", ["You cannot search just yet."]] call ExileClient_gui_toaster_addTemplateToast;
 };

@@ -1,8 +1,7 @@
 /**
  * ExileClient_object_player_scavenge_AddAction
- * 
+ *
  */
-
 private _holdActionID =  0;
 private _holdActionIDs = [];
 
@@ -15,8 +14,8 @@ private _holdActionIDs = [];
 	private _condition = format ["(((getModelInfo cursorObject) select 0) in %1 && {player distance cursorObject < 5} && !(cursorObject in (player getVariable ['ScavangedObjects',[]])) && (player getVariable ['CanScavenge', true]))", _modelInfo];
 	//private _condition = format ["((getModelInfo cursorObject) select 0) in %1 && {player distance cursorObject < 5} && !(cursorObject in (player getVariable ['ScavangedObjects',[]]))", _modelInfo];
 	private _configClassName = configName _x;
-	
-	_holdActionID = 
+
+	_holdActionID =
 	[
 		player,
 		_textInfo,
@@ -40,7 +39,7 @@ private _holdActionIDs = [];
 		0,
 		false
 	] call ExileClient_gui_holdActionAdd;
-	
+
 	_holdActionIDs pushBack _holdActionID;
 } forEach ("true" configClasses (missionConfigFile >> "CfgExileScavenge"));
 

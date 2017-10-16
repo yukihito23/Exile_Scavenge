@@ -2,18 +2,17 @@
  * ExileClient_system_scavenge_getCraftingRecipes
  *
  */
- 
-private["_forItemClassName", "_foundItems", "_availableRecipes", "_recipeConfig", "_recipeClassName", "_components", "_tools"];
-_forItemClassName = _this select 0;
-_foundItems = [];
-_availableRecipes = (missionConfigFile >> "CfgScavengeRecipes") call Bis_fnc_getCfgSubClasses;
+params ["_forItemClassName"];
+
+private _foundItems = [];
+private _availableRecipes = (missionConfigFile >> "CfgScavengeRecipes") call Bis_fnc_getCfgSubClasses;
 {
-	_recipeConfig = (missionConfigFile >> "CfgScavengeRecipes" >> _x);
-	_recipeClassName = _x;
-	_components = getArray(_recipeConfig >> "components");
-	_tools = getArray(_recipeConfig >> "tools");
+	private _recipeConfig = (missionConfigFile >> "CfgScavengeRecipes" >> _x);
+	private _recipeClassName = _x;
+	private _components = getArray(_recipeConfig >> "components");
+	private _tools = getArray(_recipeConfig >> "tools");
 	{
-		if( _x select 1 == _forItemClassName ) exitWith 
+		if( _x select 1 == _forItemClassName ) exitWith
 		{
 			_foundItems pushBack _recipeClassName;
 		};

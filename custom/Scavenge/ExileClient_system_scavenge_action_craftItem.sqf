@@ -2,9 +2,8 @@
  * ExileClient_system_scavenge_action_craftItem
  *
  */
+params ["_recipeClassName", "_quantityToCraft"];
 
-_recipeClassName = _this select 0;
-_quantityToCraft = _this select 1;
 private _quantityCrafted = 0;
 private _metSideConditions = true;
 private _canCraftItem = true;
@@ -29,14 +28,14 @@ player setVariable ["CanScavenge", false];
 forEach _tools;
 if ( getNumber(_recipeConfig >> "requiresOcean") == 1 ) then
 {
-	if !(surfaceIsWater getPos player) then 
+	if !(surfaceIsWater getPos player) then
 	{
 		_metSideConditions = false;
 	};
 };
 if ( getNumber(_recipeConfig >> "requiresFire") == 1 ) then
 {
-	if !([player, 4] call ExileClient_util_world_isFireInRange) then 
+	if !([player, 4] call ExileClient_util_world_isFireInRange) then
 	{
 		_metSideConditions = false;
 	};
@@ -44,7 +43,7 @@ if ( getNumber(_recipeConfig >> "requiresFire") == 1 ) then
 if ( getNumber(_recipeConfig >> "requiresConcreteMixer") == 1 ) then
 {
 	_concreteMixer = (ASLtoAGL (getPosASL player)) call ExileClient_util_world_getNearestConcreteMixer;
-	if (isNull _concreteMixer) then 
+	if (isNull _concreteMixer) then
 	{
 		_metSideConditions = false;
 	};
@@ -55,9 +54,9 @@ if( _interactionModelGroupClassName != "" ) then
 	private _foundObject = false;
 	if ([ASLtoAGL (getPosASL player), 10, _interactionModelGroupModels] call ExileClient_util_model_isNearby) then
 	{
-		_foundObject = true;	
+		_foundObject = true;
 	}
-	else 
+	else
 	{
 		if ( _interactionModelGroupModels call ExileClient_util_model_isLookingAt ) then
 		{
@@ -72,7 +71,7 @@ if( _interactionModelGroupClassName != "" ) then
 
 if (_metSideConditions) then
 {
-	for "_i" from 1 to _quantityToCraft do 
+	for "_i" from 1 to _quantityToCraft do
 	{
 		private _hasAllComponents = true;
 		{
@@ -87,19 +86,19 @@ if (_metSideConditions) then
 		forEach _components;
 		if (_hasAllComponents) then
 		{
-			if !(isNull _concreteMixer) then 
+			if !(isNull _concreteMixer) then
 			{
 				["concreteMixerStartRequest", [netId _concreteMixer, _recipeClassName]] call ExileClient_system_network_send;
-				_quantityCrafted = -1; 
+				_quantityCrafted = -1;
 			}
-			else 
+			else
 			{
 				if ([_components, _returnedItems] call ExileClient_util_inventory_canExchangeItems) then
 				{
 					{
 						_componentQuantity = _x select 0;
 						_componentItemClassName = _x select 1;
-						for "_i" from 1 to _componentQuantity do 
+						for "_i" from 1 to _componentQuantity do
 						{
 							player removeItem _componentItemClassName;
 						};
@@ -109,11 +108,11 @@ if (_metSideConditions) then
 						private _returnedItemQuantity = _x select 0;
 						private _returnedItemClassName = _x select 1;
 						_addedItems = [_addedItems, _returnedItemClassName, _returnedItemQuantity] call BIS_fnc_addToPairs;
-						for "_i" from 1 to _returnedItemQuantity do 
+						for "_i" from 1 to _returnedItemQuantity do
 						{
 							player addItem _returnedItemClassName;
 						};
-					} 
+					}
 					forEach _returnedItems;
 					_quantityCrafted = _quantityCrafted + 1;
 				};
@@ -121,7 +120,7 @@ if (_metSideConditions) then
 		};
 	};
 };
-if (_quantityCrafted > -1) then 
+if (_quantityCrafted > -1) then
 {
 	if (_quantityCrafted > 0) then
 	{
@@ -130,7 +129,7 @@ if (_quantityCrafted > -1) then
 			_returnedItemClassName = _x select 0;
 			_returnedItemQuantity = _x select 1;
 			private _returnedItemName = getText(configFile >> "CfgMagazines" >> _returnedItemClassName >> "displayName");
-			if (_feedbackMessage != "") then 
+			if (_feedbackMessage != "") then
 			{
 				_feedbackMessage = _feedbackMessage + "<br/>";
 			};

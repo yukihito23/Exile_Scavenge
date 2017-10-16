@@ -1,20 +1,8 @@
-params 
-[
-	["_object", player], 
-	["_label", "Search"], 
-	["_idleIcon", "default"], 
-	["_progressIcon", "default"], 
-	["_conditionShow", "nil"], 
-	["_conditionAction", "nil"], 
-	["_startCode", {}], 
-	["_tickCode", {}], 
-	["_completeCode", {}], 
-	["_interruptCode", {}], 
-	["_arguments",[],[[]]], 
-	["_duration", 0.5], 
-	["_priority", 0], 
-	["_remove", true]
-];
+/**
+ * ExileClient_gui_holdActionAdd
+ *
+ */
+params [["_object", player], ["_label", "Search"],	["_idleIcon", "default"],	["_progressIcon", "default"],	["_conditionShow", "nil"],	["_conditionAction", "nil"],	["_startCode", {}],	["_tickCode", {}],	["_completeCode", {}],	["_interruptCode", {}],	["_arguments",[],[[]]],	["_duration", 0.5],	["_priority", 0],	["_remove", true]];
 
 private _holdAction = [];
 private _holdActionConfig = missionConfigFile >> "CfgExileHoldActions";
