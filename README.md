@@ -1,11 +1,11 @@
-![ArmA 1.74](https://img.shields.io/badge/Arma-1.74-blue.svg) ![Exile 1.0.3](https://img.shields.io/badge/Exile-1.0.3-C72651.svg) ![Exile Scavange 0.3](https://img.shields.io/badge/Exile%20Scavange-0.3%20Alpha-orange.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![ArmA 1.74](https://img.shields.io/badge/Arma-1.74-blue.svg) ![Exile 1.0.3](https://img.shields.io/badge/Exile-1.0.3-C72651.svg) ![Exile Scavange 0.4](https://img.shields.io/badge/Exile%20Scavange-0.4%20Beta-orange.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 # General Information:
 Please note that this is a project in its development stage and there might be some bugs.
 Feel free to give feedback and suggestions to this work.
 
 # Information:
-Basicly this system will allow players to interact with terrain objects.</br>
+Basicly this system will allow players to interact with terrain/map objects.</br>
 If the object has a entry in a scavenge class within the configurations the player can loot this object</br>
 and has a chance to get a item from that depending on the class.</br>
 
@@ -15,9 +15,32 @@ and has a chance to get a item from that depending on the class.</br>
 > - Search throu wrecks.
 > - Get woodstocks from trees.
 > - Get water from different sources if he has a empty bottle/container to fill.
->
-More information coming soon!
+> - Search throu trash-bins/piles.
+> - Get cinderblogs from different sources if he has a sledge hammer on his body.
 
+This framework is simply customizable and you can add new interaction classes easily just by adding the required information to the configfiles.
+
+> # CfgExileHoldActions.cpp
+> 
+> This file contains the information for each holdaction icon.
+> If you want to create your own icon you can add a new class to this file
+> and add the required information to get your icon working with the scavange system.
+> You can find more information and examples in the file.
+
+> # CfgExileScavenge.cpp
+> 
+> This file contains the information for each scavange class.
+> If you want to create your own interaction to terrain/map objects you can do that by
+> adding a new class for your interaction and fill it with the required information.
+> You can find more information and examples in the file.
+
+> # CfgScavengeRecipes.cpp
+> 
+> This file comes in action if you create a crafting scavange class that will require a item/weapon/tool
+> to get a item back from the source.
+> Take a look at the Waters and Cinderblogs classes within CfgExileScavenge.cpp to get a example for creating such a class.
+> In short words this file contains crafting recipes that will be used for crafting scavange classes.
+> You can find more information and examples in the file.
 
 # Requirements:
 Exile Mod 1.0.3: http://www.exilemod.com/downloads/
