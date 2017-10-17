@@ -21,21 +21,21 @@ and has a chance to get a item from that depending on the class.</br>
 This framework is simply customizable and you can add new interaction classes easily just by adding the required information to the configfiles.
 
 > ### CfgExileHoldActions.cpp
-> 
+>
 > This file contains the information for each holdaction icon.
 > If you want to create your own icon you can add a new class to this file
 > and add the required information to get your icon working with the scavange system.
 > You can find more information and examples in the file.
 
 > ### CfgExileScavenge.cpp
-> 
+>
 > This file contains the information for each scavange class.
 > If you want to create your own interaction to terrain/map objects you can do that by
 > adding a new class for your interaction and fill it with the required information.
 > You can find more information and examples in the file.
 
 > ### CfgScavengeRecipes.cpp
-> 
+>
 > This file comes in action if you create a crafting scavange class that will require a item/weapon/tool
 > to get a item back from the source.
 > Take a look at the Waters and Cinderblocks classes within CfgExileScavenge.cpp to get a example for creating such a class.
@@ -57,7 +57,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 
 
 > ## Installation:
-> 
+>
 > 1.	Drop the custom, the holdactions and the dialogs folder + the CfgExileScavange.cpp, CfgExileHoldActions.cpp files into the root of your       >       mission directory.
 > 2.	Merge the content of the provided description.ext with your Exile missions description.ext.
 >
@@ -71,7 +71,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 > So it looks like this for example:
 >
 >	  class RscTitles
->	  {	
+>	  {
 >	       class Default
 >	       {
 >	           idd = -1;
@@ -83,7 +83,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	       #include "dialogs\ExileScavengeUI.hpp"
 >	   };
 >
->      If you dont have any RscTitles class within your mission then just include the provided CfgDialogs.cpp in your missions description.ext. 
+>      If you dont have any RscTitles class within your mission then just include the provided CfgDialogs.cpp in your missions description.ext.
 >
 >
 > 4.	Open your mission config.cpp find the class CfgExileCustomCode and add this into the class:
@@ -91,15 +91,17 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 > So it looks like this for example:
 >
 >	  // Scavenge
->     ExileClient_object_player_initialize = "Custom\Scavenge\ExileClient_object_player_initialize.sqf";	
+>     ExileClient_object_player_initialize = "Custom\Scavenge\ExileClient_object_player_initialize.sqf";
 >
 >
 > 5.	Edit the CfgExileScavange.cpp to suit your server.
 >
 
 ## Thanks and Credits:
+Thanks and Credits:
 Credits to Larrow for the base script: https://forums.bistudio.com/forums/topic/184456-looting-trash-piles-bins/?do=findComment&comment=2942397
-Credits to Cho for a rewrite and port for the exile mod.
+Credits to Kurewe for the first port and rewrite for the exile mod.
+Credits to oldmatechoc for a base rewrite and port for the exile mod.
 Credits to yukihito23 for additons and expansions of the system.
 Credits to NiiRoZz for plenty amount of help, expansions and optimizations of the system.
 Credits to Salutesh for a complete rewrite and buildup of the framework and system.
