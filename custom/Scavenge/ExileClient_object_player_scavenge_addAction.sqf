@@ -17,13 +17,7 @@ private _holdActionIDs = [];
 
 	_holdActionID =
 	[
-		player,
-		_textInfo,
-		_actioniconInfo,
-		_idleiconInfo,
-		_condition,
-		"_caller distance _target < 5",
-		{},
+		player, _textInfo,	_actioniconInfo, _idleiconInfo,	_condition,	"_caller distance _target < 5",	{},
 		{
 			private _progressTick = _this select 4;
 			if (_progressTick % 2 == 0) exitwith {};
@@ -34,10 +28,7 @@ private _holdActionIDs = [];
 			[_configClassName] call ExileClient_system_scavenge_action_conditionEvents;
 		},
 		{},
-		[_configClassName],
-		0.5,
-		0,
-		false
+		[_configClassName], 0.5, 0, false
 	] call ExileClient_gui_holdActionAdd;
 
 	_holdActionIDs pushBack _holdActionID;

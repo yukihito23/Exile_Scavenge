@@ -32,8 +32,7 @@ player setSpeaker "NoVoice";
 showSubtitles false;
 [] call ExileClient_object_player_event_hook;
 ExileGasMaskNextSoundAt = diag_tickTime;
-if (ExileClientGasMaskVisible) then
-{
+if (ExileClientGasMaskVisible) then {
     false call ExileClient_gui_gasMask_toggle;
 };
 [] call ExileClient_object_player_stats_reset;

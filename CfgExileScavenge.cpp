@@ -9,21 +9,24 @@
 
  class Exile_ScavengeClass
 {
-	animations[] = 						// List auf animations the player unit can play in the scavenge action. Only one animation in this list will be executed.
+	animations[] = 						          // List auf animations the player unit can play in the scavenge action. Only one animation in this list will be executed.
 	{
 		"AinvPknlMstpSnonWnonDnon_medic_1"
 	};
-	type = "ScavengeClass";				// This is the definition of the scavenge class, there are currently 2 classes (ScavengeClass = Player dont need any requirements,
-										// he can just loot the object | CraftingClass = Player needs a special item/tool/weapon to get a item back from the source).
-	chance = 100;						// Chance of getting a item from a scavange.
-	maxitems = 0;						// Max items to get from a single scavange.
-	icon = "";							// Action icon ClassName (Configure your own classes within the provided CfgExileHoldActions.cpp)
-	text = "My Scavenge Interaction";	// Action text that gets displayed with the icon.
-	models[] = {};						// Interaction models (has to be a p3d) that will work with this scavange class.
-	recipes[] = {};						// Recipes that are used in this class.
-	items[] = {};						// Items that the player with get from this scavange class.
-	// In case of a scavange class that needs a item/model/object/surface this part gets in action.
-	// So far this is used for the water class that requires a empty bottle/canister in the players inventory to "fill" it with water.
+	type = "ScavengeClass";				      // This is the definition of the scavenge class, there are currently 2 classes (ScavengeClass = Player dont need any requirements,
+										                  // he can just loot the object | CraftingClass = Player needs a special item/tool/weapon to get a item back from the source).
+	chance = 100;						            // Chance of getting a item from a scavange.
+	searchtime = 5;						          // Searchtime in seconds the player will need to scavenge a object.
+	maxitems = 0;						            // Max items to get from a single scavange.
+	icon = "";							            // Action icon ClassName (Configure your own classes within the provided CfgExileHoldActions.cpp)
+	text = "My Scavenge Interaction";	  // Action text that gets displayed with the icon.
+	models[] = {};						          // Interaction models (has to be a p3d) that will work with this scavange class.
+	recipes[] = {};						          // Recipes that are used in this class.
+	items[] = {};						            // Items that the player with get from this scavange class.
+
+  // In case of a scavange class that needs a item/model/object/surface this part gets in action.
+	// So far this is used for the water class that requires a empty bottle/canister in the players inventory to "fill" it with water and the
+  // Cinderblock class where the player needs a weapon (hammer) on his body to get a item back from the source.
 	class conditions
 	{
 		items[] = {};					// Item conditions (the player needs this item in his inventory or he cant scavanged sucsessful from this source).
@@ -41,6 +44,7 @@ class CfgExileScavenge
 		};
 		type = "ScavengeClass";
 		chance = 50;
+		searchtime = 5;
 		maxitems = 2;
 		icon = "Default";
 		text = "Search through garbage";
@@ -69,6 +73,7 @@ class CfgExileScavenge
 		};
 		type = "ScavengeClass";
 		chance = 50;
+		searchtime = 5;
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Wreck";
 		text = "Scavenge Wreck";
@@ -131,6 +136,7 @@ class CfgExileScavenge
 		};
 		type = "CraftingClass";
 		chance = 70;
+		searchtime = 5;
 		icon = "Exile_HA_Icon_Water";
 		text = "Scavenge for Water";
 		models[] =
@@ -165,6 +171,7 @@ class CfgExileScavenge
 		};
 		type = "ScavengeClass";
 		chance = 50;
+		searchtime = 5;
 		maxitems = 3;
 		icon = "Exile_HA_Icon_Woodlogs";
 		text = "Scavenge Woodlogs";
@@ -188,6 +195,7 @@ class CfgExileScavenge
 		};
 		type = "ScavengeClass";
 		chance = 50;
+		searchtime = 5;
 		maxitems = 1;
 		icon = "Exile_HA_Icon_Pumpkin";
 		text = "Harvest Pumpkin";
@@ -200,7 +208,7 @@ class CfgExileScavenge
 			"Exitem_pumpkin"
 		};
 	};
-	class Cinderblogs: Exile_ScavengeClass
+	class Cinderblocks: Exile_ScavengeClass
 	{
 		animations[] =
 		{
@@ -208,16 +216,17 @@ class CfgExileScavenge
 		};
 		type = "CraftingClass";
 		chance = 50;
+		searchtime = 5;
 		maxitems = 2;
 		icon = "Default";
-		text = "Get Cinderblogs";
+		text = "Get Cinderblocks";
 		models[] =
 		{
 			"cinderblocks_f.p3d"
 		};
 		recipes[] =
 		{
-			"ScavengeDestroyCinderblog"
+			"ScavengeDestroyCinderblock"
 		};
 		class conditions
 		{
@@ -237,6 +246,7 @@ class CfgExileScavenge
 		};
 		type = "ScavengeClass";
 		chance = 50;
+		searchtime = 5;
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Apple";
 		text = "Scavenge for Apples";
@@ -260,6 +270,7 @@ class CfgExileScavenge
 		};
 		type = "ScavengeClass";
 		chance = 50;
+		searchtime = 5;
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Fruit";
 		text = "Scavenge for Fruit";

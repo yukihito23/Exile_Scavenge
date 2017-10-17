@@ -16,22 +16,17 @@ player setVariable ["CanScavenge", true];
 player setVariable ["ScavangedObjects", []];
 player setVariable ["ExileScavangeActionIDs", Nil];
 
-ScavangeActionMonitor =
-{
-  [] spawn
-  {
-	ScavangeActionMonitoring = true;
+ScavangeActionMonitor = {
+  [] spawn {
+    ScavangeActionMonitoring = true;
   	sleep 1;
-  	while {ScavangeActionMonitoring} do
-  	{
+  	while {ScavangeActionMonitoring} do	{
   		sleep 0.5;
-  		if (isNil {player getVariable "ExileScavangeActionIDs"} && player getVariable "CanScavenge") then
-  		{
+  		if (isNil {player getVariable "ExileScavangeActionIDs"} && player getVariable "CanScavenge") then	{
   			[] call ExileClient_object_player_scavenge_AddAction;
   		};
   		sleep 0.5;
-  		if (count (player getVariable "ExileScavangeActionIDs") > 0 && !(player getVariable "CanScavenge")) then
-  		{
+  		if (count (player getVariable "ExileScavangeActionIDs") > 0 && !(player getVariable "CanScavenge")) then {
   			{
   				_id = _x;
   				_target = player;
@@ -40,11 +35,6 @@ ScavangeActionMonitor =
   			private _null = Nil;
   			player setVariable ["ExileScavangeActionIDs", Nil];
   		};
-		sleep 0.5;
-		if ( count (player getVariable ["ScavangedObjects", []]) > 10 ) then
-		{
-			player setVariable ["ScavangedObjects", []];
-		};
   	};
   };
 };

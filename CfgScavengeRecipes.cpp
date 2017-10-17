@@ -53,7 +53,7 @@ class CfgScavengeRecipes
 			{1, "Exitem_canteen"}
 		};
 	};
-	class ScavengeDestroyCinderblog: Exile_ScavengeCraftingRecipe
+	class ScavengeDestroyCinderblock: Exile_ScavengeCraftingRecipe
 	{
 		returnedItems[] =
 		{

@@ -15,7 +15,7 @@ and has a chance to get a item from that depending on the class.</br>
 > - Get woodstocks from trees.
 > - Get water from different sources if he has a empty bottle/container to fill.
 > - Search throu trash-bins/piles.
-> - Get cinderblogs from different sources if he has a sledge hammer on his body. (Requires Exile Extended Items Mod)
+> - Get Cinderblocks from different sources if he has a sledge hammer on his body. (Requires Exile Extended Items Mod)
 > - Pickup fruits and apples from trees (Requires LordRampantHumps Items Pack Mod).
 
 This framework is simply customizable and you can add new interaction classes easily just by adding the required information to the configfiles.
@@ -38,7 +38,7 @@ This framework is simply customizable and you can add new interaction classes ea
 > 
 > This file comes in action if you create a crafting scavange class that will require a item/weapon/tool
 > to get a item back from the source.
-> Take a look at the Waters and Cinderblogs classes within CfgExileScavenge.cpp to get a example for creating such a class.
+> Take a look at the Waters and Cinderblocks classes within CfgExileScavenge.cpp to get a example for creating such a class.
 > In short words this file contains crafting recipes that will be used for crafting scavange classes.
 > You can find more information and examples in the file.
 
