@@ -58,7 +58,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 
 > ## Installation:
 >
-> 1.	Drop the custom, the holdactions and the dialogs folder + the CfgFunctions.cpp, CfgExileScavange.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
+> 1.	Drop the custom, the holdactions, dialogs, Exile_Client_Overrides and Exile_Server_Overrides folders + the CfgFunctions.cpp, CfgExileScavange.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
 > 2.	Merge the content of the provided description.ext with your Exile missions description.ext.
 >
 > So it looks like this for example:
@@ -67,7 +67,35 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	  #include "CfgExileScavange.cpp"
 >	  #include "CfgExileHoldActions.cpp"
 >
-> 3.   Merge the content of the provided CfgDialogs.cpp with your missions RscTitles class.
+>
+> 3.   Merge the content of the provided CfgRemoteExec.cpp with your missions CfgRemoteExec class.
+>
+> So it looks like this for example:
+>
+>	  class CfgRemoteExec 
+>	  {
+>		class Functions 
+>		{
+>			mode = 2;
+>			jip = 0;
+>			class fnc_AdminReq 												{ allowedTargets=2; };
+>			class ExileServer_system_network_dispatchIncomingMessage 		{ allowedTargets=2; };
+>			class ExileExpansionServer_network_event_onPlayerConnected		{ allowedTargets=0; };
+>			class ExileExpansionServer_object_player_setScavengedObjects	{ allowedTargets=0; };
+>			class ExileExpansionClient_object_player_setScavengedObjects	{ allowedTargets=0; };
+>			class BIS_fnc_holdActionAdd										{ allowedTargets=0; };
+>			class BIS_fnc_holdActionRemove									{ allowedTargets=0; };
+>		};
+>		class Commands
+>		{
+>			mode=0;
+>			jip=0;
+>		};
+>	  };
+>
+>
+>
+> 4.   Merge the content of the provided CfgDialogs.cpp with your missions RscTitles class.
 >
 > So it looks like this for example:
 >
@@ -87,18 +115,28 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >      If you dont have any RscTitles class within your mission then just include the provided CfgDialogs.cpp in your missions description.ext.
 >
 >
-> 4.	Open your mission config.cpp find the class CfgExileCustomCode and add this into the class:
+> 5.	Open your mission config.cpp find the class CfgExileCustomCode and add this into the class:
 >
 > So it looks like this for example:
 >
->	  // Scavenge
->     ExileClient_object_player_initialize = "Custom\Scavenge\ExileClient_object_player_initialize.sqf";
+>	  ////////////////////////////////////
+>	  //	Exile Server Overrides
+>	  ///////////////////////////////////
+>	  // Custom onPlayerConnected eventhandler
+>	  ExileServer_system_network_setupEventHandlers = "Exile_Server_Overrides\ExileServer_system_network_setupEventHandlers.sqf";
+>	  ExileServer_system_network_event_onPlayerConnected = "Exile_Server_Overrides\ExileServer_system_network_event_onPlayerConnected.sqf";
+>	
+>	  ////////////////////////////////////
+>	  //	Exile Client Overrides
+>	  ///////////////////////////////////
+>	  // Custom player client init
+>	  ExileClient_object_player_initialize = "Exile_Client_Overrides\ExileClient_object_player_initialize.sqf";
 >
 >     If you dont have any CfgExileCustomCode entrys yet within your mission then you can also just include the provided CfgExileCustomCode.cpp in your missions description.ext.
 >	  Delete the CfgExileCustomCode class in the main exile confip.cpp if you do so then!
 >
 >
-> 5.	Edit the CfgExileScavange.cpp to suit your server.
+> 6.	Edit the CfgExileScavange.cpp to suit your server.
 >
 >	  Enjoy :)
 >
