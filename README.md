@@ -59,7 +59,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 
 > ## Installation:
 >
-> 1.	Drop the bootstrap, core, holdactions, dialogs, Exile_Client_Overrides and Exile_Server_Overrides folders + the CfgFunctions.cpp,   CfgExileScavange.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
+> 1.	Drop the bootstrap, core, holdactions, dialogs, Exile_Client_Overrides and Exile_Server_Overrides folders + the CfgFunctions.cpp, CfgExileScavange.cpp, CfgScavengeRecipes.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
 > 2.	Merge the content of the provided description.ext with your Exile missions description.ext.
 >
 > So it looks like this for example:
