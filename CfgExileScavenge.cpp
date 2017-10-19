@@ -38,8 +38,7 @@ class CfgExileScavenge
 {
 	class Trash: Exile_ScavengeClass
 	{
-		animations[] =
-		{
+		animations[] = {
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
 		type = "ScavengeClass";
@@ -48,8 +47,7 @@ class CfgExileScavenge
 		maxitems = 2;
 		icon = "Default";
 		text = "Search through garbage";
-		models[] =
-		{
+		models[] = {
 			// Trashpiles
 			"garbagewashingmachine_f.p3d",
 			"garbagepallet_f.p3d",
@@ -57,8 +55,7 @@ class CfgExileScavenge
 			// Trashbins
 			"kontejner.p3d"
 		};
-		items[] =
-		{
+		items[] = {
 			"Exile_Item_CanOpener",
 			"Exile_Item_Can_Empty",
 			"Exile_Item_WaterCanisterEmpty",
@@ -67,8 +64,7 @@ class CfgExileScavenge
 	};
 	class Wrecks: Exile_ScavengeClass
 	{
-		animations[] =
-		{
+		animations[] = {
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
 		type = "ScavengeClass";
@@ -77,8 +73,7 @@ class CfgExileScavenge
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Wreck";
 		text = "Scavenge Wreck";
-		models[] =
-		{
+		models[] = {
 			"wreck_brdm2_f.p3d",
 			"wreck_van_f.p3d",
 			"wreck_truck_dropside_f.p3d",
@@ -119,9 +114,7 @@ class CfgExileScavenge
 			//"chz_kamaz_fura.p3d",
 			//"chz_kamaz_pricep.p3d"
 		};
-
-		items[] =
-		{
+		items[] = {
 			// Extras
 			"Exile_Item_InstaDoc",
 			"Exile_Item_Bandage",
@@ -130,8 +123,7 @@ class CfgExileScavenge
 	};
 	class Waters: Exile_ScavengeClass
 	{
-		animations[] =
-		{
+		animations[] = {
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
 		type = "CraftingClass";
@@ -139,24 +131,20 @@ class CfgExileScavenge
 		searchtime = 5;
 		icon = "Exile_HA_Icon_Water";
 		text = "Scavenge for Water";
-		models[] =
-		{
+		models[] =	{
 			"pumpa.p3d",
 			"misc_well.p3d",
 			"misc_wellpump.p3d",
 			"watertank_f.p3d",
 			"toilet_b_02.p3d"
 		};
-		recipes[] =
-		{
+		recipes[] =	{
 			"ScavengeFillEmptyPlasticBottleWithDirtyWater",
 			"ScavengeFillEmptyWaterCanisterWithDirtyWater",
 			"ScavengeFillEmptyWaterCanteenWithDirtyWater"
 		};
-		class conditions
-		{
-			items[] =
-			{
+		class conditions {
+			items[] = {
 				"Exile_Item_PlasticBottleEmpty",
 				"Exile_Item_WaterCanisterEmpty",
 				"Exitem_canteen"
@@ -165,8 +153,7 @@ class CfgExileScavenge
 	};
 	class Woodlogs: Exile_ScavengeClass
 	{
-		animations[] =
-		{
+		animations[] = {
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
 		type = "ScavengeClass";
@@ -175,8 +162,7 @@ class CfgExileScavenge
 		maxitems = 3;
 		icon = "Exile_HA_Icon_Woodlogs";
 		text = "Scavenge Woodlogs";
-		models[] =
-		{
+		models[] = {
 			"drevo_hromada.p3d"
 		};
 		items[] =
@@ -184,92 +170,85 @@ class CfgExileScavenge
 			"Exile_Item_WoodLog"
 		};
 	};
-  /*
-  // Uses non-vanilla Exile Items
+	/*
+	// Uses non-vanilla Exile Items
 	class Trees: Exile_ScavengeClass
-  {
-    animations[] =
-    {
-        "AinvPknlMstpSnonWnonDnon_medic_1"
-    };
-    type = "ScavengeClass";
-    chance = 20;
-    searchtime = 2;
-    maxitems = 2;
-    icon = "Exile_HA_Icon_Woodlogs";
-    text = "Scavenge Sticks and Leaves";
-    models[] =
-    {
-        // Trees on CHR
-        "t_betula2s.p3d",
-        "t_betula2f.p3d",
-        "t_fagus2f.p3d",
-        "t_fagus2w.p3d",
-        "t_fagus2s.p3d",
-        "t_ficusb2s_ep1.p3d",
-        "t_quercus2f.p3d",
-        "t_picea1s.p3d",
-        "t_picea2s.p3d",
-        "t_picea3f.p3d",
-        "t_pinusn1s.p3d",
-        "t_pinusn2s.p3d",
-        "t_betula2s.p3d",
-        "t_alnus2s.p3d",
-        "t_salix2s.p3d",
-        "t_malus1s.p3d",
-        "t_juniperusc2s_ep1.p3d",
-        "t_quercus2f.p3d",
-        "t_quercus3f.p3d",
-        "dd_borovice.p3d",
-        "strlipa.p3d",
-        //Bushes on CHR
-        "b_craet1.p3d",
-        "b_hrusen2.p3d",
-        "b_corylus.p3d",
-        "b_corylus2s.p3d",
-        "b_sambucus.p3d",
-        "krovi_long.p3d"
-      };
-      items[] =
-      {
+	{
+		animations[] =	{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "ScavengeClass";
+		chance = 20;
+		searchtime = 2;
+		maxitems = 2;
+		icon = "Exile_HA_Icon_Woodlogs";
+		text = "Scavenge Sticks and Leaves";
+		models[] = {
+			// Trees on CHR
+			"t_betula2s.p3d",
+			"t_betula2f.p3d",
+			"t_fagus2f.p3d",
+			"t_fagus2w.p3d",
+			"t_fagus2s.p3d",
+			"t_ficusb2s_ep1.p3d",
+			"t_quercus2f.p3d",
+			"t_picea1s.p3d",
+			"t_picea2s.p3d",
+			"t_picea3f.p3d",
+			"t_pinusn1s.p3d",
+			"t_pinusn2s.p3d",
+			"t_betula2s.p3d",
+			"t_alnus2s.p3d",
+			"t_salix2s.p3d",
+			"t_malus1s.p3d",
+			"t_juniperusc2s_ep1.p3d",
+			"t_quercus2f.p3d",
+			"t_quercus3f.p3d",
+			"dd_borovice.p3d",
+			"strlipa.p3d",
+			//Bushes on CHR
+			"b_craet1.p3d",
+			"b_hrusen2.p3d",
+			"b_corylus.p3d",
+			"b_corylus2s.p3d",
+			"b_sambucus.p3d",
+			"krovi_long.p3d"
+		};
+		items[] = {
           "Exile_Item_WoodSticks",
           "Exile_Item_Leaves"
-      };
-  };
-  // Extended_Items_Exile
-  // https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
-  class Pumpkins: Exile_ScavengeClass
-    {
-      animations[] =
-      {
-          "AinvPknlMstpSnonWnonDnon_medic_1"
-      };
-      type = "CraftingClass";
-      chance = 50;
-      searchtime = 5;
-      maxitems = 1;
-      icon = "Exile_HA_Icon_Pumpkin";
-      text = "Harvest Pumpkin";
-      models[] =
-      {
-          "bodlak_group.p3d"
-      };
-      recipes[] =
-      {
-          "ScavengePumpkins"
-      };
-      class conditions
-      {
-          weapons[] =
-          {
-              "Exile_Melee_Shovel"
-          };
-      };
+		};
+	};
+	// Extended_Items_Exile
+	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
+	class Pumpkins: Exile_ScavengeClass
+	{
+		animations[] = {
+		"AinvPknlMstpSnonWnonDnon_medic_1"
     };
+    type = "CraftingClass";
+    chance = 50;
+    searchtime = 5;
+    maxitems = 1;
+    icon = "Exile_HA_Icon_Pumpkin";
+    text = "Harvest Pumpkin";
+    models[] =
+    {
+        "bodlak_group.p3d"
+    };
+    recipes[] = {
+        "ScavengePumpkins"
+    };
+	class conditions {
+			weapons[] =
+			{
+				"Exile_Melee_Shovel"
+			};
+		};
+	};
 	class Cinderblocks: Exile_ScavengeClass
 	{
-		animations[] =
-		{
+		animations[] =	{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
 		type = "CraftingClass";
@@ -278,18 +257,14 @@ class CfgExileScavenge
 		maxitems = 2;
 		icon = "Default";
 		text = "Get Cinderblocks";
-		models[] =
-		{
+		models[] = {
 			"cinderblocks_f.p3d"
 		};
-		recipes[] =
-		{
+		recipes[] =	{
 			"ScavengeDestroyCinderblock"
 		};
-		class conditions
-		{
-			weapons[] =
-			{
+		class conditions {
+			weapons[] =	{
 				"Exile_Melee_SledgeHammer"
 			};
 		};
@@ -298,8 +273,7 @@ class CfgExileScavenge
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
 	class Apples: Exile_ScavengeClass
 	{
-		animations[] =
-		{
+		animations[] =	{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
 		type = "ScavengeClass";
@@ -322,8 +296,7 @@ class CfgExileScavenge
 	};
 	class Fruits: Exile_ScavengeClass
 	{
-		animations[] =
-		{
+		animations[] =	{
 			"AinvPknlMstpSnonWnonDnon_medic_1"
 		};
 		type = "ScavengeClass";
@@ -332,8 +305,7 @@ class CfgExileScavenge
 		maxitems = 2;
 		icon = "Exile_HA_Icon_Fruit";
 		text = "Scavenge for Fruit";
-		models[] =
-		{
+		models[] =	{
 			// Random small trees and bushes
 			"b_corylus.p3d",
 			"b_canina2s.p3d",
@@ -351,8 +323,7 @@ class CfgExileScavenge
 			"b_hrusen2.p3d",
 			"t_betula2w.p3d"
 		};
-		items[] =
-		{
+		items[] = {
 			"items_pack_pear",
 			"items_pack_banana"
 		};

@@ -59,12 +59,12 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 
 > ## Installation:
 >
-> 1.	Drop the custom, the holdactions, dialogs, Exile_Client_Overrides and Exile_Server_Overrides folders + the CfgFunctions.cpp, CfgExileScavange.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
+> 1.	Drop the bootstrap, core, holdactions, dialogs, Exile_Client_Overrides and Exile_Server_Overrides folders + the CfgFunctions.cpp,   CfgExileScavange.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
 > 2.	Merge the content of the provided description.ext with your Exile missions description.ext.
 >
 > So it looks like this for example:
 >
->	  #include "CfgFunctions.cpp"	
+>	  #include "CfgFunctions.cpp"
 >	  #include "CfgExileScavange.cpp"
 >	  #include "CfgExileHoldActions.cpp"
 >
@@ -73,9 +73,9 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >
 > So it looks like this for example:
 >
->	  class CfgRemoteExec 
+>	  class CfgRemoteExec
 >	  {
->		class Functions 
+>		class Functions
 >		{
 >			mode = 2;
 >			jip = 0;
@@ -126,7 +126,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	  // Custom onPlayerConnected eventhandler
 >	  ExileServer_system_network_setupEventHandlers = "Exile_Server_Overrides\ExileServer_system_network_setupEventHandlers.sqf";
 >	  ExileServer_system_network_event_onPlayerConnected = "Exile_Server_Overrides\ExileServer_system_network_event_onPlayerConnected.sqf";
->	
+>
 >	  ////////////////////////////////////
 >	  //	Exile Client Overrides
 >	  ///////////////////////////////////
