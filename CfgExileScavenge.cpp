@@ -7,7 +7,7 @@
  * These configurations are used within the scavange system to configure the different scavange classes.
  */
 
- class Exile_ScavengeClass
+class Exile_ScavengeClass
 {
 	animations[] = 						          // List of animations the player unit can play in the scavenge action. Only one animation in this list will be executed.
 	{
@@ -184,30 +184,88 @@ class CfgExileScavenge
 			"Exile_Item_WoodLog"
 		};
 	};
-	/*
-	// Extended_Items_Exile
-	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
-	class Pumpkins: Exile_ScavengeClass
-	{
-		animations[] =
-		{
-			"AinvPknlMstpSnonWnonDnon_medic_1"
-		};
-		type = "ScavengeClass";
-		chance = 50;
-		searchtime = 5;
-		maxitems = 1;
-		icon = "Exile_HA_Icon_Pumpkin";
-		text = "Harvest Pumpkin";
-		models[] =
-		{
-			"bodlak_group.p3d"
-		};
-		items[] =
-		{
-			"Exitem_pumpkin"
-		};
-	};
+  /*
+  // Uses non-vanilla Exile Items
+	class Trees: Exile_ScavengeClass
+  {
+    animations[] =
+    {
+        "AinvPknlMstpSnonWnonDnon_medic_1"
+    };
+    type = "ScavengeClass";
+    chance = 20;
+    searchtime = 2;
+    maxitems = 2;
+    icon = "Exile_HA_Icon_Woodlogs";
+    text = "Scavenge Sticks and Leaves";
+    models[] =
+    {
+        // Trees on CHR
+        "t_betula2s.p3d",
+        "t_betula2f.p3d",
+        "t_fagus2f.p3d",
+        "t_fagus2w.p3d",
+        "t_fagus2s.p3d",
+        "t_ficusb2s_ep1.p3d",
+        "t_quercus2f.p3d",
+        "t_picea1s.p3d",
+        "t_picea2s.p3d",
+        "t_picea3f.p3d",
+        "t_pinusn1s.p3d",
+        "t_pinusn2s.p3d",
+        "t_betula2s.p3d",
+        "t_alnus2s.p3d",
+        "t_salix2s.p3d",
+        "t_malus1s.p3d",
+        "t_juniperusc2s_ep1.p3d",
+        "t_quercus2f.p3d",
+        "t_quercus3f.p3d",
+        "dd_borovice.p3d",
+        "strlipa.p3d",
+        //Bushes on CHR
+        "b_craet1.p3d",
+        "b_hrusen2.p3d",
+        "b_corylus.p3d",
+        "b_corylus2s.p3d",
+        "b_sambucus.p3d",
+        "krovi_long.p3d"
+      };
+      items[] =
+      {
+          "Exile_Item_WoodSticks",
+          "Exile_Item_Leaves"
+      };
+  };
+  // Extended_Items_Exile
+  // https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
+  class Pumpkins: Exile_ScavengeClass
+    {
+      animations[] =
+      {
+          "AinvPknlMstpSnonWnonDnon_medic_1"
+      };
+      type = "CraftingClass";
+      chance = 50;
+      searchtime = 5;
+      maxitems = 1;
+      icon = "Exile_HA_Icon_Pumpkin";
+      text = "Harvest Pumpkin";
+      models[] =
+      {
+          "bodlak_group.p3d"
+      };
+      recipes[] =
+      {
+          "ScavengePumpkins"
+      };
+      class conditions
+      {
+          weapons[] =
+          {
+              "Exile_Melee_Shovel"
+          };
+      };
+    };
 	class Cinderblocks: Exile_ScavengeClass
 	{
 		animations[] =

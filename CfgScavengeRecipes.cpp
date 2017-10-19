@@ -17,7 +17,7 @@ class Exile_ScavengeCraftingRecipe
 	requiresFire = 0; // inflamed object nearby
 	requiresConcreteMixer = 0; // Check if concrete mixer is nearby
 };
- 
+
 class CfgScavengeRecipes
 {
 	class ScavengeFillEmptyPlasticBottleWithDirtyWater: Exile_ScavengeCraftingRecipe
@@ -26,7 +26,7 @@ class CfgScavengeRecipes
 		{
 			{1, "Exile_Item_PlasticBottleDirtyWater"}
 		};
-		components[] = 
+		components[] =
 		{
 			{1, "Exile_Item_PlasticBottleEmpty"}
 		};
@@ -37,7 +37,7 @@ class CfgScavengeRecipes
 		{
 			{1, "Exile_Item_WaterCanisterDirtyWater"}
 		};
-		components[] = 
+		components[] =
 		{
 			{1, "Exile_Item_WaterCanisterEmpty"}
 		};
@@ -48,7 +48,7 @@ class CfgScavengeRecipes
 		{
 			{1, "Exitem_canteen_dirty"}
 		};
-		components[] = 
+		components[] =
 		{
 			{1, "Exitem_canteen"}
 		};
@@ -64,4 +64,15 @@ class CfgScavengeRecipes
 			"Exile_Melee_SledgeHammer"
 		};
 	};
+	class ScavengePumpkins: Exile_ScavengeCraftingRecipe
+  {
+  	returnedItems[] =
+    {
+      {1, "Exitem_pumpkin"}
+    };
+    weapons[] =
+    {
+      "Exile_Melee_Shovel"
+    };
+  };
 };
