@@ -1,6 +1,12 @@
 /**
- * ExileClient_system_scavenge_createLoot
+ * ExileExpansionClient_system_scavenge_createLoot
  *
+ * Exile Expansion Mod
+ * www.reality-gaming.eu
+ * © 2017 Exile Expansion Mod Team
+ *
+ * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
 params [["_configName", "", [""]]];
 
@@ -16,7 +22,8 @@ private _animationToPlay = _animationsList call BIS_fnc_selectRandom;
 private _player = player;
 private _playerScavengeEvent = true;
 private _currentObject = cursorObject;
-private _objectsList = [];
+private _objectsList = missionNamespace getVariable ["ExileClientSavengedObjects", []];
+
 _player setVariable ["CanScavenge", false];
 
 ( ["ExileScavengeUI"] call BIS_fnc_rscLayer ) cutRsc [ "ExileScavengeUI", "PLAIN", 1, false ];
@@ -66,7 +73,8 @@ terminate _playerInSearchArea;
 if ( _playerScavengeEvent ) then {
 	if (random 100 > _chance) then {
 		_objectsList pushBack _currentObject;
-		_player setVariable ["ScavangedObjects", _objectsList];
+		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList];
+		[_objectsList, player] remoteExecCall ["ExileExpansionServer_object_player_setScavengedObjects", 2];
 		private _posPlayer = getPosATL _player;
 		private _lootHolder = createVehicle ["GroundWeaponHolder", [0,0,0], [], 0, "CAN_COLLIDE"];
 		_lootHolder setPosATL _posPlayer;
@@ -78,8 +86,8 @@ if ( _playerScavengeEvent ) then {
 		_player action ["GEAR",_lootHolder];
 	} else {
 		_objectsList pushBack _currentObject;
-
-		_player setVariable ["ScavangedObjects", _objectsList];
+		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList];
+		[_objectsList, player] remoteExecCall ["ExileExpansionServer_object_player_setScavengedObjects", 2];
 		["ErrorTitleOnly", ["Could not find anything."]] call ExileClient_gui_toaster_addTemplateToast;
 		_player setVariable ["CanScavenge", true];
 	};

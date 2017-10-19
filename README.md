@@ -1,4 +1,4 @@
-![ArmA 1.74](https://img.shields.io/badge/Arma-1.74-blue.svg) ![Exile 1.0.3](https://img.shields.io/badge/Exile-1.0.3-C72651.svg) ![Exile Scavange 0.4](https://img.shields.io/badge/Exile%20Scavange-0.4%20Beta-orange.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![ArmA 1.74](https://img.shields.io/badge/Arma-1.74-blue.svg) ![Exile 1.0.3](https://img.shields.io/badge/Exile-1.0.3-C72651.svg) ![Exile Scavange 0.5](https://img.shields.io/badge/Exile%20Scavange-0.5%20Beta-orange.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 # General Information:
 Please note that this is a project in its development stage and there might be some bugs.
@@ -58,11 +58,12 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 
 > ## Installation:
 >
-> 1.	Drop the custom, the holdactions and the dialogs folder + the CfgExileScavange.cpp, CfgExileHoldActions.cpp files into the root of your       >       mission directory.
+> 1.	Drop the custom, the holdactions and the dialogs folder + the CfgFunctions.cpp, CfgExileScavange.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
 > 2.	Merge the content of the provided description.ext with your Exile missions description.ext.
 >
 > So it looks like this for example:
 >
+>	  #include "CfgFunctions.cpp"	
 >	  #include "CfgExileScavange.cpp"
 >	  #include "CfgExileHoldActions.cpp"
 >
@@ -93,8 +94,13 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	  // Scavenge
 >     ExileClient_object_player_initialize = "Custom\Scavenge\ExileClient_object_player_initialize.sqf";
 >
+>     If you dont have any CfgExileCustomCode entrys yet within your mission then you can also just include the provided CfgExileCustomCode.cpp in your missions description.ext.
+>	  Delete the CfgExileCustomCode class in the main exile confip.cpp if you do so then!
+>
 >
 > 5.	Edit the CfgExileScavange.cpp to suit your server.
+>
+>	  Enjoy :)
 >
 
 ## Thanks and Credits:

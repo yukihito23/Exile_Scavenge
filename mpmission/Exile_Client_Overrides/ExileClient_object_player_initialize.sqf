@@ -18,12 +18,11 @@ if (_oldPlayerObject isKindOf "Exile_Unit_GhostPlayer") then
     deleteVehicle _oldPlayerObject;
 };
 player setVariable ["ExileXM8IsOnline", (profileNamespace getVariable ["ExileEnable8GNetwork", false]), true];
-
-// ----------Scavange system integration ----------------------------------------------------------------------------------------------------------------------
-ExileClient_system_scavenge_initialize = compileFinal preprocessFileLineNumbers "custom\Scavenge\ExileClient_system_scavenge_initialize.sqf";
-[] call ExileClient_system_scavenge_initialize;
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+// --------------------------------------------------------------------------------------------------------------------------------------------------
+// Exile Expansion player client stuff
+// --------------------------------------------------------------------------------------------------------------------------------------------------
+[] call ExileExpansionClient_system_scavenge_initialize;
+// --------------------------------------------------------------------------------------------------------------------------------------------------
 enableSentences false;
 enableRadio false;
 player setVariable ["BIS_noCoreConversations", true];

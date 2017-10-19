@@ -1,7 +1,6 @@
-
 class ExileScavengeUI
 {
-	idd = 30000;
+	idd = -1;
 	duration = 1e10;
 	fadein = 0;
 	fadeout = 0;

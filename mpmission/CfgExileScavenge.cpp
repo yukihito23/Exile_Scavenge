@@ -9,7 +9,7 @@
 
  class Exile_ScavengeClass
 {
-	animations[] = 						          // List auf animations the player unit can play in the scavenge action. Only one animation in this list will be executed.
+	animations[] = 						          // List of animations the player unit can play in the scavenge action. Only one animation in this list will be executed.
 	{
 		"AinvPknlMstpSnonWnonDnon_medic_1"
 	};

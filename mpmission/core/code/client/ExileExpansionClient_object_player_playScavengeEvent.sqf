@@ -1,6 +1,12 @@
 /**
- * ExileClient_object_player_playScavengeEvent
+ * ExileExpansionClient_object_player_playScavengeEvent
  *
+ * Exile Expansion Mod
+ * www.reality-gaming.eu
+ * © 2017 Exile Expansion Mod Team
+ *
+ * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
 params ["_configName",	"_recipe",	"_possibleCraftQuantity"];
 
@@ -14,6 +20,8 @@ private _animationsList = getArray (_configReference >>_configName >> "animation
 private _animationToPlay = _animationsList call BIS_fnc_selectRandom;
 private _player = player;
 private _playerScavengeEvent = true;
+private _objectsList = missionNamespace getVariable ["ExileClientSavengedObjects", []];
+
 player setVariable ["CanScavenge", false];
 
 ( ["ExileScavengeUI"] call BIS_fnc_rscLayer ) cutRsc [ "ExileScavengeUI", "PLAIN", 1, false ];
@@ -62,14 +70,16 @@ terminate _playerInSearchArea;
 if ( _playerScavengeEvent ) then {
 	if (random 100 > _chance) then {
 		_objectsList pushBack _currentObject;
-		player setVariable ["ScavangedObjects", _objectsList];
+		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList];
+		[_objectsList, player] remoteExecCall ["ExileExpansionServer_object_player_setScavengedObjects", 2];
 		["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
 		uiSleep 2;
-		[_recipe, _possibleCraftQuantity] call ExileClient_system_scavenge_action_craftItem;
+		[_recipe, _possibleCraftQuantity] call ExileExpansionClient_system_scavenge_action_craftItem;
 		player setVariable ["CanScavenge", true];
 	}	else {
 		_objectsList pushBack _currentObject;
-		player setVariable ["ScavangedObjects", _objectsList];
+		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList];
+		[_objectsList, player] remoteExecCall ["ExileExpansionServer_object_player_setScavengedObjects", 2];
 		["ErrorTitleOnly", ["Could not find anything."]] call ExileClient_gui_toaster_addTemplateToast;
 		player setVariable ["CanScavenge", true];
 	};
