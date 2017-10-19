@@ -15,7 +15,7 @@ class Exile_ScavengeClass
 	};
 	type = "ScavengeClass";				      // This is the definition of the scavenge class, there are currently 2 classes (ScavengeClass = Player dont need any requirements,
 										                  // he can just loot the object | CraftingClass = Player needs a special item/tool/weapon to get a item back from the source).
-	chance = 100;						            // Chance of getting a item from a scavange.
+	chance = 100;						            // % Chance of geting a item from this class/source.
 	searchtime = 5;						          // Searchtime in seconds the player will need to scavenge a object.
 	maxitems = 0;						            // Max items to get from a single scavange.
 	icon = "";							            // Action icon ClassName (Configure your own classes within the provided CfgExileHoldActions.cpp)
