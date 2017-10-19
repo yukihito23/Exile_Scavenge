@@ -12,10 +12,11 @@ and has a chance to get a item from that depending on the class.</br>
 > ### So far the player can:
 >
 > - Search throu wrecks.
-> - Get woodstocks from trees.
+> - Get log from stocks of wood.
 > - Get water from different sources if he has a empty bottle/container to fill.
 > - Search throu trash-bins/piles.
-> - Get Cinderblocks from different sources if he has a sledge hammer on his body. (Requires Exile Extended Items Mod)
+> - Get Cinderblocks from different sources if he has a sledge hammer on his body (Requires Exile Extended Items Mod).
+> - Gather pumpkins with a shovel (Requires Exile Extended Items Mod).
 > - Pickup fruits and apples from trees (Requires LordRampantHumps Items Pack Mod).
 
 This framework is simply customizable and you can add new interaction classes easily just by adding the required information to the configfiles.
