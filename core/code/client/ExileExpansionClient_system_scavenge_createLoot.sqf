@@ -71,6 +71,7 @@ if ( scriptDone _playerInSearchArea ) then {
 terminate _playerInSearchArea;
 
 if ( _playerScavengeEvent ) then {
+	if ((random 100) < _chance) then {
 		_objectsList pushBack _currentObject;
 		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList];
 		[_objectsList, player] remoteExecCall ["ExileExpansionServer_object_player_setScavengedObjects", 2];
