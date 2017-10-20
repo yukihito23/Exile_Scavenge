@@ -64,9 +64,18 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >
 > So it looks like this for example:
 >
->	  #include "CfgFunctions.cpp"
->	  #include "CfgExileScavange.cpp"
->	  #include "CfgExileHoldActions.cpp"
+>	// Add this on the end of your missions description.ext
+>	#include "CfgFunctions.cpp"
+>	#include "CfgRemoteExec.cpp"
+>	#include "CfgScavengeRecipes.cpp"
+>	#include "CfgExileScavenge.cpp"
+>	#include "CfgExileHoldActions.cpp"
+>
+>	// Just add this if you dont have already a RscTitles class within your mission!
+>	include "CfgDialogs.cpp"
+>
+>	// If you dont have any ExileCustommCode entrys yet
+>	#include "CfgExileCustomCode.cpp"
 >
 >
 > 3.   Merge the content of the provided CfgRemoteExec.cpp with your missions CfgRemoteExec class.
@@ -142,11 +151,11 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	  Enjoy :)
 >
 
-## Thanks and Credits:
-Thanks and Credits:
-Credits to Larrow for the base script: https://forums.bistudio.com/forums/topic/184456-looting-trash-piles-bins/?do=findComment&comment=2942397
-Credits to Kurewe for the first port and rewrite for the exile mod.
-Credits to oldmatechoc for a base rewrite and port for the exile mod.
-Credits to yukihito23 for additons and expansions of the system.
-Credits to NiiRoZz for plenty amount of help, expansions and optimizations of the system.
-Credits to Salutesh for a complete rewrite and buildup of the framework and system.
+> ## Thanks and Credits:
+> Thanks and Credits:
+> Credits to Larrow for the base script: https://forums.bistudio.com/forums/topic/184456-looting-trash-piles-bins/?do=findComment&comment=2942397
+> Credits to Kurewe for the first port and rewrite for the exile mod.
+> Credits to oldmatechoc for a base rewrite and port for the exile mod.
+> Credits to yukihito23 for additons and expansions of the system.
+> Credits to NiiRoZz for plenty amount of help, expansions and optimizations of the system.
+> Credits to Salutesh for a complete rewrite and buildup of the framework and system.
