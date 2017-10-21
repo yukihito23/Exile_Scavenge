@@ -171,6 +171,40 @@ class CfgExileScavenge
 			};
 		};
 	};
+	// Able to get Fuel from Pumps, Fuel Containers, Fuel Tanks, barrells around the map
+	class Fuel: Exile_ScavengeClass
+	{
+		animations[] =	{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "CraftingClass";
+		chance = 10;
+		searchtime = 5;
+		maxitems = 1;
+		icon = "Default";
+		text = "Get Fuel";
+		models[] = {
+			"a_fuelstation_feed.p3d",
+			"fuel_tank_stairs.p3d",
+			"fuel_tank_small.p3d",
+			"ind_tanksmall.p3d",
+			"ind_tanksmall2.p3d",
+			"barels.p3d",
+			"barel1.p3d",
+			"barel2.p3d",
+			"barel3.p3d",
+			"barel4.p3d",
+			"barel5.p3d"
+		};
+		recipes[] =	{
+			"ScavengeFillEmptyFuelCanisterWithFuel"
+		};
+		class conditions {
+			items[] =	{
+				"Exile_Item_FuelCanisterEmpty"
+			};
+		};
+	};
 	// Able to get woodlogs from stocks of wood, pile of wood, fallen logs around the map
 	class Woodlogs: Exile_ScavengeClass
 	{
