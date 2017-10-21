@@ -172,10 +172,10 @@ if ( _equippedWeaponQuantity == 0 && _configName in ["Cinderblocks"]) then {
 			player setVariable ["CanScavenge", true];
 		};
 		case "Pumpkins":
-    {
-      ["ErrorTitleOnly", ["You dont have a Shovel with you!"]] call ExileClient_gui_toaster_addTemplateToast;
-      player setVariable ["CanScavenge", true];
-    };
+    		{
+      			["ErrorTitleOnly", ["You dont have a Shovel with you!"]] call ExileClient_gui_toaster_addTemplateToast;
+     			player setVariable ["CanScavenge", true];
+    		};
 		default
 		{
 			["ErrorTitleOnly", ["You dont have the required weapon to get something from this source!"]] call ExileClient_gui_toaster_addTemplateToast;
