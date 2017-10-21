@@ -66,7 +66,8 @@ class CfgExileScavenge
 			"luggageheap_04_f.p3d",
 			"luggageheap_05_f.p3d",	
 			"popelnice.p3d",
-			"box_c.p3d"
+			"box_c.p3d",
+			"garbagebarrel_01_f.p3d"
 		};
 		items[] = {
 			"Exile_Item_CanOpener",
@@ -181,7 +182,10 @@ class CfgExileScavenge
 		models[] = {
 			"drevo_hromada.p3d",
 			"misc_fallentree1.p3d",
-			"misc_burnspruce_pmc.p3d"
+			"misc_burnspruce_pmc.p3d",
+			"ind_timbers.p3d",
+			"misc_woodpile.p3d",
+			"kmen_1_buk.p3d"
 		};
 		items[] =
 		{
@@ -276,7 +280,8 @@ class CfgExileScavenge
 		icon = "Default";
 		text = "Get Cinderblocks";
 		models[] = {
-			"cinderblocks_f.p3d"
+			"cinderblocks_f.p3d",
+			"cinderblocks_01_f.p3d"
 		};
 		recipes[] =	{
 			"ScavengeDestroyCinderblock"
