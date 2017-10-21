@@ -215,8 +215,8 @@ class CfgExileScavenge
 			"krovi_long.p3d"
 		};
 		items[] = {
-          "Exile_Item_WoodSticks",
-          "Exile_Item_Leaves"
+          		"Exile_Item_WoodSticks",
+          		"Exile_Item_Leaves"
 		};
 	};
 	// Extended_Items_Exile
@@ -224,24 +224,22 @@ class CfgExileScavenge
 	class Pumpkins: Exile_ScavengeClass
 	{
 		animations[] = {
-		"AinvPknlMstpSnonWnonDnon_medic_1"
-    };
-    type = "CraftingClass";
-    chance = 50;
-    searchtime = 5;
-    maxitems = 1;
-    icon = "Exile_HA_Icon_Pumpkin";
-    text = "Harvest Pumpkin";
-    models[] =
-    {
-        "bodlak_group.p3d"
-    };
-    recipes[] = {
-        "ScavengePumpkins"
-    };
-	class conditions {
-			weapons[] =
-			{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+    		};
+    		type = "CraftingClass";
+   		chance = 50;
+    		searchtime = 5;
+    		maxitems = 1;
+    		icon = "Exile_HA_Icon_Pumpkin";
+    		text = "Harvest Pumpkin";
+    		models[] = {
+       			"bodlak_group.p3d"
+    		};
+    		recipes[] = {
+        		"ScavengePumpkins"
+    		};
+		class conditions {
+			weapons[] =  {
 				"Exile_Melee_Shovel"
 			};
 		};
