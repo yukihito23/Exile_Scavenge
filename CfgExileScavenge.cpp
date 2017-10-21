@@ -29,13 +29,14 @@ class Exile_ScavengeClass
   // Cinderblock class where the player needs a weapon (hammer) on his body to get a item back from the source.
 	class conditions
 	{
-		items[] = {};					// Item conditions (the player needs this item in his inventory or he cant scavanged sucsessful from this source).
+		items[] = {};				// Item conditions (the player needs this item in his inventory or he cant scavanged sucsessful from this source).
 		weapons[] = {};				// Weapon conditions (the player needs this weapon in his inventory/body or he cant scavanged sucsessful from this source).
 	};
 };
 
 class CfgExileScavenge
 {
+	// Able to scavenge from garbage bags, Trask Cans, basically clutter on the map
 	class Trash: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -76,6 +77,7 @@ class CfgExileScavenge
 			"Exile_Item_PlasticBottleEmpty"
 		};
 	};
+	// Able to scavenge from wrecks within map, some vehicles still have problems but are noted below.
 	class Wrecks: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -135,6 +137,7 @@ class CfgExileScavenge
 			"Exile_Item_DuctTape"
 		};
 	};
+	// Able to get dirty water from map object pumps
 	class Waters: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -168,6 +171,7 @@ class CfgExileScavenge
 			};
 		};
 	};
+	// Able to get woodlogs from stocks of wood, pile of wood, fallen logs around the map
 	class Woodlogs: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -193,7 +197,7 @@ class CfgExileScavenge
 		};
 	};
 	/*
-	// Uses non-vanilla Exile Items
+	// Uses vanilla Exile items but not available in Vanilla Exile setup, thus disabling by default.
 	class Trees: Exile_ScavengeClass
 	{
 		animations[] =	{
@@ -243,7 +247,8 @@ class CfgExileScavenge
           		"Exile_Item_Leaves"
 		};
 	};
-
+	// Disabled because if not setup correctly, will break game balance.
+	// Server owners think before enabling.
 	class Concrete: Exile_ScavengeClass
 	{
 		animations[] =	{
@@ -267,6 +272,8 @@ class CfgExileScavenge
 			};
 		};
 	};
+	// Disabled because if not setup correctly, will break game balance.
+	// Server owners think before enabling.
 	class WoodPlanks: Exile_ScavengeClass
 	{
 		animations[] =	{
@@ -291,6 +298,8 @@ class CfgExileScavenge
 			};
 		};
 	};
+	// Disabled because if not setup correctly, will break game balance.
+	// Server owners think before enabling.
 	class MetalPoles: Exile_ScavengeClass
 	{
 		animations[] =	{
@@ -339,6 +348,8 @@ class CfgExileScavenge
 			};
 		};
 	};
+	// Extended_Items_Exile
+	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
 	class Cinderblocks: Exile_ScavengeClass
 	{
 		animations[] =	{
@@ -388,6 +399,8 @@ class CfgExileScavenge
 			"items_pack_apple"
 		};
 	};
+	// LordRampantHumps Items Pack
+	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
 	class Fruits: Exile_ScavengeClass
 	{
 		animations[] =	{
