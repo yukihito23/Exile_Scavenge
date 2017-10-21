@@ -16,9 +16,9 @@ and has a chance to get a item from that depending on the class.<br />
 > - Get water from different sources if he has a empty bottle/container to fill. (enabled by default)
 > - Get log from stocks of wood (enabled by default)
 > - Get leaves and sticks from bushes and lower height trees (still WIP, disabled by default)
-> - Get cement from concrete slabs (disabled by default, use with care as game breaking if set incorrectly)
-> - Get wood planks from wood plank objects (disabled by default, use with care as game breaking if set incorrectly)
-> - Get Metal Poles from metal pole objects (disabled by default, use with care as game breaking if set incorrectly)
+> - Get cement from concrete slabs (disabled by default, use with care as game balance breaking if set incorrectly)
+> - Get wood planks from wood plank objects (disabled by default, use with care as game balance breaking if set incorrectly)
+> - Get Metal Poles from metal pole objects (disabled by default, use with care as game balance breaking if set incorrectly)
 > - Get Cinderblocks from Cinder Block pack objects if sledgehammer equipped (disabled by default, Requires Exile Extended Items Mod).
 > - Get pumpkins from pumpkin patch if shovel equiped (disabled by default, Requires Exile Extended Items Mod).
 > - Pickup apples from apple trees (disabled by default, Requires LordRampantHumps Items Pack Mod).
