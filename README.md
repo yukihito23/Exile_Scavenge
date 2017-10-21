@@ -13,7 +13,8 @@ and has a chance to get a item from that depending on the class.<br />
 >
 > - Scavenge through trash-bins/piles. (enabled by default)
 > - Scavenge through wrecks. (enabled by default)
-> - Get water from different sources if he has a empty bottle/container to fill. (enabled by default)
+> - Get water from different sources if  player has empty bottle/container to fill. (enabled by default)
+> - Get fuel from different sources if player has empty fuel canister to fill. (enabled by default)
 > - Get log from stocks of wood (enabled by default)
 > - Get leaves and sticks from bushes and lower height trees (still WIP, disabled by default)
 > - Get cement from concrete slabs (disabled by default, use with care as game balance breaking if set incorrectly)
