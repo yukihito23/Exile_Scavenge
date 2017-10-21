@@ -151,9 +151,19 @@ if ( _equippedComponentQuantity == 0 && _configName in ["Waters"]) then {
 };
 
 // If player has not a single tool in his invetory he can not craft any items when the class need a tool.
-if ( _equippedToolQuantity == 0 && _configName in []) then {
+if ( _equippedToolQuantity == 0 && _configName in ["WoodPlanks","MetalPoles"]) then {
 	_canCraftItem = false;
 	switch (_configName) do	{
+		case "WoodPlanks":
+		{
+			["ErrorTitleOnly", ["You dont have a Handsaw with you!"]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
+		};
+		case "MetalPoles":
+		{
+			["ErrorTitleOnly", ["You dont have a Grinder with you!"]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
+		};
 		default
 		{
 			["ErrorTitleOnly", ["You dont have the required tools to get something from this source!"]] call ExileClient_gui_toaster_addTemplateToast;
@@ -163,7 +173,7 @@ if ( _equippedToolQuantity == 0 && _configName in []) then {
 };
 
 // If player has not a single tool in his invetory he can not craft any items when the class need a tool.
-if ( _equippedWeaponQuantity == 0 && _configName in ["Cinderblocks"]) then {
+if ( _equippedWeaponQuantity == 0 && _configName in ["Cinderblocks","Pumpkins","Concrete"]) then {
 	_canCraftItem = false;
 	switch (_configName) do	{
 		case "Cinderblocks":
@@ -171,11 +181,16 @@ if ( _equippedWeaponQuantity == 0 && _configName in ["Cinderblocks"]) then {
 			["ErrorTitleOnly", ["You dont have a Sledge Hammer with you!"]] call ExileClient_gui_toaster_addTemplateToast;
 			player setVariable ["CanScavenge", true];
 		};
+		case "Concrete":
+		{
+			["ErrorTitleOnly", ["You dont have a Sledge Hammer with you!"]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
+		};
 		case "Pumpkins":
-    		{
-      			["ErrorTitleOnly", ["You dont have a Shovel with you!"]] call ExileClient_gui_toaster_addTemplateToast;
-     			player setVariable ["CanScavenge", true];
-    		};
+		{
+			["ErrorTitleOnly", ["You dont have a Shovel with you!"]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
+		};
 		default
 		{
 			["ErrorTitleOnly", ["You dont have the required weapon to get something from this source!"]] call ExileClient_gui_toaster_addTemplateToast;
