@@ -134,12 +134,17 @@ player setVariable ["CanScavenge", false];
 } forEach _matchingRecipes;
 
 // If player has not a single component item in his invetory he can not craft any items when the class need a item.
-if ( _equippedComponentQuantity == 0 && _configName in ["Waters"]) then {
+if ( _equippedComponentQuantity == 0 && _configName in ["Waters","Fuel"]) then {
 	_canCraftItem = false;
 	switch (_configName) do	{
 		case "Waters":
 		{
 			["ErrorTitleOnly", ["You don't have any EMPTY bottle or canister in your inventory to fill it with water."]] call ExileClient_gui_toaster_addTemplateToast;
+			player setVariable ["CanScavenge", true];
+		};
+		case "Fuel":
+		{
+			["ErrorTitleOnly", ["You don't have any EMPTY Fuel Canister in your inventory to fill it with fuel."]] call ExileClient_gui_toaster_addTemplateToast;
 			player setVariable ["CanScavenge", true];
 		};
 		default
