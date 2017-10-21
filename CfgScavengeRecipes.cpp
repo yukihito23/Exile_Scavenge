@@ -53,6 +53,17 @@ class CfgScavengeRecipes
 			{1, "Exitem_canteen"}
 		};
 	};
+	class ScavengeFillEmptyFuelCanisterWithFuel: Exile_ScavengeCraftingRecipe
+	{
+		returnedItems[] =
+		{
+			{1, "Exile_Item_FuelCanisterFull"}
+		};
+		components[] =
+		{
+			{1, "Exile_Item_FuelCanisterEmpty"}
+		};
+	};
 	class ScavengeDestroyConcrete: Exile_ScavengeCraftingRecipe
 	{
 		returnedItems[] =
