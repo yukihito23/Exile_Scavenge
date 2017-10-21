@@ -243,6 +243,77 @@ class CfgExileScavenge
           		"Exile_Item_Leaves"
 		};
 	};
+
+	class Concrete: Exile_ScavengeClass
+	{
+		animations[] =	{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "CraftingClass";
+		chance = 5;
+		searchtime = 5;
+		maxitems = 1;
+		icon = "Default";
+		text = "Get Concrete";
+		models[] = {
+			"misc_concrete_high.p3d"
+		};
+		recipes[] =	{
+			"ScavengeDestroyConcrete"
+		};
+		class conditions {
+			weapons[] =	{
+				"Exile_Melee_SledgeHammer"
+			};
+		};
+	};
+	class WoodPlanks: Exile_ScavengeClass
+	{
+		animations[] =	{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "CraftingClass";
+		chance = 20;
+		searchtime = 5;
+		maxitems = 2;
+		icon = "Default";
+		text = "Get WoodPlanks";
+		models[] = {
+			"woodenplanks_01_messy_pine_f.p3d",
+			"ind_boardspack1.p3d"
+		};
+		recipes[] =	{
+			"ScavengeWoodplanks"
+		};
+		class conditions {
+			tools[] =	{
+				"Exile_Item_Handsaw"
+			};
+		};
+	};
+	class MetalPoles: Exile_ScavengeClass
+	{
+		animations[] =	{
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "CraftingClass";
+		chance = 5;
+		searchtime = 5;
+		maxitems = 1;
+		icon = "Default";
+		text = "Get MetalPoles";
+		models[] = {
+			"misc_g_pipes.p3d"
+		};
+		recipes[] =	{
+			"ScavengeMetalPoles"
+		};
+		class conditions {
+			tools[] =	{
+				"Exile_Item_Grinder"
+			};
+		};
+	};
 	// Extended_Items_Exile
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
 	class Pumpkins: Exile_ScavengeClass
