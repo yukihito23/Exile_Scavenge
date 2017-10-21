@@ -65,14 +65,14 @@ class CfgScavengeRecipes
 		};
 	};
 	class ScavengePumpkins: Exile_ScavengeCraftingRecipe
-  {
-  	returnedItems[] =
-    {
-      {1, "Exitem_pumpkin"}
-    };
-    weapons[] =
-    {
-      "Exile_Melee_Shovel"
-    };
-  };
+  	{
+  		returnedItems[] =
+    		{
+     			{1, "Exitem_pumpkin"}
+   		 };
+   		 weapons[] =
+    		{
+     			"Exile_Melee_Shovel"
+    		};
+  	};
 };
