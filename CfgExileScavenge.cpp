@@ -53,7 +53,20 @@ class CfgExileScavenge
 			"garbagepallet_f.p3d",
 			"garbagebags_f.p3d",
 			// Trashbins
-			"kontejner.p3d"
+			"kontejner.p3d",
+			"paperbox_closed.p3d",
+			"garbagebin_02_f.p3d",
+			"drevena_bedna.p3d",
+			"junkpile_f.p3d",
+			"garbagecontainer_open_f.p3d",
+			"garbagecontainer_closed_f.p3d",
+			"luggageheap_01_f.p3d",
+			"luggageheap_02_f.p3d",
+			"luggageheap_03_f.p3d",
+			"luggageheap_04_f.p3d",
+			"luggageheap_05_f.p3d",	
+			"popelnice.p3d",
+			"box_c.p3d"
 		};
 		items[] = {
 			"Exile_Item_CanOpener",
@@ -136,7 +149,10 @@ class CfgExileScavenge
 			"misc_well.p3d",
 			"misc_wellpump.p3d",
 			"watertank_f.p3d",
-			"toilet_b_02.p3d"
+			"toilet_b_02.p3d",
+			"reservoir_ep1.p3d",
+			"basin_a.p3d",
+			"barrel_water.p3d"
 		};
 		recipes[] =	{
 			"ScavengeFillEmptyPlasticBottleWithDirtyWater",
@@ -163,7 +179,9 @@ class CfgExileScavenge
 		icon = "Exile_HA_Icon_Woodlogs";
 		text = "Scavenge Woodlogs";
 		models[] = {
-			"drevo_hromada.p3d"
+			"drevo_hromada.p3d",
+			"misc_fallentree1.p3d",
+			"misc_burnspruce_pmc.p3d"
 		};
 		items[] =
 		{
@@ -185,6 +203,8 @@ class CfgExileScavenge
 		text = "Scavenge Sticks and Leaves";
 		models[] = {
 			// Trees on CHR
+			"t_fraxinus2w.p3d",
+			"t_betula2w.p3d",
 			"t_betula2s.p3d",
 			"t_betula2f.p3d",
 			"t_fagus2f.p3d",
@@ -192,21 +212,21 @@ class CfgExileScavenge
 			"t_fagus2s.p3d",
 			"t_ficusb2s_ep1.p3d",
 			"t_quercus2f.p3d",
+			"t_quercus3f.p3d",
 			"t_picea1s.p3d",
 			"t_picea2s.p3d",
 			"t_picea3f.p3d",
 			"t_pinusn1s.p3d",
 			"t_pinusn2s.p3d",
-			"t_betula2s.p3d",
 			"t_alnus2s.p3d",
 			"t_salix2s.p3d",
 			"t_malus1s.p3d",
 			"t_juniperusc2s_ep1.p3d",
-			"t_quercus2f.p3d",
-			"t_quercus3f.p3d",
 			"dd_borovice.p3d",
 			"strlipa.p3d",
 			//Bushes on CHR
+			"b_betula2w_summer.p3d",
+			"b_salix2s.p3d",
 			"b_craet1.p3d",
 			"b_hrusen2.p3d",
 			"b_corylus.p3d",
