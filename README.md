@@ -5,19 +5,21 @@ Please note that this is a project in its development stage and there might be s
 Feel free to give feedback and suggestions to this work.
 
 # Information:
-Basicly this system will allow players to interact with terrain/map objects.</br>
-If the object has a entry in a scavenge class within the configurations the player can loot this object</br>
-and has a chance to get a item from that depending on the class.</br>
+Basicly this system will allow players to interact with terrain/map objects.<br />
+If the object has a entry in a scavenge class within the configurations the player can loot this object<br />
+and has a chance to get a item from that depending on the class.<br />
 
 > ### So far the player can:
 >
-> - Search throu wrecks.
-> - Get log from stocks of wood.
-> - Get water from different sources if he has a empty bottle/container to fill.
-> - Search throu trash-bins/piles.
-> - Get Cinderblocks from different sources if he has a sledge hammer on his body (Requires Exile Extended Items Mod).
-> - Gather pumpkins with a shovel (Requires Exile Extended Items Mod).
-> - Pickup fruits and apples from trees (Requires LordRampantHumps Items Pack Mod).
+> - Scavenge through trash-bins/piles. (enabled by default)
+> - Scavenge through wrecks. (enabled by default)
+> - Get water from different sources if he has a empty bottle/container to fill. (enabled by default)
+> - Get log from stocks of wood (enabled by default)
+> - Get leaves and sticks from bushes and lower height trees (still WIP, disabled by default)
+> - Get Cinderblocks from Cinder Block pack objects if sledtehammer equipped (disabled by default, Requires Exile Extended Items Mod).
+> - Get pumpkins from pumpkin patch if shovel equiped (disabled by default, Requires Exile Extended Items Mod).
+> - Pickup apples from apple trees (disabled by default, Requires LordRampantHumps Items Pack Mod).
+> - Pickup fruit from various trees and bushes (disabled by default, Requires LordRampantHumps Items Pack Mod).
 
 This framework is simply customizable and you can add new interaction classes easily just by adding the required information to the configfiles.
 
@@ -152,10 +154,10 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >
 
 > ## Thanks and Credits:
-> Thanks and Credits:
-> Credits to Larrow for the base script: https://forums.bistudio.com/forums/topic/184456-looting-trash-piles-bins/?do=findComment&comment=2942397
-> Credits to Kurewe for the first port and rewrite for the exile mod.
-> Credits to oldmatechoc for a base rewrite and port for the exile mod.
-> Credits to yukihito23 for additons and expansions of the system.
-> Credits to NiiRoZz for plenty amount of help, expansions and optimizations of the system.
+> Thanks and Credits:<br />
+> Credits to Larrow for the base script: https://forums.bistudio.com/forums/topic/184456-looting-trash-piles-bins/?do=findComment&comment=2942397<br />
+> Credits to Kurewe for the first port and rewrite for the exile mod.<br />
+> Credits to oldmatechoc for a base rewrite and port for the exile mod.<br />
+> Credits to yukihito23 for additons and expansions of the system.<br />
+> Credits to NiiRoZz for plenty amount of help, expansions and optimizations of the system.<br />
 > Credits to Salutesh for a complete rewrite and buildup of the framework and system.
