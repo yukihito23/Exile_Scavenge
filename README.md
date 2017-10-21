@@ -16,7 +16,7 @@ and has a chance to get a item from that depending on the class.<br />
 > - Get water from different sources if he has a empty bottle/container to fill. (enabled by default)
 > - Get log from stocks of wood (enabled by default)
 > - Get leaves and sticks from bushes and lower height trees (still WIP, disabled by default)
-> - Get Cinderblocks from Cinder Block pack objects if sledtehammer equipped (disabled by default, Requires Exile Extended Items Mod).
+> - Get Cinderblocks from Cinder Block pack objects if sledgehammer equipped (disabled by default, Requires Exile Extended Items Mod).
 > - Get pumpkins from pumpkin patch if shovel equiped (disabled by default, Requires Exile Extended Items Mod).
 > - Pickup apples from apple trees (disabled by default, Requires LordRampantHumps Items Pack Mod).
 > - Pickup fruit from various trees and bushes (disabled by default, Requires LordRampantHumps Items Pack Mod).
