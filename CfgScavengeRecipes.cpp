@@ -53,6 +53,39 @@ class CfgScavengeRecipes
 			{1, "Exitem_canteen"}
 		};
 	};
+	class ScavengeDestroyConcrete: Exile_ScavengeCraftingRecipe
+	{
+		returnedItems[] =
+		{
+			{1, "Exile_Item_Cement"}
+		};
+		weapons[] =
+		{
+			"Exile_Melee_SledgeHammer"
+		};
+	};
+	class ScavengeWoodplanks: Exile_ScavengeCraftingRecipe
+	{
+		returnedItems[] =
+		{
+			{1, "Exile_Item_WoodPlank"}
+		};
+		tools[] =
+		{
+			"Exile_Item_Handsaw"
+		};
+	};
+	class ScavengeMetalPoles: Exile_ScavengeCraftingRecipe
+	{
+		returnedItems[] =
+		{
+			{1, "Exile_Item_MetalPole"}
+		};
+		tools[] =
+		{
+			"Exile_Item_Grinder"
+		};
+	};
 	class ScavengeDestroyCinderblock: Exile_ScavengeCraftingRecipe
 	{
 		returnedItems[] =
