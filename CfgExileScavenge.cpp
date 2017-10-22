@@ -137,6 +137,31 @@ class CfgExileScavenge
 			"Exile_Item_DuctTape"
 		};
 	};
+	// Able to scavenge from Abandoned survivor tents within map.
+	class AbandonedCamps: Exile_ScavengeClass
+	{
+		animations[] = {
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "ScavengeClass";
+		chance = 20;
+		searchtime = 5;
+		maxitems = 1;
+		icon = "Default";
+		text = "Search Abandoned Tent";
+		models[] = {
+			// Tents
+			"astan_ep1.p3d",
+			"tentdome_f.p3d",
+			"tenta_f.p3d"
+		};
+		items[] = {
+			// Extras
+			"Exile_Item_InstaDoc",
+			"Exile_Item_Bandage",
+			"Exile_Item_DuctTape"
+		};
+	};
 	// Able to get dirty water from map object pumps
 	class Waters: Exile_ScavengeClass
 	{
