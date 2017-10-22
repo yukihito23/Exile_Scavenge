@@ -71,18 +71,18 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >
 > So it looks like this for example:
 >
->	// Add this on the end of your missions description.ext
->	#include "CfgFunctions.cpp"
->	#include "CfgRemoteExec.cpp"
->	#include "CfgScavengeRecipes.cpp"
->	#include "CfgExileScavenge.cpp"
->	#include "CfgExileHoldActions.cpp"
+>	  // Add this on the end of your missions description.ext
+>	  #include "CfgFunctions.cpp"
+>	  #include "CfgRemoteExec.cpp"
+>	  #include "CfgScavengeRecipes.cpp"
+>	  #include "CfgExileScavenge.cpp"
+>	  #include "CfgExileHoldActions.cpp"
 >
->	// Just add this if you dont have already a RscTitles class within your mission!
->	include "CfgDialogs.cpp"
+>	  // Just add this if you dont have already a RscTitles class within your mission!
+>	  #include "CfgDialogs.cpp"
 >
->	// If you dont have any ExileCustommCode entrys yet
->	#include "CfgExileCustomCode.cpp"
+>	  // If you dont have any ExileCustommCode entrys yet
+>	  #include "CfgExileCustomCode.cpp"
 >
 >
 > 3.   Merge the content of the provided CfgRemoteExec.cpp with your missions CfgRemoteExec class.
