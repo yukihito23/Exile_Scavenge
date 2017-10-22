@@ -16,13 +16,6 @@ class CfgExileCustomCode
 	*/
 	
 	////////////////////////////////////
-	//	Exile Server Overrides
-	///////////////////////////////////
-	// Custom onPlayerConnected eventhandler
-	ExileServer_system_network_setupEventHandlers = "Exile_Server_Overrides\ExileServer_system_network_setupEventHandlers.sqf";
-	ExileServer_system_network_event_onPlayerConnected = "Exile_Server_Overrides\ExileServer_system_network_event_onPlayerConnected.sqf";
-	
-	////////////////////////////////////
 	//	Exile Client Overrides
 	///////////////////////////////////
 	// Custom player client init

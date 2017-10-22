@@ -40,9 +40,6 @@ private ['_code', '_function', '_file', '_fileContent'];
 }
 forEach
 [
-	// Server
-	['ExileExpansionServer_object_player_setScavengedObjects', 'core\code\server\ExileExpansionServer_object_player_setScavengedObjects.sqf', false],
-	['ExileExpansionServer_network_event_onPlayerConnected', 'core\code\server\ExileExpansionServer_network_event_onPlayerConnected.sqf', false],
 	// Client
 	['ExileExpansionClient_gui_holdActionAdd', 'core\code\client\ExileExpansionClient_gui_holdActionAdd.sqf', false],
 	['ExileExpansionClient_object_player_setScavengedObjects', 'core\code\client\ExileExpansionClient_object_player_setScavengedObjects.sqf', false],

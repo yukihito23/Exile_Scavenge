@@ -8,7 +8,12 @@
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
-params [["_configName", "", [""]]];
+params [
+  ["_configName", "", [""]],
+  ["_pos", [], [[]]]
+];
+
+if (_pos isEqualTo []) exitWith {};
 
 private _lootHolder = objNull;
 private _configReference = missionConfigFile >> "CfgExileScavenge";
@@ -21,7 +26,6 @@ private _animationsList = getArray (_configReference >> _configName >> "animatio
 private _animationToPlay = _animationsList call BIS_fnc_selectRandom;
 private _player = player;
 private _playerScavengeEvent = true;
-private _currentObject = cursorObject;
 private _objectsList = missionNamespace getVariable ["ExileClientSavengedObjects", []];
 
 _player setVariable ["CanScavenge", false];
@@ -72,9 +76,8 @@ terminate _playerInSearchArea;
 
 if ( _playerScavengeEvent ) then {
 	if ((random 100) < _chance) then {
-		_objectsList pushBack _currentObject;
-		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList];
-		[_objectsList, player] remoteExecCall ["ExileExpansionServer_object_player_setScavengedObjects", 2];
+		_objectsList pushBack _pos;
+		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
 		private _posPlayer = getPosATL _player;
 		private _lootHolder = createVehicle ["GroundWeaponHolder", [0,0,0], [], 0, "CAN_COLLIDE"];
 		_lootHolder setPosATL _posPlayer;
@@ -85,9 +88,8 @@ if ( _playerScavengeEvent ) then {
 		_player setVariable ["CanScavenge", true];
 		_player action ["GEAR",_lootHolder];
 	} else {
-		_objectsList pushBack _currentObject;
-		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList];
-		[_objectsList, player] remoteExecCall ["ExileExpansionServer_object_player_setScavengedObjects", 2];
+		_objectsList pushBack _pos;
+		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
 		["ErrorTitleOnly", ["Could not find anything."]] call ExileClient_gui_toaster_addTemplateToast;
 		_player setVariable ["CanScavenge", true];
 	};

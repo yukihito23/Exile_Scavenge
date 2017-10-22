@@ -8,7 +8,12 @@
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
-params ["_configName"];
+ params [
+   ["_configName", "", [""]],
+   ["_pos", [], [[]]]
+ ];
+
+ if (_pos isEqualTo [] || _configName isEqualTo "") exitWith {};
 
 _equippedMagazines = magazines player;
 _equippedWeapons = weapons player;
@@ -213,5 +218,5 @@ if !([_components, _returnedItems] call ExileClient_util_inventory_canExchangeIt
 
 // If player can craft item then fire the scavenge event.
 if ( _canCraftItem ) then {
-	[_configName, _recipe, _possibleCraftQuantity] call ExileExpansionClient_object_player_playScavengeEvent;
+	[_configName, _recipe, _possibleCraftQuantity, _pos] call ExileExpansionClient_object_player_playScavengeEvent;
 };

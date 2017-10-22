@@ -8,14 +8,13 @@
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
-params ["_configName",	"_recipe",	"_possibleCraftQuantity"];
+params ["_configName",	"_recipe",	"_possibleCraftQuantity", "_pos"];
 
 private _clutter = objNull;
 private _configReference = missionConfigFile >> "CfgExileScavenge";
 private _chance = getNumber (_configReference >> _configName >> "chance");
 private _searchtime = getNumber (_configReference >> _configName >> "searchtime");
 private _timeToSearch = 0;
-private _currentObject = cursorObject;
 private _animationsList = getArray (_configReference >>_configName >> "animations");
 private _animationToPlay = _animationsList call BIS_fnc_selectRandom;
 private _player = player;
@@ -69,17 +68,15 @@ terminate _playerInSearchArea;
 
 if ( _playerScavengeEvent ) then {
 	if ((random 100) < _chance) then {
-		_objectsList pushBack _currentObject;
-		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList];
-		[_objectsList, player] remoteExecCall ["ExileExpansionServer_object_player_setScavengedObjects", 2];
+		_objectsList pushBack _pos;
+		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
 		["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
 		uiSleep 2;
 		[_recipe, _possibleCraftQuantity] call ExileExpansionClient_system_scavenge_action_craftItem;
 		player setVariable ["CanScavenge", true];
 	}	else {
-		_objectsList pushBack _currentObject;
-		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList];
-		[_objectsList, player] remoteExecCall ["ExileExpansionServer_object_player_setScavengedObjects", 2];
+		_objectsList pushBack _pos;
+		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
 		["ErrorTitleOnly", ["Could not find anything."]] call ExileClient_gui_toaster_addTemplateToast;
 		player setVariable ["CanScavenge", true];
 	};
