@@ -105,7 +105,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >      If you dont have any RscTitles class within your mission then just include the provided CfgDialogs.cpp in your missions description.ext.
 >
 >
-> 5.	Open your mission config.cpp find the class CfgExileCustomCode and add this into the class:
+> 4.	Open your mission config.cpp find the class CfgExileCustomCode and add this into the class:
 >
 > So it looks like this for example:
 >
@@ -119,7 +119,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	  Delete the CfgExileCustomCode class in the main exile confip.cpp if you do so then!
 >
 >
-> 6.	Edit the CfgExileScavange.cpp to suit your server.
+> 5.	Edit the CfgExileScavange.cpp to suit your server.
 >
 >	  Enjoy :)
 >
