@@ -137,7 +137,8 @@ class CfgExileScavenge
 			"Exile_Item_DuctTape"
 		};
 	};
-	// Able to scavenge from Abandoned survivor tents within map.
+	// Able to scavenge from Abandoned survivor tents within map (maybe only used for Chernarus Redux, disabled by default).
+	/*
 	class AbandonedCamps: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -162,6 +163,7 @@ class CfgExileScavenge
 			"Exile_Item_DuctTape"
 		};
 	};
+	*/
 	// Able to get dirty water from map object pumps
 	class Waters: Exile_ScavengeClass
 	{
