@@ -213,6 +213,7 @@ class CfgExileScavenge
 		models[] = {
 			"a_fuelstation_feed.p3d",
 			"fuel_tank_stairs.p3d",
+			"fuel_tank_big.p3d",
 			"fuel_tank_small.p3d",
 			"ind_tanksmall.p3d",
 			"ind_tanksmall2.p3d",
