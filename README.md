@@ -66,7 +66,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 
 > ## Installation:
 >
-> 1.	Drop the bootstrap, core, holdactions, dialogs, Exile_Client_Overrides and Exile_Server_Overrides folders + the CfgFunctions.cpp, CfgExileScavange.cpp, CfgScavengeRecipes.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
+> 1.	Drop the bootstrap, core, holdactions, dialogs, Exile_Client_Overrides and Exile_Server_Overrides folders + the >  CfgFunctions.cpp, CfgExileScavange.cpp, CfgScavengeRecipes.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
 > 2.	Merge the content of the provided description.ext with your Exile missions description.ext.
 >
 > So it looks like this for example:
@@ -85,34 +85,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	  #include "CfgExileCustomCode.cpp"
 >
 >
-> 3.   Merge the content of the provided CfgRemoteExec.cpp with your missions CfgRemoteExec class.
->
-> So it looks like this for example:
->
->	  class CfgRemoteExec
->	  {
->		class Functions
->		{
->			mode = 2;
->			jip = 0;
->			class fnc_AdminReq 												{ allowedTargets=2; };
->			class ExileServer_system_network_dispatchIncomingMessage 		{ allowedTargets=2; };
->			class ExileExpansionServer_network_event_onPlayerConnected		{ allowedTargets=0; };
->			class ExileExpansionServer_object_player_setScavengedObjects	{ allowedTargets=0; };
->			class ExileExpansionClient_object_player_setScavengedObjects	{ allowedTargets=0; };
->			class BIS_fnc_holdActionAdd										{ allowedTargets=0; };
->			class BIS_fnc_holdActionRemove									{ allowedTargets=0; };
->		};
->		class Commands
->		{
->			mode=0;
->			jip=0;
->		};
->	  };
->
->
->
-> 4.   Merge the content of the provided CfgDialogs.cpp with your missions RscTitles class.
+> 3.   Merge the content of the provided CfgDialogs.cpp with your missions RscTitles class.
 >
 > So it looks like this for example:
 >
@@ -137,13 +110,6 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 > So it looks like this for example:
 >
 >	  ////////////////////////////////////
->	  //	Exile Server Overrides
->	  ///////////////////////////////////
->	  // Custom onPlayerConnected eventhandler
->	  ExileServer_system_network_setupEventHandlers = "Exile_Server_Overrides\ExileServer_system_network_setupEventHandlers.sqf";
->	  ExileServer_system_network_event_onPlayerConnected = "Exile_Server_Overrides\ExileServer_system_network_event_onPlayerConnected.sqf";
->
->	  ////////////////////////////////////
 >	  //	Exile Client Overrides
 >	  ///////////////////////////////////
 >	  // Custom player client init
@@ -163,6 +129,6 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 > Credits to Larrow for the base script: https://forums.bistudio.com/forums/topic/184456-looting-trash-piles-bins/?do=findComment&comment=2942397<br />
 > Credits to Kurewe for the first port and rewrite for the exile mod.<br />
 > Credits to oldmatechoc for a base rewrite and port for the exile mod.<br />
-> Credits to yukihito23 for additons and expansions of the system.<br />
-> Credits to NiiRoZz for plenty amount of help, expansions and optimizations of the system.<br />
+> Credits to yukihito23 for plenty amount of help, expansions and additions of the system.<br />
+> Credits to NiiRoZz for plenty amount of help, expansions, additions and optimizations of the system.<br />
 > Credits to Salutesh for a complete rewrite and buildup of the framework and system.

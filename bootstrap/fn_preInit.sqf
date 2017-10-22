@@ -42,7 +42,6 @@ forEach
 [
 	// Client
 	['ExileExpansionClient_gui_holdActionAdd', 'core\code\client\ExileExpansionClient_gui_holdActionAdd.sqf', false],
-	['ExileExpansionClient_object_player_setScavengedObjects', 'core\code\client\ExileExpansionClient_object_player_setScavengedObjects.sqf', false],
 	['ExileExpansionClient_object_player_playScavengeEvent', 'core\code\client\ExileExpansionClient_object_player_playScavengeEvent.sqf', false],
 	['ExileExpansionClient_object_player_scavenge_addAction', 'core\code\client\ExileExpansionClient_object_player_scavenge_addAction.sqf', false],
 	['ExileExpansionClient_system_scavenge_action_conditionEvents', 'core\code\client\ExileExpansionClient_system_scavenge_action_conditionEvents.sqf', false],
