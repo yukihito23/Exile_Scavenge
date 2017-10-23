@@ -20,7 +20,7 @@ SCG_NiiRoZz_Is_The_Best = [];
   private _condition = ["[",str _modelInfo,"] call {
     lineIntersectsSurfaces [
     AGLToASL positionCameraToWorld [0,0,0],
-    AGLToASL positionCameraToWorld [0,0,5],
+    AGLToASL positionCameraToWorld [0,0,4],
       player,
       objNull,
       true,
@@ -36,7 +36,7 @@ SCG_NiiRoZz_Is_The_Best = [];
     };
     _condition = false;
     {
-      if (_x distance2D player < 5) exitWith {
+      if (_x distance2D player < 2) exitWith {
         _condition = true;
       };
     } forEach (missionNamespace getVariable [""ExileClientSavengedObjects"", []]);
@@ -54,7 +54,7 @@ SCG_NiiRoZz_Is_The_Best = [];
 		player, _textInfo,	_actioniconInfo, _idleiconInfo,	_condition,	"
     lineIntersectsSurfaces [
       AGLToASL positionCameraToWorld [0,0,0],
-      AGLToASL positionCameraToWorld [0,0,5],
+      AGLToASL positionCameraToWorld [0,0,4],
       player,
       objNull,
       true,
@@ -66,7 +66,7 @@ SCG_NiiRoZz_Is_The_Best = [];
     ",	{
       lineIntersectsSurfaces [
       AGLToASL positionCameraToWorld [0,0,0],
-      AGLToASL positionCameraToWorld [0,0,5],
+      AGLToASL positionCameraToWorld [0,0,4],
         player,
         objNull,
         true,
