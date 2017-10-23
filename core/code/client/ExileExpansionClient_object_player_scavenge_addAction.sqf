@@ -19,8 +19,8 @@ SCG_NiiRoZz_Is_The_Best = [];
 	private _modelInfo = getArray (_x >> "models");
   private _condition = ["[",str _modelInfo,"] call {
     lineIntersectsSurfaces [
-    AGLToASL positionCameraToWorld [0,0,0],
-    AGLToASL positionCameraToWorld [0,0,4],
+    	AGLToASL positionCameraToWorld [0,0,0],
+    	AGLToASL positionCameraToWorld [0,0,4],
       player,
       objNull,
       true,
@@ -65,8 +65,8 @@ SCG_NiiRoZz_Is_The_Best = [];
     !(SCG_NiiRoZz_Is_The_Best isEqualTo []) && {_object isEqualTo (SCG_NiiRoZz_Is_The_Best select 0)}
     ",	{
       lineIntersectsSurfaces [
-      AGLToASL positionCameraToWorld [0,0,0],
-      AGLToASL positionCameraToWorld [0,0,4],
+      	AGLToASL positionCameraToWorld [0,0,0],
+      	AGLToASL positionCameraToWorld [0,0,4],
         player,
         objNull,
         true,

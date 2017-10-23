@@ -40,6 +40,8 @@ private ['_code', '_function', '_file', '_fileContent'];
 }
 forEach
 [
+	// Server
+	['ExileExpansionServer_system_scavenge_spawnLoot', 'core\code\server\ExileExpansionServer_system_scavenge_spawnLoot.sqf', false],
 	// Client
 	['ExileExpansionClient_gui_holdActionAdd', 'core\code\client\ExileExpansionClient_gui_holdActionAdd.sqf', false],
 	['ExileExpansionClient_object_player_playScavengeEvent', 'core\code\client\ExileExpansionClient_object_player_playScavengeEvent.sqf', false],

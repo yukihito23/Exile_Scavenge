@@ -72,6 +72,7 @@ if ( _playerScavengeEvent ) then {
 		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
 		["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
 		uiSleep 2;
+		_possibleCraftQuantity = 1;
 		[_recipe, _possibleCraftQuantity] call ExileExpansionClient_system_scavenge_action_craftItem;
 		player setVariable ["CanScavenge", true];
 	}	else {

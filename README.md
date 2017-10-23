@@ -1,4 +1,4 @@
-![ArmA 1.74](https://img.shields.io/badge/Arma-1.74-blue.svg) ![Exile 1.0.3](https://img.shields.io/badge/Exile-1.0.3-C72651.svg) ![Exile Scavange 0.6](https://img.shields.io/badge/Exile%20Scavange-0.6%20Beta-orange.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![ArmA 1.74](https://img.shields.io/badge/Arma-1.74-blue.svg) ![Exile 1.0.3](https://img.shields.io/badge/Exile-1.0.3-C72651.svg) ![Exile Scavange 0.7](https://img.shields.io/badge/Exile%20Scavange-0.7%20Beta-orange.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 # General Information:
 Please note that this is a project in its development stage and there might be some bugs.
@@ -105,7 +105,29 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >      If you dont have any RscTitles class within your mission then just include the provided CfgDialogs.cpp in your missions description.ext.
 >
 >
-> 4.	Open your mission config.cpp find the class CfgExileCustomCode and add this into the class:
+> 4.   Merge the content of the provided CfgRemoteExec.cpp with your missions CfgRemoteExec class. Normaly this class is inside your missions description.ext.
+>
+> So it looks like this for example:
+>
+>	  class CfgRemoteExec
+>	  {
+>		class Functions
+>		{
+>			mode = 2;
+>			jip = 0;
+>			class fnc_AdminReq 												{ allowedTargets=2; };
+>			class ExileServer_system_network_dispatchIncomingMessage 		{ allowedTargets=2; };
+>			class ExileExpansionServer_system_scavenge_spawnLoot			{ allowedTargets=0; };
+>		};
+>		class Commands
+>		{
+>			mode=0;
+>			jip=0;
+>		};
+>	  };
+>
+>
+> 5.	Open your mission config.cpp find the class CfgExileCustomCode and add this into the class:
 >
 > So it looks like this for example:
 >
@@ -119,7 +141,7 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	  Delete the CfgExileCustomCode class in the main exile confip.cpp if you do so then!
 >
 >
-> 5.	Edit the CfgExileScavange.cpp to suit your server.
+> 6.	Edit the CfgExileScavange.cpp to suit your server.
 >
 >	  Enjoy :)
 >
