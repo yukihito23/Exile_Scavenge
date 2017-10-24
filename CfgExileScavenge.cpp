@@ -206,12 +206,6 @@ class CfgExileScavenge
 			"tentdome_f.p3d",
 			"tenta_f.p3d"
 		};
-		items[] = {
-			// Extras
-			"Exile_Item_InstaDoc",
-			"Exile_Item_Bandage",
-			"Exile_Item_DuctTape"
-		};
 		table = "CivillianLowerClass";
 	};
 	*/
@@ -444,7 +438,7 @@ class CfgExileScavenge
     		icon = "Exile_HA_Icon_Pumpkin";
     		text = "Harvest Pumpkin";
     		models[] = {
-       			"bodlak_group.p3d"
+       			"pumpkin.p3d"
     		};
     		recipes[] = {
         		"ScavengePumpkins"
