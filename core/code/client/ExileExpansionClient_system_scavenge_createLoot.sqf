@@ -84,7 +84,7 @@ if ( _playerScavengeEvent ) then {
     private _lootHolder = nearestObject [_player, "LootWeaponHolder"];
     ["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
 		_player setVariable ["CanScavenge", true];
-		_player action ["GEAR", _lootHolder];
+		//_player action ["GEAR", _lootHolder]; /* Disable auto inventory open for the time. */
 	} else {
 		_objectsList pushBack _pos;
 		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
