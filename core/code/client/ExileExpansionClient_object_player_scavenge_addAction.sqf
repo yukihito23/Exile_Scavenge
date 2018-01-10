@@ -17,10 +17,11 @@ SCG_NiiRoZz_Is_The_Best = [];
 	private _actioniconInfo = getText (_x >> "icon");
 	private _idleiconInfo = getText (_x >> "icon");
 	private _modelInfo = getArray (_x >> "models");
-  private _condition = ["[",str _modelInfo,"] call {
-    lineIntersectsSurfaces [
-    	AGLToASL positionCameraToWorld [0,0,0],
-    	AGLToASL positionCameraToWorld [0,0,4],
+  private _condition = ["[",str _modelInfo,"] call 
+  {
+	lineIntersectsSurfaces [
+    	AGLToASL positionCameraToWorld [0,0,0.5],
+    	AGLToASL positionCameraToWorld [0,0,1.5],
       player,
       objNull,
       true,
@@ -28,54 +29,60 @@ SCG_NiiRoZz_Is_The_Best = [];
       ""GEOM"",
       ""NONE""
     ] select 0 params ["""","""",""_object"",""""];
-    if ((isNil ""_object"") || (isNull _object)) exitWith {
+    if ((isNil ""_object"") || (isNull _object)) exitWith 
+	{
       false
     };
-    if (!(player getVariable [""CanScavenge"", true]) || !(isNull objectParent player)) exitWith {
+    if (!(player getVariable [""CanScavenge"", true]) || !(isNull objectParent player)) exitWith 
+	{
       false
     };
     _condition = false;
     {
-      if (_x distance2D player < 2) exitWith {
+      if (_x distance2D player < 2) exitWith 
+	  {
         _condition = true;
       };
     } forEach (missionNamespace getVariable [""ExileClientSavengedObjects"", []]);
-    if (_condition) exitWith {
+    if (_condition) exitWith 
+	{
       false
     };
     _strObject = str _object;
     {
       [false,true] select (_strObject find _x > -1);
-    } count (_this select 0) > 0};"] joinString "";
+    } count (_this select 0) > 0
+  };"] joinString "";
 	private _configClassName = configName _x;
 
 	_holdActionID =
 	[
 		player, _textInfo,	_actioniconInfo, _idleiconInfo,	_condition,	"
-    lineIntersectsSurfaces [
-      AGLToASL positionCameraToWorld [0,0,0],
-      AGLToASL positionCameraToWorld [0,0,4],
+	  lineIntersectsSurfaces [
+      AGLToASL positionCameraToWorld [0,0,0.5],
+      AGLToASL positionCameraToWorld [0,0,1.5],
       player,
       objNull,
       true,
       1,
       ""GEOM"",
       ""NONE""
-    ] select 0 params ["""","""",""_object"",""""];
-    !(SCG_NiiRoZz_Is_The_Best isEqualTo []) && {_object isEqualTo (SCG_NiiRoZz_Is_The_Best select 0)}
-    ",	{
-      lineIntersectsSurfaces [
-      	AGLToASL positionCameraToWorld [0,0,0],
-      	AGLToASL positionCameraToWorld [0,0,4],
+	  ] select 0 params ["""","""",""_object"",""""];
+      !(SCG_NiiRoZz_Is_The_Best isEqualTo []) && {_object isEqualTo (SCG_NiiRoZz_Is_The_Best select 0)}
+      ",	
+	  {
+		lineIntersectsSurfaces [
+      	AGLToASL positionCameraToWorld [0,0,0.5],
+      	AGLToASL positionCameraToWorld [0,0,1.5],
         player,
         objNull,
         true,
         1,
         "GEOM",
         "NONE"
-      ] select 0 params ["_pos1","","_object",""];
-      SCG_NiiRoZz_Is_The_Best = [_object,_pos1];
-    },
+        ] select 0 params ["_pos1","","_object",""];
+        SCG_NiiRoZz_Is_The_Best = [_object,_pos1];
+      },
 		{
 			private _progressTick = _this select 4;
 			if (_progressTick % 2 == 0) exitwith {};

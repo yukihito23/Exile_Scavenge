@@ -77,7 +77,8 @@ class CfgExileScavenge
 			"dhangar_psacistul.p3d",
 			"truhla_stara.p3d"
 		};
-		table = "CivillianLowerClass";
+		//table = "CivillianLowerClass";
+		table = "FurnitureCommon";
 	};
 	class FurnitureFood: Exile_ScavengeClass
 	{
@@ -218,6 +219,7 @@ class CfgExileScavenge
 		type = "CraftingClass";
 		chance = 70;
 		searchtime = 5;
+		maxitems = 1;
 		icon = "Exile_HA_Icon_Water";
 		text = "Scavenge for Water";
 		models[] =	{

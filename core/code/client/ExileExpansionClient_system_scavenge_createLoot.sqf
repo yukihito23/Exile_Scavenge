@@ -80,11 +80,12 @@ if ( _playerScavengeEvent ) then {
 	if ((random 100) < _chance) then {
 		_objectsList pushBack _pos;
 		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
-    [_lootPosition, _numberOfItemsToSpawn, _lootTableName] remoteExecCall ["ExileExpansionServer_system_scavenge_spawnLoot", 2];
-    private _lootHolder = nearestObject [_player, "LootWeaponHolder"];
-    ["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
+		[_lootPosition, _numberOfItemsToSpawn, _lootTableName] remoteExecCall ["ExileExpansionServer_system_scavenge_spawnLoot", 2];
+		uisleep 0.5;
+		["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
 		_player setVariable ["CanScavenge", true];
-		//_player action ["GEAR", _lootHolder]; /* Disable auto inventory open for the time. */
+		_lootHolder = nearestObject [_player, "LootWeaponHolder"];
+		_player action ["GEAR", _lootHolder];
 	} else {
 		_objectsList pushBack _pos;
 		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
