@@ -36,7 +36,8 @@ _player setVariable ["CanScavenge", false];
 
 if (_animationToPlay != "") then {
 	_startAnimTime = time;
-	_player playMove _animationToPlay;
+	_player switchmove _animationToPlay;
+	//_player playMove _animationToPlay;
 	waitUntil {animationState _player != _animationToPlay};
 } else {
 	_player playAction "Crouch";
