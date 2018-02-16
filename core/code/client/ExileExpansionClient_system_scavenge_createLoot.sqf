@@ -10,10 +10,12 @@
  */
 params [
   ["_configName", "", [""]],
-  ["_pos", [], [[]]]
+  ["_pos", [], [[]]],
+  ["_object", objNull, [objNull]],
+  ["_pobject", objNull, [objNull]]
 ];
 
-if (_pos isEqualTo []) exitWith {};
+ if (_pos isEqualTo [] || {_configName isEqualTo ""} || {isNull _object} || {isNull _object}) exitWith {};
 
 private _configReference = missionConfigFile >> "CfgExileScavenge";
 private _loot = getArray (_configReference >>_configName >> "items");
@@ -79,8 +81,6 @@ terminate _playerInSearchArea;
 
 if ( _playerScavengeEvent ) then {
 	if ((random 100) < _chance) then {
-		_objectsList pushBack _pos;
-		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
 		[_lootPosition, _numberOfItemsToSpawn, _lootTableName] remoteExecCall ["ExileExpansionServer_system_scavenge_spawnLoot", 2];
 		uisleep 0.5;
 		["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
@@ -88,9 +88,14 @@ if ( _playerScavengeEvent ) then {
 		_lootHolder = nearestObject [_player, "LootWeaponHolder"];
 		_player action ["GEAR", _lootHolder];
 	} else {
-		_objectsList pushBack _pos;
-		missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
 		["ErrorTitleOnly", ["Could not find anything."]] call ExileClient_gui_toaster_addTemplateToast;
 		_player setVariable ["CanScavenge", true];
 	};
+  if (_object isEqualTo _pobject) then {
+    _objectsList pushBack _object;
+    missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
+  } else {
+    _objectsList pushBack _pos;
+    missionNamespace setVariable ["ExileClientSavengedObjects", _objectsList, true];
+  };
 };
