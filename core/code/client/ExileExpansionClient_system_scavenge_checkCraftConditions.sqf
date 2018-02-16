@@ -10,10 +10,12 @@
  */
  params [
    ["_configName", "", [""]],
-   ["_pos", [], [[]]]
+   ["_pos", [], [[]]],
+   ["_object", objNull, [objNull]],
+   ["_pobject", objNull, [objNull]]
  ];
 
- if (_pos isEqualTo [] || _configName isEqualTo "") exitWith {};
+ if (_pos isEqualTo [] || {_configName isEqualTo ""} || {isNull _object} || {isNull _object}) exitWith {};
 
 _equippedMagazines = magazines player;
 _equippedWeapons = weapons player;
@@ -218,5 +220,5 @@ if !([_components, _returnedItems] call ExileClient_util_inventory_canExchangeIt
 
 // If player can craft item then fire the scavenge event.
 if ( _canCraftItem ) then {
-	[_configName, _recipe, _possibleCraftQuantity, _pos] call ExileExpansionClient_object_player_playScavengeEvent;
+	[_configName, _recipe, _possibleCraftQuantity, _pos, _object, _pobject] call ExileExpansionClient_object_player_playScavengeEvent;
 };
