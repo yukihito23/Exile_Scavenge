@@ -11,10 +11,11 @@
 params [
   ["_className", "", [""]],
   ["_object", objNull, [objNull]],
-  ["_pos", [], [[]]]
+  ["_pos", [], [[]]],
+  ["_pobject", objNull, [objNull]]
 ];
 
-if (_className isEqualTo "" || isNull _object) exitWith {};
+if (_className isEqualTo "" || {isNull _object} || {isNull _pobject}) exitWith {};
 if (ExileClientPlayerIsInCombat) exitWith {
 	["ErrorTitleOnly", ["Its not safe to scavenge."]] call ExileClient_gui_toaster_addTemplateToast;
 };
@@ -30,8 +31,8 @@ private _config = missionConfigFile >> "CfgExileScavenge" >> _className;
 if !(isClass _config) exitWith {};
 
 if (getText(_config >> "type") == "CraftingClass" ) then {
-	[_className,_pos] call ExileExpansionClient_system_scavenge_checkCraftConditions;
+	[_className,_pos,_object,_pobject] call ExileExpansionClient_system_scavenge_checkCraftConditions;
 };
 if (getText(_config >> "type") == "ScavengeClass" ) then {
-	[_className,_pos] call ExileExpansionClient_system_scavenge_createLoot;
+	[_className,_pos,_object,_pobject] call ExileExpansionClient_system_scavenge_createLoot;
 };
