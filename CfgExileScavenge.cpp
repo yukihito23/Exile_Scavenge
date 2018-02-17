@@ -77,8 +77,7 @@ class CfgExileScavenge
 			"dhangar_psacistul.p3d",
 			"truhla_stara.p3d"
 		};
-		//table = "CivillianLowerClass";
-		table = "FurnitureCommon";
+		table = "CivillianLowerClass";
 	};
 	class FurnitureFood: Exile_ScavengeClass
 	{
