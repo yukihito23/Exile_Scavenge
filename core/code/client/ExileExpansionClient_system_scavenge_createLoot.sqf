@@ -86,7 +86,7 @@ if ( _playerScavengeEvent ) then {
 		["SuccessTitleOnly", ["You've found something!"]] call ExileClient_gui_toaster_addTemplateToast;
 		_player setVariable ["CanScavenge", true];
 		_lootHolder = nearestObject [_player, "LootWeaponHolder"];
-		_player action ["GEAR", _lootHolder];
+		//_player action ["GEAR", _lootHolder];
 	} else {
 		["ErrorTitleOnly", ["Could not find anything."]] call ExileClient_gui_toaster_addTemplateToast;
 		_player setVariable ["CanScavenge", true];
