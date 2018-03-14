@@ -11,7 +11,7 @@
  
 class CfgFunctions
 {
-	class ExileExpansionMission
+	class ExileExpansionClient
 	{
 		class Bootstrap
 		{
