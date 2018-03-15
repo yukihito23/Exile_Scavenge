@@ -97,6 +97,25 @@ class CfgExileScavenge
 		table = "CivillianLowerClass";
 	};
 	// Able to scavenge from garbage bags, Trask Cans, basically clutter on the map
+	class Trashpile: Exile_ScavengeClass
+	{
+		animations[] = {
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "ScavengeClass";
+		chance = 50;
+		searchtime = 5;
+		maxitems = 2;
+		icon = "Exile_HA_Icon_Trashpile";
+		text = "Search through garbage";
+		models[] = {
+			// Trashpiles
+			"garbagewashingmachine_f.p3d",
+			"garbagepallet_f.p3d",
+			"garbagebags_f.p3d"
+		};
+		table = "CivillianLowerClass";
+	};
 	class Trash: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -106,13 +125,9 @@ class CfgExileScavenge
 		chance = 50;
 		searchtime = 5;
 		maxitems = 2;
-		icon = "Default";
+		icon = "Exile_HA_Icon_Trashbin";
 		text = "Search through garbage";
 		models[] = {
-			// Trashpiles
-			"garbagewashingmachine_f.p3d",
-			"garbagepallet_f.p3d",
-			"garbagebags_f.p3d",
 			// Trashbins
 			"kontejner.p3d",
 			"paperbox_closed.p3d",
