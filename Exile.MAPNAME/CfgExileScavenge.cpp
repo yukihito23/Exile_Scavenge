@@ -109,7 +109,7 @@ class CfgExileScavenge
 		chance = 10;
 		searchtime = 5;
 		maxitems = 1;
-		icon = "Default";
+		icon = "Exile_HA_Icon_Sack";
 		text = "Search through sack";
 		models[] = {
 			"sack_f.p3d",
@@ -130,7 +130,7 @@ class CfgExileScavenge
 		chance = 10;
 		searchtime = 5;
 		maxitems = 1;
-		icon = "Default";
+		icon = "Exile_HA_Icon_Crate";
 		text = "Search through crate";
 		models[] = {
 			"crateswooden_f.p3d",

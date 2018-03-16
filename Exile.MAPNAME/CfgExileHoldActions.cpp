@@ -37,4 +37,10 @@ class CfgExileHoldActions
 	class Exile_HA_Icon_Trashpile { 
 		icon = "holdaction\holdAction_trashpile_ca.paa";
 	};
+	class Exile_HA_Icon_Crate { 
+		icon = "holdaction\holdAction_crate_ca.paa";
+	};
+	class Exile_HA_Icon_Sack { 
+		icon = "holdaction\holdAction_sack_ca.paa";
+	};
 };
