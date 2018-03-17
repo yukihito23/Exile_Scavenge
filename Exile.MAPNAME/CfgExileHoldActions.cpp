@@ -1,10 +1,11 @@
 /**
- * CfgExileHoldActions
+ * File: CfgExileHoldActions.cpp
  *
  * Author: Steve aka Salutesh
  *
  * Description:
  * These configurations are used for the ExileClient_gui_holdActionAdd function within the scavange system to configure the icons.
+ *
  */
 
 class CfgExileHoldActions
@@ -29,5 +30,17 @@ class CfgExileHoldActions
 	};
 	class Exile_HA_Icon_Wreck { 
 		icon = "holdaction\holdAction_wreck_ca.paa";
+	};
+	class Exile_HA_Icon_Trashbin { 
+		icon = "holdaction\holdAction_trashbin_ca.paa";
+	};
+	class Exile_HA_Icon_Trashpile { 
+		icon = "holdaction\holdAction_trashpile_ca.paa";
+	};
+	class Exile_HA_Icon_Crate { 
+		icon = "holdaction\holdAction_crate_ca.paa";
+	};
+	class Exile_HA_Icon_Sack { 
+		icon = "holdaction\holdAction_sack_ca.paa";
 	};
 };

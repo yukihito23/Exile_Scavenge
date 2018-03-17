@@ -4,7 +4,7 @@
  * Author: Steve aka Salutesh
  *
  * Description:
- * These configurations are used within the scavange system to configure the different scavange classes.
+ * These configurations are used within the scavenge system to configure the different scavenge classes.
  */
 
 class Exile_ScavengeClass
@@ -13,29 +13,30 @@ class Exile_ScavengeClass
 	{
 		"AinvPknlMstpSnonWnonDnon_medic_1"
 	};
-	type = "ScavengeClass";				      		// This is the definition of the scavenge class, there are currently 2 classes (ScavengeClass = Player dont need any requirements,
+	type = "ScavengeClass";				      		// This is the definition of the scavenge class, there are currently 2 classes (ScavengeClass = Player don't need any requirements,
 										            // he can just loot the object | CraftingClass = Player needs a special item/tool/weapon to get a item back from the source).
-	chance = 100;						            // % Chance of geting a item from this class/source.
-	searchtime = 5;						          	// Searchtime in seconds the player will need to scavenge a object.
-	maxitems = 0;						            // Max items to get from a single scavange.
+	chance = 100;						            // % Chance of getting a item from this class/source.
+	searchtime = 5;						          	// Search time in seconds the player will need to scavenge a object.
+	maxitems = 0;						            // Max items to get from a single scavenge.
 	icon = "";							            // Action icon ClassName (Configure your own classes within the provided CfgExileHoldActions.cpp)
 	text = "My Scavenge Interaction";	  			// Action text that gets displayed with the icon.
-	models[] = {};						          	// Interaction models (has to be a p3d) that will work with this scavange class.
+	models[] = {};						          	// Interaction models (has to be a p3d) that will work with this scavenge class.
 	recipes[] = {};						          	// Recipes that are used in this class.
 	table = "CivillianLowerClass";					// Loot-table className that will be used for this scavenge class to spawn the items.
 
-	// In case of a scavange class that needs a item/model/object/surface this part gets in action.
+	// In case of a scavenge class that needs a item/model/object/surface this part gets in action.
 	// So far this is used for the water class that requires a empty bottle/canister in the players inventory to "fill" it with water and the
 	// Cinderblock class where the player needs a weapon (hammer) on his body to get a item back from the source.
 	class conditions
 	{
-		items[] = {};								// Item conditions (the player needs this item in his inventory or he cant scavanged sucsessful from this source).
-		weapons[] = {};								// Weapon conditions (the player needs this weapon in his inventory/body or he cant scavanged sucsessful from this source).
+		items[] = {};								// Item conditions (the player needs this item in his inventory or he cant scavenged successful from this source).
+		weapons[] = {};								// Weapon conditions (the player needs this weapon in his inventory/body or he cant scavenged successful from this source).
 	};
 };
 
 class CfgExileScavenge
 {
+	// Able to loot objects inside buildings.
 	class FurnitureCommon: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -77,8 +78,9 @@ class CfgExileScavenge
 			"dhangar_psacistul.p3d",
 			"truhla_stara.p3d"
 		};
-		table = "CivillianLowerClass";
+		table = "FurnitureCommon";
 	};
+	
 	class FurnitureFood: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -94,9 +96,69 @@ class CfgExileScavenge
 			"kitchenstove_elec.p3d",
 			"fridge.p3d"
 		};
+		table = "FurnitureFood";
+	};
+	
+	// Able to scavenge from sacks and bags on the map.
+	class Sacks: Exile_ScavengeClass
+	{
+		animations[] = {
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "ScavengeClass";
+		chance = 10;
+		searchtime = 5;
+		maxitems = 1;
+		icon = "Exile_HA_Icon_Sack";
+		text = "Search through sack";
+		models[] = {
+			"sack_f.p3d",
+			"sacks_goods_f.p3d",
+			"sacks_heap_f.p3d",
+			"basket_f.p3d"
+		};
+		table = "Sacks";
+	};
+	
+	// Able to scavenge from crates and boxes on the map.
+	class Crates: Exile_ScavengeClass
+	{
+		animations[] = {
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "ScavengeClass";
+		chance = 10;
+		searchtime = 5;
+		maxitems = 1;
+		icon = "Exile_HA_Icon_Crate";
+		text = "Search through crate";
+		models[] = {
+			"crateswooden_f.p3d",
+			"woodenbox_f.p3d"
+		};
+		table = "Crates";
+	};
+	
+	// Able to scavenge from garbage bags, Trash-Cans and basically clutter on the map.
+	class Trashpile: Exile_ScavengeClass
+	{
+		animations[] = {
+			"AinvPknlMstpSnonWnonDnon_medic_1"
+		};
+		type = "ScavengeClass";
+		chance = 50;
+		searchtime = 5;
+		maxitems = 2;
+		icon = "Exile_HA_Icon_Trashpile";
+		text = "Search through garbage";
+		models[] = {
+			"garbagewashingmachine_f.p3d",
+			"garbagepallet_f.p3d",
+			"garbagebags_f.p3d"
+		};
 		table = "CivillianLowerClass";
 	};
-	// Able to scavenge from garbage bags, Trask Cans, basically clutter on the map
+	
 	class Trash: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -106,14 +168,9 @@ class CfgExileScavenge
 		chance = 50;
 		searchtime = 5;
 		maxitems = 2;
-		icon = "Default";
+		icon = "Exile_HA_Icon_Trashbin";
 		text = "Search through garbage";
 		models[] = {
-			// Trashpiles
-			"garbagewashingmachine_f.p3d",
-			"garbagepallet_f.p3d",
-			"garbagebags_f.p3d",
-			// Trashbins
 			"kontejner.p3d",
 			"paperbox_closed.p3d",
 			"garbagebin_02_f.p3d",
@@ -128,10 +185,12 @@ class CfgExileScavenge
 			"luggageheap_05_f.p3d",
 			"popelnice.p3d",
 			"box_c.p3d",
-			"garbagebarrel_01_f.p3d"
+			"garbagebarrel_01_f.p3d",
+			"garbagebarrel_01_english_f.p3d"
 		};
 		table = "CivillianLowerClass";
 	};
+	
 	// Able to scavenge from wrecks within map, some vehicles still have problems but are noted below.
 	class Wrecks: Exile_ScavengeClass
 	{
@@ -185,10 +244,11 @@ class CfgExileScavenge
 			//"chz_kamaz_fura.p3d",
 			//"chz_kamaz_pricep.p3d"
 		};
-		table = "CivillianLowerClass";
+		table = "Wrecks";
 	};
-	// Able to scavenge from Abandoned survivor tents within map (maybe only used for Chernarus Redux, disabled by default).
+	
 	/*
+	// Able to scavenge from Abandoned survivor tents within map (maybe only used for Chernarus Redux, disabled by default).
 	class AbandonedCamps: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -209,6 +269,7 @@ class CfgExileScavenge
 		table = "CivillianLowerClass";
 	};
 	*/
+	
 	// Able to get dirty water from map object pumps
 	class Waters: Exile_ScavengeClass
 	{
@@ -229,7 +290,10 @@ class CfgExileScavenge
 			"toilet_b_02.p3d",
 			"reservoir_ep1.p3d",
 			"basin_a.p3d",
-			"barrel_water.p3d"
+			"barrel_water.p3d",
+			"stallwater_f.p3d",
+			"watertank_02_f.p3d",
+			"watertower_01_f.p3d"
 		};
 		recipes[] =	{
 			"ScavengeFillEmptyPlasticBottleWithDirtyWater",
@@ -244,7 +308,8 @@ class CfgExileScavenge
 			};
 		};
 	};
-	// Able to get Fuel from Pumps, Fuel Containers, Fuel Tanks, barrells around the map
+	
+	// Able to get Fuel from Pumps, Fuel Containers, Fuel Tanks and barrels around the map.
 	class Fuel: Exile_ScavengeClass
 	{
 		animations[] =	{
@@ -274,12 +339,12 @@ class CfgExileScavenge
 			"ScavengeFillEmptyFuelCanisterWithFuel"
 		};
 		class conditions {
-			items[] =	{
+			items[] = {
 				"Exile_Item_FuelCanisterEmpty"
 			};
 		};
 	};
-	// Able to get woodlogs from stocks of wood, pile of wood, fallen logs around the map
+	// Able to get woodlogs from stocks of wood, pile of wood and fallen logs around the map.
 	class Woodlogs: Exile_ScavengeClass
 	{
 		animations[] = {
@@ -302,7 +367,7 @@ class CfgExileScavenge
 		table = "CivillianLowerClass";
 	};
 	/*
-	// Uses vanilla Exile items but not available in Vanilla Exile setup, thus disabling by default.
+	// Uses vanilla Exile items but not available in Vanilla Exile setup, this is disabled by default.
 	class Trees: Exile_ScavengeClass
 	{
 		animations[] =	{
@@ -349,6 +414,7 @@ class CfgExileScavenge
 		};
 		table = "CivillianLowerClass";
 	};
+	
 	// Disabled because if not setup correctly, will break game balance.
 	// Server owners think before enabling.
 	class Concrete: Exile_ScavengeClass
@@ -374,6 +440,7 @@ class CfgExileScavenge
 			};
 		};
 	};
+	
 	// Disabled because if not setup correctly, will break game balance.
 	// Server owners think before enabling.
 	class WoodPlanks: Exile_ScavengeClass
@@ -400,6 +467,7 @@ class CfgExileScavenge
 			};
 		};
 	};
+	
 	// Disabled because if not setup correctly, will break game balance.
 	// Server owners think before enabling.
 	class MetalPoles: Exile_ScavengeClass
@@ -425,6 +493,7 @@ class CfgExileScavenge
 			};
 		};
 	};
+	
 	// Extended_Items_Exile
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
 	class Pumpkins: Exile_ScavengeClass
@@ -450,6 +519,7 @@ class CfgExileScavenge
 			};
 		};
 	};
+	
 	// Extended_Items_Exile
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
 	class Cinderblocks: Exile_ScavengeClass
@@ -476,6 +546,7 @@ class CfgExileScavenge
 			};
 		};
 	};
+	
 	// LordRampantHumps Items Pack
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
 	class Apples: Exile_ScavengeClass
@@ -497,6 +568,7 @@ class CfgExileScavenge
 		};
 		table = "CivillianLowerClass";
 	};
+	
 	// LordRampantHumps Items Pack
 	// https://steamcommunity.com/sharedfiles/filedetails/?id=1082756693
 	class Fruits: Exile_ScavengeClass
