@@ -149,10 +149,9 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 
 > ## Thanks and Credits:
 > Thanks and Credits:<br />
-> Credits to Salutesh for all base framework creation and setup of the framework structure.<br />
+> Credits to Salutesh for all structure design and creations of the framework and system<br />
 > Credits to Larrow for the base script: https://forums.bistudio.com/forums/topic/184456-looting-trash-piles-bins/?do=findComment&comment=2942397<br />
 > Credits to Kurewe for the first port and rewrite for the exile mod.<br />
 > Credits to oldmatechoc for a base rewrite and port for the exile mod.<br />
 > Credits to yukihito23 for plenty amount of help, expansions and additions of the system.<br />
 > Credits to NiiRoZz for plenty amount of help, expansions, additions and optimizations of the system.<br />
-> Credits to Salutesh for a complete rewrite and buildup of the framework and system.
