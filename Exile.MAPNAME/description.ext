@@ -1,12 +1,12 @@
 // Add this on the end of your missions description.ext
-#include "CfgFunctions.cpp"
-#include "CfgRemoteExec.cpp"
-#include "CfgScavengeRecipes.cpp"
-#include "CfgExileScavenge.cpp"
-#include "CfgExileHoldActions.cpp"
+#include "CfgFunctions.hpp"
+#include "CfgRemoteExec.hpp"
+#include "CfgScavengeRecipes.hpp"
+#include "CfgExileScavenge.hpp"
+#include "CfgExileHoldActions.hpp"
 
 // Just add this if you dont have already a RscTitles class within your mission!
-#include "CfgDialogs.cpp"
+#include "CfgDialogs.hpp"
 
 // If you dont have any ExileCustommCode entrys yet
-#include "CfgExileCustomCode.cpp"
+#include "CfgExileCustomCode.hpp"

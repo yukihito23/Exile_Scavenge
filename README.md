@@ -29,25 +29,25 @@ and has a chance to get a item from that depending on the class.<br />
 
 This framework is simply customizable and you can add new interaction classes easily just by adding the required information to the configfiles.
 
-> ### CfgExileHoldActions.cpp
+> ### CfgExileHoldActions.hpp
 >
 > This file contains the information for each holdaction icon.
 > If you want to create your own icon you can add a new class to this file
 > and add the required information to get your icon working with the scavange system.
 > You can find more information and examples in the file.
 
-> ### CfgExileScavenge.cpp
+> ### CfgExileScavenge.hpp
 >
 > This file contains the information for each scavange class.
 > If you want to create your own interaction to terrain/map objects you can do that by
 > adding a new class for your interaction and fill it with the required information.
 > You can find more information and examples in the file.
 
-> ### CfgScavengeRecipes.cpp
+> ### CfgScavengeRecipes.hpp
 >
 > This file comes in action if you create a crafting scavange class that will require a item/weapon/tool
 > to get a item back from the source.
-> Take a look at the Waters and Cinderblocks classes within CfgExileScavenge.cpp to get a example for creating such a class.
+> Take a look at the Waters and Cinderblocks classes within CfgExileScavenge.hpp to get a example for creating such a class.
 > In short words this file contains crafting recipes that will be used for crafting scavange classes.
 > You can find more information and examples in the file.
 
@@ -62,31 +62,31 @@ New Exile cusumables.
 Exile Extended Items: https://steamcommunity.com/sharedfiles/filedetails/?id=897168981
 New Exile Items.
 
-Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some actions that use these mod items if you use these Mods!
+Uncomment the classes on the end of the CfgExileScavenge.hpp files to get some actions that use these mod items if you use these Mods!
 
 
 > ## Installation:
 >
-> 1.	Drop the bootstrap, core, holdactions, dialogs and Exile_Client_Overrides folders + the >  CfgFunctions.cpp, CfgExileScavange.cpp, CfgScavengeRecipes.cpp, CfgExileHoldActions.cpp files into the root of your mission directory.
+> 1.	Drop the bootstrap, core, holdactions, dialogs and Exile_Client_Overrides folders + the >  CfgFunctions.hpp, CfgExileScavange.hpp, CfgScavengeRecipes.hpp, CfgExileHoldActions.hpp files into the root of your mission directory.
 > 2.	Merge the content of the provided description.ext with your Exile missions description.ext.
 >
 > So it looks like this for example:
 >
 >	  // Add this on the end of your missions description.ext
->	  #include "CfgFunctions.cpp"
->	  #include "CfgRemoteExec.cpp"
->	  #include "CfgScavengeRecipes.cpp"
->	  #include "CfgExileScavenge.cpp"
->	  #include "CfgExileHoldActions.cpp"
+>	  #include "CfgFunctions.hpp"
+>	  #include "CfgRemoteExec.hpp"
+>	  #include "CfgScavengeRecipes.hpp"
+>	  #include "CfgExileScavenge.hpp"
+>	  #include "CfgExileHoldActions.hpp"
 >
 >	  // Just add this if you dont have already a RscTitles class within your mission!
->	  #include "CfgDialogs.cpp"
+>	  #include "CfgDialogs.hpp"
 >
 >	  // If you dont have any ExileCustommCode entrys yet
->	  #include "CfgExileCustomCode.cpp"
+>	  #include "CfgExileCustomCode.hpp"
 >
 >
-> 3.   Merge the content of the provided CfgDialogs.cpp with your missions RscTitles class.
+> 3.   Merge the content of the provided CfgDialogs.hpp with your missions RscTitles class.
 >
 > So it looks like this for example:
 >
@@ -103,10 +103,10 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	       #include "dialogs\ExileScavengeUI.hpp"
 >	   };
 >
->      If you dont have any RscTitles class within your mission then just include the provided CfgDialogs.cpp in your missions description.ext.
+>      If you dont have any RscTitles class within your mission then just include the provided CfgDialogs.hpp in your missions description.ext.
 >
 >
-> 4.   Merge the content of the provided CfgRemoteExec.cpp with your missions CfgRemoteExec class. Normaly this class is inside your missions description.ext.
+> 4.   Merge the content of the provided CfgRemoteExec.hpp with your missions CfgRemoteExec class. Normaly this class is inside your missions description.ext.
 >
 > So it looks like this for example:
 >
@@ -138,11 +138,11 @@ Uncomment the classes on the end of the CfgExileScavenge.cpp files to get some a
 >	  // Custom player client init
 >	  ExileClient_object_player_initialize = "Exile_Client_Overrides\ExileClient_object_player_initialize.sqf";
 >
->     If you dont have any CfgExileCustomCode entrys yet within your mission then you can also just include the provided CfgExileCustomCode.cpp in your missions description.ext.
->	  Delete the CfgExileCustomCode class in the main exile confip.cpp if you do so then!
+>     If you dont have any CfgExileCustomCode entrys yet within your mission then you can also just include the provided CfgExileCustomCode.hpp in your missions description.ext.
+>	  Delete the CfgExileCustomCode class in the main exile confip.hpp if you do so then!
 >
 >
-> 6.	Edit the CfgExileScavange.cpp to suit your server.
+> 6.	Edit the CfgExileScavange.hpp to suit your server.
 >
 >	  Enjoy :)
 >

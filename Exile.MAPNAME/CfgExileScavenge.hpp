@@ -6,6 +6,12 @@
  * Description:
  * These configurations are used within the scavenge system to configure the different scavenge classes.
  */
+ 
+class Exile_ScavengeSettings
+{
+	showsearch_UI = 1;								// 1=Enable / 2=Disable - This will controll the search bar. 
+													// Warning! If you disable this option this will complely skip the search time!
+};
 
 class Exile_ScavengeClass
 {

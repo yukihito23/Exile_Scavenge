@@ -31,11 +31,13 @@ private _objectsList = missionNamespace getVariable ["ExileClientSavengedObjects
 private _lootTableName = getText (_configReference >> _configName >> "table");
 private _numberOfItemsToSpawn = (floor (random _maxloot)) + 1;
 private _lootPosition = getPosATL _player;
+private _searchUIenabled = getNumber (missionConfigFile >> "Exile_ScavengeSettings" >> "showsearch_UI");
 
 _player setVariable ["CanScavenge", false];
 
-( ["ExileScavengeUI"] call BIS_fnc_rscLayer ) cutRsc [ "ExileScavengeUI", "PLAIN", 1, false ];
-
+if (_searchUIenabled == 1) then {
+	( ["ExileScavengeUI"] call BIS_fnc_rscLayer ) cutRsc [ "ExileScavengeUI", "PLAIN", 1, false ];
+};
 if (_animationToPlay != "") then {
 	_startAnimTime = time;
 	_player switchmove _animationToPlay;
@@ -58,20 +60,27 @@ private _playerInSearchArea = [_player, _searchPos, _searchradius] spawn {
 		_player distanceSqr _searchPos >  ( _searchradius^2 )
 	}
 };
-
-for "_sleep" from _timeToSearch to 0 step -0.01 do
-{
-	private _progress = linearConversion [0, _timeToSearch, _sleep, 0, 1];
-	(uiNamespace getVariable "ExileScavengeUI" displayCtrl 2000);
-	(uiNamespace getVariable "ExileScavengeUI" displayCtrl 2001) ctrlSetTextColor [1, 0.706, 0.094, _sleep % 1];
-	(uiNamespace getVariable "ExileScavengeUI" displayCtrl 2002) progressSetPosition _progress;
-	sleep 0.01;
+if (_searchUIenabled == 1) then {
+	for "_sleep" from _timeToSearch to 0 step -0.01 do
+	{
+		private _progress = linearConversion [0, _timeToSearch, _sleep, 0, 1];
+		(uiNamespace getVariable "ExileScavengeUI" displayCtrl 2000);
+		(uiNamespace getVariable "ExileScavengeUI" displayCtrl 2001) ctrlSetTextColor [1, 0.706, 0.094, _sleep % 1];
+		(uiNamespace getVariable "ExileScavengeUI" displayCtrl 2002) progressSetPosition _progress;
+		sleep 0.01;
+		if ( scriptDone _playerInSearchArea ) exitWith {
+			_playerScavengeEvent = true;
+		};
+	};
+} else {
 	if ( scriptDone _playerInSearchArea ) exitWith {
 		_playerScavengeEvent = true;
 	};
 };
 
-(["ExileScavengeUI"] call BIS_fnc_rscLayer) cutRsc ["Default", "PLAIN", 1, false];
+if (_searchUIenabled == 1) then {
+	(["ExileScavengeUI"] call BIS_fnc_rscLayer) cutRsc ["Default", "PLAIN", 1, false];
+};
 if ( scriptDone _playerInSearchArea ) then {
 	["ErrorTitleOnly", ["Scavange interrupted!"]] call ExileClient_gui_toaster_addTemplateToast;
 	_playerScavengeEvent = false;
