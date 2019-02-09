@@ -69,7 +69,7 @@ if (_searchUIenabled == 1) then {
 	(["ExileScavengeUI"] call BIS_fnc_rscLayer) cutRsc ["Default", "PLAIN", 1, false];
 };
 if (scriptDone _playerInSearchArea) then {
-	["ErrorTitleOnly", ["Scavange interrupted!"]] call ExileClient_gui_toaster_addTemplateToast;
+	["ErrorTitleOnly", ["Scavenge interrupted!"]] call ExileClient_gui_toaster_addTemplateToast;
 	_playerScavengeEvent = false;
 	player setVariable ["CanScavenge", true];
 };
